@@ -1,0 +1,616 @@
+\chapter{连续映射}
+\begin{definition}[连续映射]
+设 \(X\) 与 \(Y\) 是拓扑空间，\(f: X \to Y\) 是一个映射。  
+若对 \(Y\) 中包含点 \(y=f(x)\) 的任意开集 \(U\)，都存在 \(X\) 中的开集 \(V_x\)，使得
+\[
+x\in V_x,\quad f(V_x)\subset U,
+\]
+则称映射 \(f\) 在点 \(x\) 处连续。  
+如果 \(f\) 在空间 \(X\) 的每一点都连续，则称 \(f\) 是\textbf{连续映射}。
+\end{definition}
+\begin{note}
+    像集里面的点y点开集U，都有原像集X中的的集合(范围)保证，只要x属于这个集合，映射过去都在U的范围内。\textcolor{purple}{像集中开集的原像集也是开集}
+\end{note}
+\begin{example}[实函数的连续性]
+设 \(X=Y=\mathbb{R}\)，映射
+\[
+f(x)=x^2.
+\]
+我们来验证 \(f\) 在点 \(x_0=1\) 处是连续的。
+
+对于 \(Y\) 中任意包含 \(f(1)=1\) 的开集 \(U=(1-\varepsilon,\,1+\varepsilon)\)，  
+我们希望在 \(X\) 中找到一个开集 \(V_1=(1-\delta,\,1+\delta)\)，使得
+\[
+f(V_1)\subset U.
+\]
+
+因为当 \(x\in(1-\delta,\,1+\delta)\) 时，
+\[
+f(x)=x^2\in(1-\varepsilon,\,1+\varepsilon)
+\quad\Longleftrightarrow\quad
+|x^2-1|<\varepsilon.
+\]
+注意到
+\[
+|x^2-1|=|x-1||x+1|<\varepsilon.
+\]
+若取 \(\delta<\min\{1,\,\varepsilon/3\}\)，则 \(|x+1|<3\)，从而
+\[
+|x^2-1|<3|x-1|<3\delta<\varepsilon.
+\]
+因此，存在这样的 \(\delta\)，使得 \(f(V_1)\subset U\)，
+由定义可知 \(f\) 在 \(x_0=1\) 连续。
+
+\[
+\boxed{\text{结论：} f(x)=x^2 \text{ 在 }\mathbb{R}\text{ 上处处连续。}}
+\]
+\end{example}
+\section{几种等价命题}
+\begin{theorem}[连续性的等价刻画]\label{thm:cont-equiv}
+设 \(X,Y\) 为拓扑空间，\(f:X\to Y\) 为映射。下列条件等价：
+\begin{enumerate}
+  \item \(f\) 是连续映射（即在 \(X\) 的每一点都连续）；
+  \item 对 \(Y\) 的任一开集 \(V\)，其原像 \(f^{-1}(V)\) 是 \(X\) 的开集；
+  \item 存在 \(Y\) 的一族\emph{子基} \(\varphi\)，对任意 \(B\in\varphi\)，\(f^{-1}(B)\) 是 \(X\) 的开集；
+  \item 存在 \(Y\) 的一族\emph{基} \(\mathcal{B}\)，对任意 \(B\in\mathcal{B}\)，\(f^{-1}(B)\) 是 \(X\) 的开集；
+  \item 对 \(Y\) 的任一闭集 \(F\)，其原像 \(f^{-1}(F)\) 是 \(X\) 的闭集。
+\end{enumerate}
+\end{theorem}
+\begin{note}
+    基都是开集然后用2就行了。任意和拓扑基是等价的都是可以选到所有。
+\end{note}
+\begin{example}[连续性的等价刻画的具体例子]
+设 $f:\mathbb{R}\to\mathbb{R}$，定义
+\[
+f(x)=x^2.
+\]
+
+\textbf{验证}：$f$ 是连续映射。
+
+\begin{itemize}
+  \item[(1)] 按照定义，$f$ 在每一点连续。因为
+  \[
+  \lim_{x\to x_0} f(x)=\lim_{x\to x_0} x^2 = x_0^2 = f(x_0).
+  \]
+  所以 $f$ 连续。
+
+  \item[(2)] 按照等价条件（开集原像法）：  
+  对任意开集 $V\subset\mathbb{R}$，我们要验证 $f^{-1}(V)$ 仍是 $\mathbb{R}$ 中的开集。  
+  例如取 $V=(1,4)$，则
+  \[
+  f^{-1}(V)=\{x\in\mathbb{R}:x^2\in(1,4)\}=(-2,-1)\cup(1,2),
+  \]
+  这是开集，因此条件成立。
+
+  \item[(3)] 按照闭集原像法：  
+  对任意闭集 $F\subset\mathbb{R}$，例如 $F=[0,1]$，  
+  \[
+  f^{-1}(F)=\{x\in\mathbb{R}:x^2\in[0,1]\}=[-1,1],
+  \]
+  这仍是闭集，故也满足条件。
+\end{itemize}
+
+因此，$f(x)=x^2$ 满足定理 3.1 中关于连续性的所有等价条件。
+\end{example}
+\begin{corollary}[复合连续映射仍连续]
+设 \(f:X\to Y\) 与 \(g:Y\to Z\) 都是连续映射，则复合映射
+\[
+g\circ f: X\to Z,\qquad (g\circ f)(x)=g(f(x)),
+\]
+是连续映射。
+\end{corollary}
+\begin{example}[复合连续映射的具体例子]
+设
+\[
+f:\mathbb{R}\to\mathbb{R},\quad f(x)=x^2;
+\qquad
+g:\mathbb{R}\to\mathbb{R},\quad g(y)=\sin y.
+\]
+我们知道：
+\begin{itemize}
+  \item $f(x)=x^2$ 在 $\mathbb{R}$ 上连续；
+  \item $g(y)=\sin y$ 在 $\mathbb{R}$ 上连续。
+\end{itemize}
+于是复合映射
+\[
+(g\circ f)(x)=g(f(x))=\sin(x^2)
+\]
+也是连续的。
+
+\textbf{验证：}  
+设 $\{x_n\}$ 是任意收敛到 $x_0$ 的实数序列，则
+\[
+\lim_{n\to\infty}(g\circ f)(x_n)
+=\lim_{n\to\infty}\sin(x_n^2)
+=\sin(x_0^2)
+=(g\circ f)(x_0),
+\]
+由序列定义可知 $(g\circ f)$ 连续。
+\end{example}
+\begin{theorem}[连续映射补集逆的性质]
+设 \(X\) 与 \(Y\) 都是拓扑空间，\(f:X\to Y\) 是映射。则下列条件等价：
+\begin{enumerate}
+  \item \(f\) 是连续映射；
+  \item 对任意 \(A\subset X\)，有 \(f(\overline{A})\subset \overline{f(A)}\)；
+  \item 对任意 \(B\subset Y\)，有 \(\overline{f^{-1}(B)}\subset f^{-1}(\overline{B})\)；
+  \item 对任意 \(B\subset Y\)，有 \(f^{-1}(B^{\circ})\subset (f^{-1}(B))^{\circ}\)。
+\end{enumerate}
+\end{theorem}
+\begin{example}
+设映射 $f:\mathbb{R}\to\mathbb{R}$，定义为 $f(x)=x^2$。显然 $f$ 连续。  
+验证定理 3.2 的结论：
+
+\begin{itemize}
+  \item 取 $A=(-1,1)$，则
+  \[
+  f(A)=(0,1),\quad \overline{A}=[-1,1],\quad f(\overline{A})=[0,1],\quad \overline{f(A)}=[0,1],
+  \]
+  故 $f(\overline{A})\subset\overline{f(A)}$。
+
+  \item 取 $B=[0,1]$，则
+  \[
+  f^{-1}(B)=[-1,1],\quad f^{-1}(\overline{B})=[-1,1],\quad \overline{f^{-1}(B)}=[-1,1],
+  \]
+  故 $\overline{f^{-1}(B)}\subset f^{-1}(\overline{B})$。
+
+  \item 取 $B=(0,1)$，则
+  \[
+  f^{-1}(B)=(-1,1),\quad (f^{-1}(B))^\circ=(-1,1),\quad f^{-1}(B^\circ)=(-1,1),
+  \]
+  故 $f^{-1}(B^\circ)\subset (f^{-1}(B))^\circ$。
+\end{itemize}
+
+因此，$f(x)=x^2$ 连续，满足定理中各条件的等价关系。
+\end{example}
+\section{连续映射保持的特殊性质}
+\begin{theorem}[积拓扑中的自然投影映射是连续的]
+设对每个 \(\alpha\in\Lambda\)，\((X_\alpha,\mathcal{T}_\alpha)\) 是拓扑空间，
+令
+\[
+X=\prod_{\alpha\in\Lambda}X_\alpha.
+\]
+则对每个 \(\beta\in\Lambda\)，投影映射
+\[
+P_\beta:X\to X_\beta
+\]
+是连续映射。
+\end{theorem}
+\begin{example}[投影映射的连续性举例]
+设 \(X_1=X_2=\mathbb{R}\)，它们都取通常拓扑。  
+则它们的积空间为
+\[
+X = X_1 \times X_2 = \mathbb{R}^2,
+\]
+积拓扑就是平面上的通常拓扑。
+
+定义两个投影映射：
+\[
+P_1(x,y)=x,\qquad P_2(x,y)=y.
+\]
+
+我们来验证 \(P_1\) 连续。
+
+对于任意开区间 \(U=(a,b)\subset\mathbb{R}\)，有
+\[
+P_1^{-1}(U)=\{(x,y)\in\mathbb{R}^2:\ x\in(a,b)\}=(a,b)\times\mathbb{R},
+\]
+这是 \(\mathbb{R}^2\) 中的开集。
+
+因此 \(P_1\) 连续。同理可得 \(P_2\) 也是连续的。
+
+\[
+\boxed{\text{结论：}}\quad
+\text{从 }\mathbb{R}^2\text{ 到 }\mathbb{R}\text{ 的坐标投影 }P_1,P_2\text{ 都是连续映射。}
+\]
+\end{example}
+\begin{theorem}[积为连续的充要条件就是每一个分量都连续]
+设 \(X\) 是拓扑空间，\(Y=\displaystyle\prod_{\alpha\in\Lambda}Y_\alpha\)。  
+则 \(f:X\to Y\) 为连续映射的充要条件是：
+\[
+\forall\,\alpha\in\Lambda,\quad 
+P_\alpha\circ f:X\to Y_\alpha \text{ 连续。}
+\]
+\end{theorem}
+\begin{note}
+    设 $X$ 是拓扑空间，$Y=\displaystyle\prod_{\alpha\in\Lambda}Y_\alpha$ 是若干拓扑空间的积空间。  
+
+映射
+\[
+f:X\to Y
+\]
+连续，当且仅当它的每个分量映射都是连续的。  
+
+也就是说：  
+对每个指标 $\alpha\in\Lambda$，记自然投影为 $P_\alpha:Y\to Y_\alpha$，  
+则 $f$ 连续的充要条件是：
+\[
+P_\alpha\circ f:X\to Y_\alpha
+\]
+在每个分量上都连续。
+\end{note}
+\begin{example}[积拓扑连续性判别的具体例子]
+设
+\[
+Y=\mathbb{R}^2=\mathbb{R}\times\mathbb{R},
+\]
+取 $Y_1=Y_2=\mathbb{R}$，自然投影为
+\[
+P_1(x,y)=x,\qquad P_2(x,y)=y.
+\]
+定义映射
+\[
+f:\mathbb{R}\to\mathbb{R}^2,\qquad f(t)=(t,\,t^2).
+\]
+
+我们来判断 $f$ 是否连续。
+
+由定理，只需分别考察两个分量映射是否连续：
+\[
+P_1\circ f(t)=t,\qquad P_2\circ f(t)=t^2.
+\]
+二者都是从 $\mathbb{R}$ 到 $\mathbb{R}$ 的连续函数。
+
+因此，根据积拓扑连续性判别定理，  
+$f:\mathbb{R}\to\mathbb{R}^2$ 连续。
+\end{example}
+\begin{definition}[自然投影]
+设 $\{X_\alpha\}_{\alpha\in\Lambda}$ 是一族拓扑空间。  
+它们的积空间定义为
+\[
+X=\prod_{\alpha\in\Lambda}X_\alpha
+=\{(x_\alpha)_{\alpha\in\Lambda}\mid x_\alpha\in X_\alpha\}.
+\]
+对每个指标 $\beta\in\Lambda$，定义映射
+\[
+P_\beta:X\to X_\beta,\qquad
+P_\beta((x_\alpha)_{\alpha\in\Lambda})=x_\beta.
+\]
+称 $P_\beta$ 为第 $\beta$ 个\textbf{自然投影（natural projection）}。
+\end{definition}
+\begin{note}
+    假设我们有一个乘积空间，例如
+\[
+X = X_1 \times X_2 \times X_3.
+\]
+那么每个元素 $x\in X$ 就是一个多坐标点：
+\[
+x = (x_1, x_2, x_3), \quad x_i \in X_i.
+\]
+
+自然投影就是只取出其中一个坐标的映射。
+
+例如：
+\[
+P_1(x_1, x_2, x_3) = x_1, \quad
+P_2(x_1, x_2, x_3) = x_2, \quad
+P_3(x_1, x_2, x_3) = x_3.
+\]
+\end{note}
+\begin{theorem}[连续映射的加减还是连续映射得满足可以拆括号]
+映射 $f:X\to\mathbb{R}$ 与 $g:X\to\mathbb{R}$ 都连续，  
+若 $f\pm g:X\to\mathbb{R}$ 满足
+\[
+(f\pm g)(x)=f(x)\pm g(x),
+\]
+则 $f\pm g:X\to\mathbb{R}$ 连续。
+\end{theorem}
+\begin{theorem}
+若 $f:X\to\mathbb{R}$ 与 $g:X\to\mathbb{R}$ 连续，
+则它们的积映射
+\[
+f\cdot g:X\to\mathbb{R}
+\]
+以及商映射
+\[
+\frac{f}{g}:X\to\mathbb{R}\quad (g(x)\ne 0)
+\]
+都是连续的。
+\end{theorem}
+对于每个 $n\in\mathbb{N}$，设 $f_n:X\to\mathbb{R}$ 是一映射。  
+对任意 $x\in X$，若有
+\[
+\sum_{n=1}^{\infty} f_n(x) = f(x),
+\]
+且对任意 $\varepsilon>0$，都存在 $m\in\mathbb{N}$，使得对任意 $x\in X$，都有
+\[
+\left| f(x) - \sum_{n=1}^{m} f_n(x) \right| < \varepsilon,
+\]
+则称
+\[
+\sum_{n=1}^{\infty} f_n(x)
+\]
+在 $X$ 上\textbf{一致收敛}到 $f(x)$。
+\begin{lemma}[比较收敛]
+若对每个 $n\in\mathbb{N}$，映射 $f_n:X\to\mathbb{R}$ 满足
+\[
+|f_n(x)|\le \frac{1}{2^n},
+\]
+则级数
+\[
+\sum_{n=1}^{\infty} f_n(x)
+\]
+在 $X$ 上一致收敛。
+\end{lemma}
+\begin{note}
+引理 3.9 中的 $\dfrac{1}{2^n}$ 可以换成 $a_n$，并且要求 $a_n>0$ 且
+\[
+\sum_{n=1}^{\infty} a_n
+\]
+收敛。
+\end{note}
+
+\begin{theorem}[一致收敛的连续函数列的极限仍连续。]
+设 $X$ 是拓扑空间，对每个 $n\in\mathbb{N}$，若 $f_n:X\to[0,1]$ 连续，且
+\[
+f(x)=\sum_{n=1}^{\infty}\frac{f_n(x)}{2^n},
+\]
+则映射 $f:X\to[0,1]$ 连续。
+\end{theorem}
+\begin{note}
+    设有一列连续函数 $f_n:X\to[0,1]$。  
+我们用一个加权无穷级数把它们组合成一个新函数：
+\[
+f(x)=\sum_{n=1}^{\infty}\frac{f_n(x)}{2^n}.
+\]
+由于系数 $\dfrac{1}{2^n}$ 使得该级数对所有 $x$ 一致收敛（由引理 3.9），  
+而连续函数的一致极限仍连续，  
+所以最终得到的 $f$ 也是连续函数。  
+
+换句话说，  
+该定理说明：通过一致收敛的连续函数级数构造出来的函数仍是连续的。
+\end{note}
+\begin{theorem}
+若 $f:X\to Y$ 是连续的满映射，且 $X$ 是可分空间，则 $Y$ 也是可分空间。
+\end{theorem}
+
+\begin{proof}
+$X$ 是可分空间，令 $D$ 是 $X$ 的可数稠密集，即 $\overline{D}=X$，且 $|D|\le\omega$。  
+由定理 3.4 可知，
+\[
+f(\overline{D}) \subset \overline{f(D)}.
+\]
+又因为 $f(\overline{D}) = f(X) = Y$，故 $\overline{f(D)}=Y$。  
+另一方面，$f(D)$ 是 $Y$ 中的可数集，因此 $Y$ 是可分空间。
+\end{proof}
+\begin{theorem}
+若 $f:X\to Y$ 是连续的满映射，且 $X$ 是 Lindelöf 空间，则 $Y$ 也是 Lindelöf 空间。
+\end{theorem}
+
+\begin{proof}
+设 $\mathcal{U}$ 是空间 $Y$ 的任意开覆盖，则
+\[
+f^{-1}(\mathcal{U})=\{\,f^{-1}(U):U\in\mathcal{U}\,\}
+\]
+是 $X$ 的开覆盖。  
+由于 $X$ 是 Lindelöf 空间，存在可数子族 $\{U_n\in\mathcal{U}:n\in\mathbb{N}\}$，使得
+\[
+X=\bigcup_{n\in\mathbb{N}} f^{-1}(U_n).
+\]
+因为 $f$ 是满射，对每个 $n\in\mathbb{N}$ 都有 $f(f^{-1}(U_n))=U_n$，于是
+\[
+Y=f(X)=\bigcup_{n\in\mathbb{N}} U_n.
+\]
+因此 $Y$ 也是 Lindelöf 空间。
+\end{proof}
+\begin{note}
+    连续满映射可以传递可分和林德洛夫性质
+\end{note}
+\begin{theorem}[序列在定义域中收敛，其像序列也在值域中收敛到对应的像点。]
+若 $f:X\to Y$ 连续，且 $\{x_n\}_{n\in\mathbb{N}}$ 是 $X$ 中收敛到点 $x$ 的序列，  
+则 $\{f(x_n)\}_{n\in\mathbb{N}}$ 收敛到点 $f(x)$。
+\end{theorem}
+\section{开映射闭映射商映射}
+\begin{definition}[开（闭）映射——限制的是原像到像]
+设 $X$ 与 $Y$ 都是拓扑空间，$f:X\to Y$ 是一个映射。  
+若对 $X$ 中的任意开（闭）集 $A$，都有 $f(A)$ 是 $Y$ 中的开（闭）集，  
+则称 $f$ 是\textbf{开（闭）映射}。
+\end{definition}
+\begin{theorem}[投影映射的连续性与开性]\label{thm:projection-open}
+设对每个 $\alpha\in\Lambda$，$(X_\alpha,\mathcal{T}_\alpha)$ 是拓扑空间，且
+\[
+X=\prod_{\alpha\in\Lambda} X_\alpha.
+\]
+则对每一个 $\beta\in\Lambda$，投影映射
+\[
+P_\beta:X\to X_\beta,\qquad P_\beta\big((x_\alpha)_{\alpha\in\Lambda}\big)=x_\beta,
+\]
+是连续的开映射。
+\end{theorem}
+
+\begin{note}
+    —定义域中的开集的像在目标空间中仍是开集。连续是像中开集的原像还是开集
+\end{note}
+\begin{example}[二维欧氏空间中的投影映射]\label{ex:projection-R2}
+设
+\[
+X_1=\mathbb{R}, \quad X_2=\mathbb{R}, \quad
+X=X_1\times X_2=\mathbb{R}^2,
+\]
+都取通常拓扑。定义投影映射
+\[
+P_1(x,y)=x, \qquad P_2(x,y)=y.
+\]
+
+\textbf{验证连续性：}  
+以 $P_1$ 为例，任取 $U\subset X_1=\mathbb{R}$ 的开集，有
+\[
+P_1^{-1}(U)=U\times\mathbb{R},
+\]
+它显然是 $\mathbb{R}^2$ 中的开集（积拓扑的基本开集形如 $U\times V$）。  
+因此，$P_1$ 是连续的。
+
+\textbf{验证开性：}  
+取 $\mathbb{R}^2$ 的开集 $A=U\times V$，其中 $U,V$ 都是 $\mathbb{R}$ 的开集。  
+则
+\[
+P_1(A)=U,
+\]
+仍是 $\mathbb{R}$ 中的开集。  
+故 $P_1$ 是开映射。
+
+\textbf{结论：}  
+\[
+P_1(x,y)=x,\quad P_2(x,y)=y
+\]
+都是从 $\mathbb{R}^2$ 到 $\mathbb{R}$ 的连续开映射。
+\end{example}
+\begin{theorem}[开映射的等价刻画]\label{thm:open-map-equiv}
+设 $f:X\to Y$ 为一映射，则下述条件等价：
+\begin{enumerate}[(1)]
+  \item 对 $X$ 中的任意开集 $V$，$f(V)$ 是 $Y$ 中的开集（即 $f$ 为开映射）；
+  \item 对任意 $A\subset X$，有 \( f(A^\circ)\subset (f(A))^\circ \)；
+  \item 对任意 $B\subset Y$，有 \( f^{-1}(\overline{B})\subset \overline{f^{-1}(B)} \)。
+\end{enumerate}
+\end{theorem}
+\begin{theorem}[基中子集映射到Y还是开集]
+设 $X$ 是拓扑空间，$\mathcal{B}$ 是 $X$ 的一个基。
+映射 $f : X \to Y$ 是开映射当且仅当对任意 $B \in \mathcal{B}$，$f(B)$ 是 $Y$ 中的开集。
+\end{theorem}
+\begin{itemize}
+    \item 定理 3.13：用的是整个拓扑空间 $X$ 的一个基 $\mathcal B$，  
+          只需要检查 $f(B)$ 是否开，对象是基中的集合。
+
+    \item 定理 3.14：用的是每个点 $x$ 的邻域基 $\mathcal B(x)$，  
+          需要对每个点 $x$ 及其邻域基 $B$ 都检查 $f(B)$ 是否开，  
+          对象是局部（点）邻域的基。
+\end{itemize}
+\begin{theorem}
+设 $X$ 是拓扑空间，对任意 $x \in X$，$\mathcal{B}(x)$ 是点 $x$ 的开邻域基。
+映射 $f : X \to Y$ 是开映射当且仅当对任意 $x \in X$ 及任意 $B \in \mathcal{B}(x)$，$f(B)$ 是 $Y$ 中的开集。
+\end{theorem}
+
+很容易得到下述定理：
+
+\begin{theorem}[满+开+连续保持可数性]
+若 $f : X \to Y$ 是满的开连续映射，且 $X$ 是第一可数空间（或第二可数空间），
+则 $Y$ 也是第一可数空间（或第二可数空间）。
+\end{theorem}
+\begin{theorem}[满映射+?=闭映射]
+设 $f : X \to Y$ 是满映射。$f$ 是闭映射当且仅当对任意 $y \in Y$，
+以及 $X$ 中包含 $f^{-1}(y)$ 的任一开集 $U$，存在 $Y$ 中含点 $y$ 的开集 $V_y$，
+使得
+\[
+f^{-1}(y) \subset f^{-1}(V_y) \subset U.
+\]
+\end{theorem}
+\begin{note}
+    包含像集中点y的原像的开集，有含y开集在原像集映射的子集，也就是包含y的原像的集合也包含y附近点点原像
+\end{note}
+\begin{definition}[商映射 (Quotient Map)]
+设 $X, Y$ 是拓扑空间，$p : X \to Y$ 是一个满映射。
+若对任意 $U \subseteq Y$，有
+\[
+U \text{ 是开集} \;\Longleftrightarrow\; p^{-1}(U) \text{ 是 } X \text{ 中的开集},
+\]
+则称映射 $p$ 为 \emph{商映射}。
+
+等价地，对于任意 $A \subseteq Y$，有
+\[
+A \text{ 是闭集} \;\Longleftrightarrow\; p^{-1}(A) \text{ 是 } X \text{ 中的闭集}.
+\]
+\end{definition}
+\begin{definition}[商拓扑 (Quotient Topology)]
+设 $X$ 是一个拓扑空间，$Y$ 是一个集合，$p : X \to Y$ 是一个满映射。
+定义 $Y$ 上的拓扑为
+\[
+\mathcal{T}_Y = \{\, B \subseteq Y : p^{-1}(B) \text{ 是 } X \text{ 中的开集} \,\}.
+\]
+称 $\mathcal{T}_Y$ 为由 $p$ 引出的 \emph{商拓扑}，在此拓扑下映射 $p$ 自动是一个商映射。
+\end{definition}
+\begin{note}
+    \begin{itemize}
+    \item 商映射 + 商拓扑用来“粘点 / 合并点”，构造一个新的拓扑空间。
+    \item 商拓扑保证：粘点后的空间仍然是拓扑空间，且映射保持连续（最自然、最粗的连续拓扑）。
+    \item 判断开集的方法：
+    \[
+        U \subseteq Y \text{ 是开集} \quad \Longleftrightarrow \quad p^{-1}(U) \subseteq X \text{ 是开集}.
+    \]
+    \item 用途：许多重要空间是通过商拓扑构造的，例如：
+        \begin{itemize}
+            \item 把区间 $[0,1]$ 的两端粘起来得到圆 $S^1$；
+            \item 把正方形的对边粘起来得到圆环（torus）；
+            \item 以“翻转方式”粘边得到莫比乌斯带。
+        \end{itemize}
+\end{itemize}
+\end{note}
+\begin{example}
+把 $[0,1]$ 的端点粘起来得到圆\\
+设 $X = [0,1]$，定义映射
+\[
+p : [0,1] \to S^1, \qquad p(t) = (\cos 2\pi t,\, \sin 2\pi t).
+\]
+
+则 $p$ 是满射，且 $0$ 与 $1$ 被映射到同一个点：
+\[
+p(0) = p(1) = (1,0).
+\]
+
+在 $S^1$ 上定义拓扑：
+\[
+U \subseteq S^1 \text{ 是开集} \quad \Longleftrightarrow \quad p^{-1}(U)
+\text{ 在 } [0,1] \text{ 中是开集}.
+\]
+
+称此拓扑为由 $p$ 诱导的商拓扑，映射 $p$ 称为商映射。
+
+直观理解：把线段 $[0,1]$ 的两个端点粘起来，得到一个圆。
+\end{example}
+\section{同胚映射}
+\begin{definition}[映射和逆映射都是连续映射+映射然后再逆映射能回到原来那个点]
+已知 $f : X \to Y$ 是一双映射。如果 $f$ 是连续的映射，且映射
+\[
+f^{-1} : Y \to X
+\]
+也是连续映射，其中 $f^{-1}(f(x)) = x,\ x \in X$，则称 $f$ 是\emph{同胚映射}，称 $X$ 与 $Y$ 同胚。
+\end{definition}
+
+\begin{theorem}
+$f : X \to Y$ 是一双映射，则下述条件等价：
+\begin{enumerate}
+    \item $f$ 是同胚映射；
+    \item $f$ 是开连续映射；
+    \item $f$ 是闭连续映射；
+    \item 对于 $A \subset X$，$A$ 是 $X$ 中的闭集当且仅当 $f(A)$ 是 $Y$ 中的闭集；
+    \item 对于 $A \subset X$，$A$ 是 $X$ 中的开集当且仅当 $f(A)$ 是 $Y$ 中的开集；
+    \item 对于 $B \subset Y$，$B$ 是 $Y$ 中的开集当且仅当 $f^{-1}(B)$ 是 $X$ 中的开集；
+    \item 对于 $B \subset Y$，$B$ 是 $Y$ 中的闭集当且仅当 $f^{-1}(B)$ 是 $X$ 中的闭集。
+\end{enumerate}
+\end{theorem}
+\begin{definition}[分离点-原像集不同的点映射到像上还是不同的点]
+设 $X$ 为拓扑空间，对任意 $\alpha \in \Lambda$，$f_\alpha : X \to Y_\alpha$ 是连续映射。
+
+\begin{itemize}
+    \item 如果对任意不同的 $x,y \in X$，都存在某个 $\alpha \in \Lambda$，使得 $f_\alpha(x) \ne f_\alpha(y)$，则称映射族 $\{f_\alpha : \alpha \in \Lambda\}$ 是 \emph{分离点的}。
+(separating points )
+    \item 如果对任意闭集 $F \subseteq X$，以及任意 $x \notin F$，都存在某个 $\alpha \in \Lambda$，使得 $f_\alpha(x) \notin f_\alpha(F)$，则称映射族 $\{f_\alpha : \alpha \in \Lambda\}$ 是 \emph{分离点与闭集的}。(separate points from closed sets)
+\end{itemize}
+\end{definition}
+\begin{note}
+    连续是这族映射都要完成的，但是分离是存在一个就行
+\end{note}
+\begin{theorem}[嵌入=分离点+分离点与闭集]
+设 $X$ 为拓扑空间，对每个 $\alpha \in \Lambda$，$f_\alpha : X \to Y_\alpha$ 是连续映射。
+如果映射族 $\{f_\alpha : \alpha \in \Lambda\}$ 既分离点又分离点与闭集，则映射
+\[
+f : X \to \prod_{\alpha \in \Lambda} Y_\alpha, \qquad
+f(x) = \bigl(f_\alpha(x)\bigr)_{\alpha \in \Lambda}
+\]
+是一个嵌入( embedding)。
+\end{theorem}
+\begin{example}[任意两个闭区间同胚]
+设 $\mathbb{R}$ 为实数直线，取通常拓扑。则 $\mathbb{R}$ 上的任意两个闭区间 $[a,b]$ 与 $[c,d]$ 是同胚的。
+
+\textbf{证明：}
+定义映射
+\[
+f : [a,b] \to [c,d], \qquad
+f(x) = \frac{d-c}{\,b-a\,}(x-a) + c.
+\]
+显然 $f$ 是双射，且为连续映射。由于 $f$ 为严格单调的线性函数，其逆映射为
+\[
+f^{-1}(y) = \frac{b-a}{\,d-c\,}(y-c) + a,
+\]
+同样连续。故 $f$ 与 $f^{-1}$ 都是连续映射，因此 $f$ 是同胚映射。
+
+\hfill $\square$
+\end{example}

@@ -1,0 +1,1158 @@
+\chapter{拓扑空间基础知识}
+\begin{definition}[拓扑]
+设 $X$ 是一个集合，$\mathcal{T}$ 是由 $X$ 的某些子集构成的集族。若 $\mathcal{T}$ 具有如下性质：
+\begin{enumerate}
+  \item $\varnothing \in \mathcal{T},\; X \in \mathcal{T}$；
+  \item 对于任意 $U_1 \in \mathcal{T}, U_2 \in \mathcal{T}$，有 $U_1 \cap U_2 \in \mathcal{T}$；
+  \item 对于 $\mathcal{T}$ 的任一子族 $\mathcal{T}_1 \subset \mathcal{T}$，有 $\bigcup \mathcal{T}_1 \in \mathcal{T}$。
+\end{enumerate}
+
+则称 $\mathcal{T}$ 是 $X$ 的一个 \emph{拓扑}，$(X,\mathcal{T})$ 称为一个 \emph{拓扑空间}。  
+如果 $X$ 的拓扑已知，则把拓扑空间 $(X,\mathcal{T})$ 简称为拓扑空间 $X$。
+\end{definition}
+\begin{itemize}
+  \item \textbf{拓扑 (Topology)} 不是 $\sigma$-代数。
+  \item \textbf{$\sigma$-代数} 的核心思想是：为测度论与概率论服务，保证可以定义“长度、面积、概率”。
+  \item \textbf{拓扑} 的核心思想是：研究“连续性、收敛、连通、紧致”等几何--分析性质。
+\end{itemize}
+\begin{example}[平凡拓扑]
+$X$ 是任一集，若 $\mathcal{T} = \{X,\varnothing\}$，则 $(X,\mathcal{T})$ 是拓扑空间， 
+我们称 $\mathcal{T}$ 为 $X$ 的平凡拓扑，称 $(X,\mathcal{T})$ 为平凡拓扑空间。所以这是拓扑，称为 平凡拓扑（最小的拓扑）。
+\end{example}
+
+\begin{example}[离散拓扑空间]
+$X$ 是任一集，若 $\mathcal{T} = \{A : A \subset X\}$，则 $(X,\mathcal{T})$ 是拓扑空间，
+我们称之为离散拓扑空间。 X 的所有子集都包含在$ \mathcal{T}$ 里。称为 离散拓扑（最大的拓扑）
+\end{example}
+
+\begin{example}
+$X=\{a,b,c\},\ \mathcal{T}=\{X,\varnothing,\{a,b\},\{a\}\}$，  
+则 $(X,\mathcal{T})$ 是拓扑空间。
+\textbf{检查公理：}
+\begin{itemize}
+  \item 包含 $X, \varnothing$ ✅
+  \item 任意并：
+  \begin{itemize}
+    \item $\{a\} \cup \{a,b\} = \{a,b\}$，在里面 ✅
+    \item $\{a\} \cup X = X$，在里面 ✅
+    \item 其他并集也是 ✅
+  \end{itemize}
+  \item 有限交：
+  \begin{itemize}
+    \item $\{a\} \cap \{a,b\} = \{a\}$，在里面 ✅
+    \item 交全集就是自己 ✅
+  \end{itemize}
+\end{itemize}
+
+\end{example}
+\begin{example}[余有限拓扑 (cofinite topology)]
+设 $X$ 是一个无限集，若
+\[
+\mathcal{T} = \{ U : X \setminus U \text{ 是有限集} \} \cup \{\varnothing\},
+\]
+则 $(X,\mathcal{T})$ 是拓扑空间。
+
+这是因为：
+\begin{enumerate}
+  \item $\varnothing \in \mathcal{T}, \quad X \in \mathcal{T}$；
+  \item 对于任意 $U_1 \in \mathcal{T}, U_2 \in \mathcal{T}$，我们不妨设 $U_1 \neq \varnothing, U_2 \neq \varnothing$。  
+  这样
+  \[
+  X \setminus (U_1 \cap U_2) 
+  = (X \setminus U_1) \cup (X \setminus U_2)
+  \]
+  是有限集，因此 $U_1 \cap U_2 \in \mathcal{T}$。
+\end{enumerate}
+\end{example}
+\begin{example}[通常拓扑]
+对于实数直线 $\mathbb{R}$，对任意 $a \in \mathbb{R}, b \in \mathbb{R}$，若 $a < b$，记
+\[
+(a,b) = \{ x \in \mathbb{R} : a < x < b \}.
+\]
+
+令
+\[
+\mathcal{T}_{\mathrm{tong}} = \{ U \subset \mathbb{R} : \text{对任意 } x \in U \text{ 都存在 } a,b \in \mathbb{R}, \ \text{使得 } x \in (a,b) \subset U \},
+\]
+称 $\mathcal{T}_{\mathrm{tong}}$ 为 $\mathbb{R}$ 上的通常拓扑。每一个x都能找到一个开集把他包住。
+\end{example}
+\begin{definition}[拓扑空间中的开集]
+设 $(X,\mathcal{T})$ 是一个拓扑空间，$\mathcal{T}$ 是 $X$ 的拓扑。  
+定义 $\mathcal{T}$ 中的每一个元素 $U$ 为 $X$ 的一个开集。  
+
+由拓扑的性质可知，$X$ 中的所有开集具有以下运算性质：  
+\begin{itemize}
+  \item 有限交性质：有限个开集的交仍然是开集；
+  \item 任意并性质：任意多个开集的并仍然是开集。
+\end{itemize}
+\end{definition}
+\begin{example}[Sorgenfrey（下极限）拓扑 vs 通常拓扑]
+在同一底集 $\mathbb{R}$ 上，比较两种拓扑：
+\begin{itemize}
+  \item Sorgenfrey 拓扑（下极限拓扑）：以所有半开区间 $[a,b)$（$a<b$）为基；
+  \item 通常拓扑：以开区间 $(a,b)$ 为基。
+\end{itemize}
+断言：集合 $[0,1)$ 在 Sorgenfrey 拓扑中是开集，但在通常拓扑中不是开集。
+\end{example}
+
+\begin{proof}
+（Sorgenfrey 中开）任取 $x\in[0,1)$，因 $x<1$，取 $\varepsilon=1-x>0$，
+则基元素 $[x,x+\varepsilon)=[x,1)\subset[0,1)$，故 $[0,1)$ 对每一点
+都包含一个形如 $[a,b)$ 的基邻域，从而 $[0,1)$ 在 Sorgenfrey 拓扑中开。
+
+（通常拓扑中非开）若 $[0,1)$ 在通常拓扑中开，则 $0\in[0,1)$ 有某个
+$\delta>0$ 使得 $(-\delta,\delta)\subset[0,1)$。但任意 $\delta>0$，
+区间 $(-\delta,\delta)$ 都含有负数，与其包含关系矛盾，故 $[0,1)$
+在通常拓扑中不是开集。
+
+\emph{附注}：在 Sorgenfrey 拓扑中，$(-\infty,0)$ 与 $[1,\infty)$ 都是开集
+（可表示为若干 $[a,b)$ 的并），故 $[0,1)$ 的补集 $(-\infty,0)\cup[1,\infty)$
+是开集，从而 $[0,1)$ 亦为闭集（即 $[0,1)$ 在 Sorgenfrey 直线上是 clopen）。
+\end{proof}
+
+\begin{example}[子空间拓扑 vs 母空间拓扑：$\mathbb{Q}$ 中的开集]
+设 $U=(0,1)\cap\mathbb{Q}$。将 $\mathbb{Q}$ 视作 $\mathbb{R}$ 的子空间，
+比较 $U$ 在 $\mathbb{Q}$ 的子空间拓扑与在 $\mathbb{R}$ 通常拓扑中的开性。
+\end{example}
+
+\begin{proof}
+（在 $\mathbb{Q}$ 的子空间拓扑中开）
+取 $\mathbb{R}$ 中的开集 $G=(0,1)$，则 $U=G\cap\mathbb{Q}$。
+按子空间拓扑的定义，$U$ 在 $\mathbb{Q}$ 中是开集。
+
+（在 $\mathbb{R}$ 的通常拓扑中非开）
+任取 $x\in U$，对任何 $\varepsilon>0$，实数开区间 $(x-\varepsilon,x+\varepsilon)$
+都包含无理数点，而这些点不属于 $U$。因此不存在一个完全包含于 $U$ 的
+实数开邻域，故 $U$ 不是 $\mathbb{R}$ 中的开集。
+\end{proof}
+\subsection{基}
+\begin{definition}[拓扑的基]
+设 $(X,\mathcal{T})$ 是一个拓扑空间，若 $\mathcal{B}$ 是 $X$ 的某个子集族，称 $\mathcal{B}$ 是 $(X,\mathcal{T})$ 的一个\emph{基}，如果它满足以下条件：
+\begin{enumerate}
+  \item $\varnothing \in \mathcal{B}, \quad X = \bigcup \mathcal{B}$；并起来覆盖整个空间
+  \item 对任意 $B_1,B_2 \in \mathcal{B}$，若 $B_1 \cap B_2 \neq \varnothing$，则对任意 $x \in B_1 \cap B_2$，存在 $B_3 \in \mathcal{B}$，使得 $x \in B_3 \subseteq B_1 \cap B_2$；，只要有交集，B子集族中就能找到一个更小的集合包含这个点
+  \item 任一开集 $U \in \mathcal{T}$，存在 $\mathcal{B}_1 \subseteq \mathcal{B}$，使得
+  \[
+    U = \bigcup \mathcal{B}_1.
+  \]拓扑空间中任意一个集合都能被B这个子集族的子集族覆盖
+\end{enumerate}
+\end{definition}
+\begin{remark}
+拓扑基的三个条件可以直观理解为：其一，覆盖性：基集合的并必须等于整个空间 $X$，保证不遗漏点；其二，相容性：若两个基集合有交集，则交点处总能找到一个更小的基集合包含于交集之中，保证基之间的相容性；其三，生成性：拓扑中的任意开集都可表示为若干基集合的并，说明整个拓扑由这些基集合生成。
+\end{remark}
+\begin{example}[开覆盖的对比]
+考虑实数直线 $(\mathbb{R},\tau)$，其中 $\tau$ 为通常拓扑。
+
+\begin{itemize}
+  \item 例 (1): $\mathcal{U}=\{(n-1,n+1):n\in\mathbb{Z}\}$  
+  \begin{itemize}
+    \item 这些区间每个长度为 $2$；
+    \item 它们相互重叠，例如 $(-1,1)$ 与 $(0,2)$ 都包含点 $0.5$；
+    \item 最关键：整数点 $n$ 也包含在 $(n-1,n+1)$ 里面；
+    \item 因此所有实数（包括整数）都被覆盖，$\bigcup\mathcal{U}=\mathbb{R}$，是一个开覆盖。
+  \end{itemize}
+
+  \item 例 (2): $\mathcal{U}=\{(n,n+1):n\in\mathbb{Z}\}$  
+  \begin{itemize}
+    \item 这些区间每个长度为 $1$，正好“首尾相接”；
+    \item 注意：开区间不包含端点；
+    \item 所以整数点 $n$ 不在任何一个区间 $(n,n+1)$ 里；
+    \item 并集实际上是 $\mathbb{R}\setminus\mathbb{Z}$，未覆盖所有实数，因此不是开覆盖。
+  \end{itemize}
+\end{itemize}
+\end{example}
+\begin{definition}[Lindelöf 空间-任意开覆盖的U都有一个可数子族也能覆盖X]
+设 $(X,\mathcal{T})$ 是一个拓扑空间。  
+如果对于 $X$ 的任意开覆盖 $\mathcal{U} \subset \mathcal{T}$，都存在一个可数子族 
+$\mathcal{U}_1 \subset \mathcal{U}$，使得
+\[
+X = \bigcup \mathcal{U}_1,
+\]
+则称 $X$ 是 \textbf{Lindelöf 空间}。
+
+换句话说：虽然开覆盖 $\mathcal{U}$ 可能包含无穷多个开集，但总能从中选出一个
+\emph{可数} 的子覆盖，就足以覆盖整个空间。
+
+\medskip
+\textbf{例子：} 实数集 $\mathbb{R}$ 在通常拓扑下是一个 Lindelöf 空间。
+原因是：任意开覆盖都可以通过选择包含稠密子集 $\mathbb{Q}$ 中点的开集，
+提取出一个可数子覆盖，从而覆盖整个 $\mathbb{R}$。
+\end{definition}
+\begin{proposition}
+设 $X$ 是不可数集合，赋予离散拓扑 $\tau_{\mathrm{dis}}$。则拓扑空间 $(X,\tau_{\mathrm{dis}})$ 不是 Lindel\"of 空间。
+\end{proposition}
+
+\begin{proof}
+按离散拓扑的定义，所有单点集都是开集。考虑开覆盖
+\[
+\mathcal{U}=\bigl\{\{x\}: x\in X\bigr\}.
+\]
+若 $\mathcal{V}\subseteq\mathcal{U}$ 是一个可数（或有限）子族，则
+\(
+\bigcup\mathcal{V}
+\)
+至多是可数多个单点集的并，因而是可数集；但 $X$ 是不可数的，故
+\(
+\bigcup\mathcal{V}\neq X
+\)。
+于是 $\mathcal{U}$ 没有可数子覆盖。根据 Lindel\"of 的定义（任一开覆盖存在可数子覆盖），$(X,\tau_{\mathrm{dis}})$ 不是 Lindel\"of 空间。
+\end{proof}
+\begin{proof}
+因为 $X$ 是第二可数空间，取一组可数基 $\mathcal{B}_0=\{B_1,B_2,\dots\}$。现在给定任意开覆盖 $\mathcal{U}$。对每个点 $x\in X$，由于 $\mathcal{U}$ 覆盖 $X$，存在 $U_x\in\mathcal{U}$ 使 $x\in U_x$；又因 $\mathcal{B}_0$ 是基，必存在 $B_x\in\mathcal{B}_0$ 使
+\[
+x\in B_x\subseteq U_x.
+\]
+于是每个点都被某个来自可数基的 $B_x$ 覆盖，且该 $B_x$ 被某个 $U_x\in\mathcal{U}$ 吸收。把所有出现过的基元素收集为
+\[
+\mathcal{B}_0'=\{B\in\mathcal{B}_0:\exists\,U\in\mathcal{U}\text{ 使 }B\subseteq U\}.
+\]
+显然 $\mathcal{B}_0'\subseteq \mathcal{B}_0$，故 $\mathcal{B}_0'$ 至多可数。对每个 $B\in\mathcal{B}_0'$ 选取一个 $U(B)\in\mathcal{U}$ 满足 $B\subseteq U(B)$，记
+\[
+\mathcal{U}'=\{\,U(B): B\in\mathcal{B}_0'\,\},
+\]
+则 $\mathcal{U}'$ 可数。且对任意 $x\in X$，有 $x\in B_x\subseteq U(B_x)$，从而
+\[
+X=\bigcup_{B\in\mathcal{B}_0'} B\ \subseteq\ \bigcup_{B\in\mathcal{B}_0'} U(B)\ =\ \bigcup \mathcal{U}'\ \subseteq\ \bigcup \mathcal{U}\ =\ X.
+\]
+因此 $\mathcal{U}'$ 是 $\mathcal{U}$ 的一个可数子覆盖，$X$ 为 Lindel\"of 空间。
+\end{proof}
+%（附注）离散空间 Lindel\"of 当且仅当其底集可数。
+\begin{theorem}[有可数覆盖就符合林德洛夫条件]
+设 $(X,\mathcal{T})$ 是一个拓扑空间，$\mathcal{B}$ 是 $(X,\mathcal{T})$ 的一个基，
+且 $\lvert \mathcal{B} \rvert \leq \omega$（即 $\mathcal{B}$ 是可数的）。
+则对于 $X$ 的任意开覆盖 $\mathcal{U} \subset \mathcal{T}$，
+都存在一个可数子族 $\mathcal{U}_1 \subset \mathcal{U}$，使得
+\[
+X = \bigcup \mathcal{U}_1.
+\]
+换句话说：若拓扑空间有一个可数基，则该空间是 Lindelöf 空间。
+\end{theorem}
+
+\begin{theorem}[第二可数拓扑空间任意集都有，可数子集族基]定理2.6:
+若 $(X,\mathcal{T})$ 是第二可数拓扑空间，则对 $X$ 的任一基 $\mathcal{B}_1$，
+都存在某个子集族 $\mathcal{B}_0 \subset \mathcal{B}_1$，使得
+\[
+|\mathcal{B}_0| \leq \omega,
+\]
+且 $\mathcal{B}_0$ 仍然是 $X$ 的一个基。
+\end{theorem}
+\begin{itemize}
+  \item $\omega$ 表示第一个无穷基数/序数，也就是自然数集：
+  \[
+    \omega = \{0,1,2,3,\dots\}.
+  \]
+
+  \item $\omega+1$ 就是在 $\omega$ 的“后面”再加一个点（通常叫做 $\omega$ 本身），也就是：
+  \[
+    \omega+1 = \{0,1,2,3,\dots,\omega\}.
+  \]
+\end{itemize}
+\begin{proof}
+设 $\mathcal{B}_1$ 是 $X$ 的一个基。由于 $X$ 是第二可数的，存在一个可数子基 $\mathcal{B}_0 \subseteq \mathcal{B}_1$，使得 $\mathcal{B}_0$ 仍然是 $X$ 的一基。
+
+现在取 $X$ 的任一开覆盖 $\mathcal{U}$。对于每个点 $x\in X$，存在某个 $U\in\mathcal{U}$ 使得 $x\in U$。由于 $\mathcal{B}_0$ 是一基，必存在 $B\in \mathcal{B}_0$ 使得
+\[
+x \in B \subseteq U.
+\]
+这样对每个 $x$ 都能选出某个 $B\in\mathcal{B}_0$ 落在某个 $U\in\mathcal{U}$ 内。
+
+记
+\[
+\mathcal{B}_0'=\{B\in\mathcal{B}_0:\exists U\in\mathcal{U},\; B\subseteq U\}.
+\]
+于是
+\[
+X=\bigcup \mathcal{B}_0'\subseteq \bigcup \mathcal{U}=X.
+\]
+因为 $\mathcal{B}_0$ 可数，$\mathcal{B}_0'$ 也至多可数。对每个 $B\in \mathcal{B}_0'$，选一个对应的 $U\in \mathcal{U}$ 使 $B\subseteq U$。这样得到 $\mathcal{U}$ 的一个可数子族覆盖 $X$。因此 $X$ 是 Lindel\"of 空间。
+\end{proof}
+\subsection{邻域}
+\begin{definition}[开邻域的定义-抽象的$\sigma$邻域]
+开领域就是靠x属于开集U再U中还能找到开集V包含x来刻画的。\\
+在分析里你说“$x_0$ 的 $\varepsilon$-邻域”：
+\[
+U_\varepsilon(x_0) = (x_0 - \varepsilon,\ x_0 + \varepsilon),
+\]
+而在拓扑中，邻域就是分析里 $\varepsilon$-邻域”的抽象版本。\\
+设 $(X,\mathcal{T})$ 是拓扑空间，$x \in X$。若一个集合 $U$ 满足：
+
+\textbf{（开邻域条件）}
+\begin{enumerate}
+  \item $x \in U$；
+  \item 存在开集 $V \in \mathcal{T}$，使得 $x \in V \subset U$，
+\end{enumerate}
+
+则称 $U$ 是点 $x$ 的 \textbf{邻域}。  
+如果 $U$ 本身就是开集，则称 $U$ 是点 $x$ 的 \textbf{开邻域}。
+\end{definition}
+\begin{definition}[邻域系是所有领域构成集合族-包含x的所有所有符合另域定义集合的集合族]
+设 $(X,\mathcal{T})$ 是拓扑空间，$x \in X$。记 $T(x)$ 为点 $x$ 的所有邻域构成的集合族，则 $T(x)$ 满足下列性质：
+\begin{enumerate}
+  \item $T(x) \neq \varnothing$；
+  \item 对任意 $U \in T(x)$，有 $x \in U$；
+  \item 对任意 $U_1,U_2 \in T(x)$，有 $U_1 \cap U_2 \in T(x)$；
+  \item 对任意 $U \in T(x)$，存在 $V \subset U$，使得 $x \in V$，并且对任意 $y \in V$，有 $V \in T(y)$；
+  \item 若 $U \in T(x)$ 且 $U \subset V$，则 $V \in T(x)$。
+\end{enumerate}
+称 $T(x)$ 为点 $x$ 在拓扑空间 $(X,\mathcal{T})$ 中的 \textbf{邻域系}。
+\end{definition}
+(4)的解释对每一个点 x，以及它的每一个邻域 U，都能找到一个更小的邻域 V，
+使得：V 不仅是 x 的邻域，而且 对 V 里的所有点 y，V 也是它们的邻域。
+\begin{definition}[邻域基-邻域系的最简结构]
+邻域基是生成所有邻域的最简结构。
+设 $(X,\mathcal{T})$ 是拓扑空间，$x \in X$，$T(x)$ 是点 $x$ 在拓扑空间 $(X,\mathcal{T})$ 中的邻域系。  
+若 $B_x \subset T(x)$，并且对包含点 $x$ 的任意开集 $U$，都存在 $B \in B_x$，使得
+\[
+x \in B \subset U,
+\]
+则称 $B_x$ 为点 $x$ 的 \textbf{邻域基}。
+\end{definition}
+
+\begin{definition}[开邻域基-邻域基的基础上要求邻域基中的集合都是开集]
+在上述条件下，如果 $B_x$ 中的每个元素都是开集，则称 $B_x$ 为点 $x$ 的 \textbf{开邻域基}。  
+特别地，若 $B_x = \{\{x\}\}$，则称 $x$ 是空间 $X$ 中的 \textbf{孤立点}。
+\end{definition}
+\begin{proposition}[邻域基的性质]
+设 $X$ 为拓扑空间，点 $x \in X$。若对每个 $x$ 赋予一族集合 $\mathcal{B}(x)$，满足：
+\begin{enumerate}
+  \item $\mathcal{B}(x)\neq\varnothing$；
+  \item 对任意 $B\in\mathcal{B}(x)$，有 $x\in B$；
+  \item 对任意 $B_1,B_2\in\mathcal{B}(x)$，存在 $B_3\in\mathcal{B}(x)$，使得 $x\in B_3\subset B_1\cap B_2$；
+  \item 对任意 $B\in\mathcal{B}(x)$，存在 $V\subset B$，使得 $x\in V\subset B$，
+  且对任意 $y\in V$，存在 $B_y\in\mathcal{B}(y)$，使得 $y\in B_y\subset V$。
+\end{enumerate}
+则称 $\mathcal{B}(x)$ 为点 $x$ 的\textbf{邻域基}。
+\end{proposition}
+
+\begin{proposition}[开邻域基的性质]
+设 $X$ 为拓扑空间，点 $x\in X$。若对每个 $x$ 赋予一族集合 $\mathcal{B}(x)$，满足：
+\begin{enumerate}
+  \item $\mathcal{B}(x)\neq\varnothing$；
+  \item 对任意 $B\in\mathcal{B}(x)$，有 $x\in B$；
+  \item 对任意 $B_1,B_2\in\mathcal{B}(x)$，存在 $B_3\in\mathcal{B}(x)$，使得 $x\in B_3\subset B_1\cap B_2$；
+  \item 对任意 $B\in\mathcal{B}(x)$ 及任意 $y\in B$，存在 $B_y\in\mathcal{B}(y)$，使得 $y\in B_y\subset B$。
+\end{enumerate}
+则称 $\mathcal{B}(x)$ 为点 $x$ 的\textbf{开邻域基}。
+\end{proposition}
+
+\begin{dxtips}[区别总结]
+\begin{itemize}
+  \item 邻域基的第 (4) 条中，需要\textbf{存在一个中间集合} $V\subset B$，以保证邻域的局部一致性；
+  \item 开邻域基直接假设各元素 $B$ \textbf{本身就是开集}，因此可省略 $V$；
+  \item 所以：所有开邻域基都是邻域基，反之不一定。
+\end{itemize}
+\end{dxtips}
+\begin{definition}[第一可数空间与第二可数空间]
+设 $(X,T)$ 是拓扑空间。
+\begin{itemize}
+  \item 若每个点 $x\in X$ 都存在一个\textbf{可数的开邻域基} $\mathcal{B}(x)$，则称 $X$ 为\textbf{第一可数空间}；
+  \item 若拓扑 $T$ 本身存在一个\textbf{可数的开基} $\mathcal{B}$，则称 $X$ 为\textbf{第二可数空间}。
+\end{itemize}
+\end{definition}
+
+\begin{theorem}
+每个第二可数空间都是第一可数空间。
+\end{theorem}
+
+\begin{proof}
+设 $(X,T)$ 是第二可数空间，$\mathcal{B}$ 是其可数开基。  
+对任意 $x\in X$，令
+\[
+\mathcal{B}(x)=\{B\in\mathcal{B}\mid x\in B\},
+\]
+则 $\mathcal{B}(x)$ 是点 $x$ 的可数开邻域基。故 $X$ 是第一可数空间。
+\end{proof}
+
+\begin{remark}[区别与关系]
+\begin{itemize}
+  \item 第二可数空间要求\textbf{整个拓扑}拥有一个可数开基；
+  \item 第一可数空间只要求\textbf{每个点}拥有一个可数邻域基；
+  \item 因此第二可数空间 $\Rightarrow$ 第一可数空间；
+  \item 但反之不成立——例如\textbf{不可数离散空间}是第一可数的，却不是第二可数的。
+\end{itemize}
+\end{remark}
+\begin{theorem}
+若 $X$ 是第一可数空间，则对任意 $x\in X$，都存在可数开邻域基
+\[
+\mathcal{B}(x)=\{B_n(x):n\in\mathbb{N}\}
+\]
+满足 $B_{n+1}(x)\subset B_n(x)$，$n\in\mathbb{N}$。
+\end{theorem}
+
+\begin{proof}
+令 $\mathcal{B}'(x)$ 是点 $x$ 的可数开邻域基，记
+\[
+\mathcal{B}'(x)=\{U_n(x):n\in\mathbb{N}\}.
+\]
+定义
+\[
+B_1(x)=U_1(x), \qquad
+B_n(x)=\bigcap_{m\le n}U_m(x),\quad n\in\mathbb{N}.
+\]
+于是对所有 $n\in\mathbb{N}$，都有 $B_{n+1}(x)\subset B_n(x)\subset U_n(x)$。
+
+对任意含点 $x$ 的开集 $O$，由 $\mathcal{B}'(x)$ 是邻域基，存在 $n\in\mathbb{N}$，
+使得 $x\in U_n(x)\subset O$。
+于是 $x\in B_n(x)\subset O$。
+
+因此
+\[
+\mathcal{B}(x)=\{B_n(x):n\in\mathbb{N}\}
+\]
+是点 $x$ 的一个可数开邻域基，且满足 $B_{n+1}(x)\subset B_n(x)$。
+\end{proof}
+\begin{remark}
+该定理说明：在第一可数空间中，可以为每个点选择一个
+\emph{递减的} 可数邻域基 $\{B_n(x)\}$。
+直观上，这使得研究极限、收敛、连续性时，
+可以“顺着 $n$ 递减的邻域列”来描述点的局部结构，
+形式上更类似于度量空间中的“以半径递减的球”。
+\end{remark}
+\subsection{闭包，聚点与边缘}
+\begin{definition}[闭包-包含集合的最小比集]
+设 $(X,T)$ 是拓扑空间，$A\subset X$。  
+称 $X$ 中包含 $A$ 的所有闭集的交为 $A$ 的\textbf{闭包}，记作 $\overline{A}$，即
+\[
+\overline{A}=\bigcap\{F : A\subset F,\ F\text{是}X\text{中的闭集}\}.
+\]
+由定义可知，$\overline{A}$ 是闭集，且 $A\subset \overline{A}$。
+\end{definition}
+\begin{theorem}[判断一个点是不是在闭包里面的最新方法]
+    
+
+设 $(X,\mathcal{T})$ 是拓扑空间，$A \subset X$。  
+若对任意包含点 $x$ 的开集 $U$，都有 $U \cap A \ne \varnothing$，  
+则称 $x$ 是 $A$ 的\textbf{极限点}（或聚点）。  
+
+因此，点 $x$ 属于 $A$ 的闭包 $\overline{A}$ 当且仅当  
+对每个包含 $x$ 的开集 $U$，都有 $U \cap A \ne \varnothing$。
+\end{theorem}
+
+\begin{remark}
+该定理给出了闭包的“点的特征”描述：
+一个点属于 $\overline{A}$，当且仅当它的每个邻域都与 $A$ 相交。
+这一定义在分析与拓扑中非常常用，例如描述极限点、聚点与稠密集。
+\end{remark}
+\begin{theorem}[x在闭包里，x的所有开邻域都和A有交集]
+设 $(X,T)$ 是拓扑空间，$A\subset X$，$\mathcal{B}(x)$ 是点 $x$ 的开邻域基。  
+则 $x\in\overline{A}$ 当且仅当对任意 $B\in\mathcal{B}(x)$，都有
+\[
+B\cap A\neq\varnothing.
+\]
+\end{theorem}
+\begin{remark}
+该定理是闭包判定的邻域基版本。  
+与定理 2.10 的区别在于：这里不要求“所有开集”，  
+只需对点 $x$ 的一组开邻域基验证即可。
+这使得在第一可数空间中，可以仅利用可数邻域列判定点是否属于闭包。
+\end{remark}
+\begin{corollary}
+设 $(X,T)$ 是拓扑空间，$A\subset X$，$\mathcal{B}$ 是 $X$ 的基。  
+则 $x\in\overline{A}$ 当且仅当对任意 $B\in\mathcal{B}$，若 $x\in B$，都有
+\[
+B\cap A\neq\varnothing.
+\]
+\end{corollary}
+\begin{remark}
+该推论是闭包判定的“开基版本”。  
+与定理 2.11 相比，这里使用的是拓扑基而非某一点的邻域基，  
+因此可以在全空间层面上判定点是否属于集合的闭包。
+\end{remark}
+\begin{corollary}
+设 $(X,\mathcal{T})$ 是拓扑空间，$A\subset X$，$V$ 是 $X$ 中的开集，且 $A\cap V=\varnothing$，  
+则有
+\[
+\overline{A}\cap V=\varnothing.
+\]
+\end{corollary}
+
+关于闭包的性质，有：
+\[
+\overline{A\cup B} = \overline{A}\cup\overline{B},
+\]
+即有限个集合并的闭包与这些集合分别取闭包后再并是相同的。  
+但对于无限多个集合并的情形，这一性质一般不成立。
+\begin{proposition}[闭包的性质]
+设 $(X,T)$ 是拓扑空间，$A,B\subset X$，则集合的闭包算子 $\overline{(\cdot)}$ 具有以下性质：
+\begin{enumerate}[(1)]
+  \item $A\subset \overline{A}$；
+  
+  \textit{（任意集合都包含于自己的闭包中，因为闭包是“最小的包含 $A$ 的闭集”。）}
+  
+  \item $\overline{\varnothing}=\varnothing$；
+  
+  \textit{（空集本身是闭集，因此其闭包仍为自身。）}
+  
+  \item 若 $A\subset B$，则 $\overline{A}\subset \overline{B}$；
+  
+  \textit{（闭包运算保持包含关系，即具有单调性。）}
+  
+  \item $\overline{A\cup B}=\overline{A}\cup\overline{B}$；
+  
+  \textit{（闭包对有限并集可分配。几何上表示“两个集合的并的闭包”就是“它们闭包的并”。）}
+  
+  \item $\overline{\overline{A}}=\overline{A}$。
+  
+  \textit{（闭包运算是幂等的，再取闭包不会改变结果。）}
+\end{enumerate}
+\end{proposition}
+\begin{definition}
+设 $(X,\mathcal{T})$ 是拓扑空间，$\mathcal{A}$ 是 $X$ 的一个集族，即 $\forall A\in\mathcal{A}$，均有 $A\subset X$。
+
+\begin{enumerate}[(1)]
+  \item 若对任意 $x\in X$，都存在开集 $V_x$，使得 $x\in V_x$ 且
+  \[
+  |\{A\in\mathcal{A} : V_x\cap A\ne\varnothing\}| < \omega,
+  \]
+  则称集族 $\mathcal{A}$ 是空间 $X$ 中的\textbf{局部有限集族}。  
+  若同时每个 $A\in\mathcal{A}$ 都是 $X$ 中的闭（或开）集，
+  则称 $\mathcal{A}$ 为空间 $X$ 中的\textbf{局部有限闭（开）集族}。
+
+  \item 若对任意 $x\in X$，都存在开集 $V_x$，使得 $x\in V_x$ 且
+  \[
+  |\{A\in\mathcal{A} : V_x\cap A\ne\varnothing\}|\le 1,
+  \]
+  则称集族 $\mathcal{A}$ 是空间 $X$ 中的\textbf{离散集族}。  
+  若同时每个 $A\in\mathcal{A}$ 都是 $X$ 中的闭（或开）集，
+  则称 $\mathcal{A}$ 为空间 $X$ 中的\textbf{离散闭（开）集族}。
+\end{enumerate}
+\end{definition}
+\begin{definition}[聚点的最新定义]
+设 $(X,\mathcal{T})$ 是拓扑空间，$A\subset X$，$x\in X$。  
+若对包含 $x$ 的任一开集 $U$，都有
+\[
+U \cap (A \setminus \{x\}) \ne \varnothing,
+\]
+则称 $x$ 是集合 $A$ 的\textbf{聚点}（或极限点）。  
+集合 $A$ 的所有聚点构成的集合称为 $A$ 的\textbf{导集}，记作 $A^{d}$。
+\end{definition}
+
+\begin{remark}
+值得注意的是，一个集合 $A$ 的聚点可能属于 $A$，也可能不属于 $A$。  
+例如在 $\mathbb{R}$ 中，
+\[
+A = (0,1), \quad A^{d} = [0,1];
+\]
+若
+\[
+A = \left\{ \tfrac{1}{n} : n \in \mathbb{N} \right\},
+\quad \text{则} \quad A^{d} = \{0\}, \ \tfrac{1}{n} \notin A^{d}.
+\]
+\end{remark}
+\begin{theorem}[闭包是原集并导集]
+设 $(X,\mathcal{T})$ 是拓扑空间，$A\subset X$，则有
+\[
+\overline{A} = A \cup A^{d}.
+\]
+\end{theorem}
+
+\noindent
+在 $\mathbb{R}$ 中，设 $A=(0,1)$，则 $0\in \overline{A}$，$0\in \overline{\mathbb{R}\setminus A}$，把点 $0$ 称为区间 $(0,1)$ 的\textbf{边缘点}。因此有如下定义：
+
+\begin{definition}[ 边缘=闭包 − 内部，]
+设 $(X,\mathcal{T})$ 是拓扑空间，$A\subset X$，$x\in X$。  
+如果对包含 $x$ 的任一开集 $U$，都有 $U\cap A\neq\varnothing$，且同时 $U\cap(X\setminus A)\neq\varnothing$，  
+即 $x\in \overline{A}\cap \overline{X\setminus A}$，  
+则称 $x$ 是集合 $A$ 的\textbf{边缘点}。  
+集合 $A$ 的所有边缘点构成的集合记作 $\mathrm{Fr}(A)$，称为 $A$ 的\textbf{边缘}。
+\end{definition}
+
+\noindent
+在 $\mathbb{R}$ 中：
+\[
+A = (0,1) \Rightarrow \mathrm{Fr}(A)=\{0,1\};
+\qquad
+A = \left\{\tfrac{1}{n}:n\in\mathbb{N}\right\} \Rightarrow \mathrm{Fr}(A)=A\cup\{0\}.
+\]
+
+\begin{theorem}[与边缘有关的等价关系]
+设 $(X,\mathcal{T})$ 为拓扑空间，$A\subset X$。则有：
+\begin{enumerate}[(1)]
+\item $\overline{A}=A\cup A^{d}=A\cup \mathrm{Fr}(A)$；
+\item $A$ 为闭集 $\iff \mathrm{Fr}(A)\subset A$；
+\item $A$ 为开集 $\iff \mathrm{Fr}(A)\cap A=\varnothing$；
+\item $A$ 既开又闭（clopen）$\iff \mathrm{Fr}(A)=\varnothing$；
+\item $\mathrm{Fr}(A)=\mathrm{Fr}(X\setminus A)$。
+\end{enumerate}
+\end{theorem}
+实变函数里面有相关内容
+\begin{theorem}
+设 $(X,\mathcal{T})$ 是第一可数拓扑空间，$A\subset X$。  
+则 $x\in \overline{A}$ 的充要条件是：存在 $A$ 中的序列 $\{a_n\}_{n\in\mathbb{N}}$ 收敛于 $x$。
+\end{theorem}
+\subsection{内部}
+\begin{definition}
+设 $(X,\mathcal{T})$ 是拓扑空间，$A\subset X$。  
+若 $x\in A$，且存在开集 $V$ 使得 $x\in V\subset A$，  
+则称点 $x$ 是 $A$ 的\textbf{内点}。  
+
+$A$ 的所有内点构成的集合称为 $A$ 的\textbf{内部}，记为 $A^{\circ}$。
+\end{definition}
+\begin{example}
+设 $X=\{a,b,c\}$，$\mathcal{T}=\{\varnothing,X,\{a\},\{a,b\}\}$。
+\begin{enumerate}[(1)]
+  \item 若 $A=\{a\}$，则 $A^{\circ}=\{a\}$；
+  \item 若 $A=\{a,c\}$，则 $A^{\circ}=\{a\}$；
+  \item 若 $A=\{b,c\}$，则 $A^{\circ}=\varnothing$。
+\end{enumerate}
+\end{example}
+\begin{itemize}
+  \item \( X = \{a,b,c\} \) 是\textbf{底集}（即全体点的集合）。
+  \item \( \mathcal{T} \) 是\textbf{拓扑结构}，也就是指定哪些子集是“开集”。
+\end{itemize}
+\begin{remark}
+在实分析中，集合 \(A \subset \mathbb{R}^n\) 被称为开集，
+若对任意 \(x \in A\)，存在 \(\varepsilon > 0\)，使得开球
+\[
+B(x,\varepsilon) = \{y \in \mathbb{R}^n : \|y - x\| < \varepsilon\} \subset A.
+\]
+这一定义实际上对应于拓扑学中由欧几里得度量
+\[
+d(x,y) = \|x - y\|
+\]
+所诱导的标准拓扑（standard topology）。因此，
+数学分析中的“开集”即为拓扑学意义下的开集，
+只是拓扑取自标准欧几里得空间。
+\end{remark}
+\begin{theorem}[内部都是开集]
+设 $(X,\mathcal{T})$ 是拓扑空间，$A\subset X$，则 $A^{\circ}$ 是开集。
+\end{theorem}
+
+\begin{proof}
+由定义，$A^{\circ}=\{x\in A:\exists\,V_x\text{为开集且}x\in V_x\subset A\}$。  
+对于任意 $x\in A^{\circ}$，存在开集 $V_x$ 使 $x\in V_x\subset A$。  
+又对任意 $y\in V_x$，有 $y\in V_x\subset A$，故 $y\in A^{\circ}$，从而 $V_x\subset A^{\circ}$。  
+因此 $A^{\circ}=\bigcup_{x\in A^{\circ}}V_x$，为开集。
+\end{proof}
+
+\begin{corollary}[自己等于自己的内部是开集的充要条件]
+设 $(X,\mathcal{T})$ 是拓扑空间，$A\subset X$。  
+则 $A$ 是开集的充要条件是 $A=A^{\circ}$。
+\end{corollary}
+
+\begin{theorem}[内部的性质]
+设 $(X,\mathcal{T})$ 是拓扑空间，$A,B\subset X$，则集合的内部具有以下性质：
+\begin{enumerate}[(1)]
+  \item $A^{\circ}\subset A$；
+  \item $X^{\circ}=X$；
+  \item $(A\cap B)^{\circ}=A^{\circ}\cap B^{\circ}$；
+  \item $(A^{\circ})^{\circ}=A^{\circ}$；
+  \item 若 $A\subset B$，则 $A^{\circ}\subset B^{\circ}$。
+\end{enumerate}
+\end{theorem}
+\section{生成拓扑的方法}
+\begin{remark}[构造拓扑的常用方法]
+对于给定的集合 $X$，若想在 $X$ 上构造所需的拓扑 $\mathcal{T}$，
+有时直接把 $\mathcal{T}$ 全部写出是一件十分困难的事。
+通常的做法是：
+
+\begin{enumerate}
+  \item 先在 $X$ 上构造一个较容易描述的\textbf{集族}；
+  \item 再用这一集族生成 $\mathcal{T}$；
+  \item 最后验证所得到的 $\mathcal{T}$ 满足拓扑的三个公理。
+\end{enumerate}
+
+这种方法在实际构造如\textbf{度量空间诱导拓扑、积拓扑、商拓扑、子空间拓扑}等时尤为常用。
+\textcolor{purple}{也就是试着一点一点完善，如果不符合了就继续添加直到造出基为止生成拓扑}
+\end{remark}
+\begin{proposition}[构造拓扑的基]
+一拓扑空间 $(X, \mathcal{T})$ 的基 $\mathcal{B}$ 要满足：
+
+\begin{enumerate}
+  \item[(1)] $\varnothing \in \mathcal{B}, \quad X = \bigcup \mathcal{B}$；
+  \item[(2)] 对任意 $B_1, B_2 \in \mathcal{B}$，若 $B_1 \cap B_2 \ne \varnothing$，
+  对任意 $x \in B_1 \cap B_2$，存在 $B_3 \in \mathcal{B}$，使得
+  \[
+  x \in B_3 \subset B_1 \cap B_2.
+  \]
+\end{enumerate}
+
+反过来，对于给定的集合 $X$，若 $X$ 上还没有拓扑，
+可先构造一集族 $\mathcal{B}$，使其满足上述条件 (1) 与 (2)，
+再由 $\mathcal{B}$ 生成拓扑 $\mathcal{T}$，此时 $\mathcal{B}$ 就是所生成拓扑 $\mathcal{T}$ 的基。
+
+---
+
+
+
+\textbf{具体构造方法：}
+
+令 $\mathcal{B}$ 是 $X$ 上的集族，对任意 $B \in \mathcal{B}$，有 $B \subset X$，
+且 $\mathcal{B}$ 具有如下性质：
+\begin{enumerate}
+  \item[(1)] $\varnothing \in \mathcal{B}, \quad X = \bigcup \mathcal{B}$；
+  \item[(2)] 对任意 $B_1, B_2 \in \mathcal{B}$，且 $B_1 \cap B_2 \ne \varnothing$，
+  则对任意 $x \in B_1 \cap B_2$，存在 $B_3 \in \mathcal{B}$，
+  使得 $x \in B_3 \subset B_1 \cap B_2$。
+\end{enumerate}
+
+定义
+\[
+\mathcal{T} = \{\, U : U \subset X \text{ 且存在 } \mathcal{B}_U \subset \mathcal{B}
+\text{ 使得 } U = \bigcup \mathcal{B}_U \,\}.
+\]
+则 $\mathcal{T}$ 为 $X$ 上的一个拓扑，而 $\mathcal{B}$ 是其基。
+\end{proposition}
+\begin{proposition}[开邻域基的构造]
+设 $(X,\mathcal{T})$ 是拓扑空间，对任意 $x\in X$，$x$ 的开邻域基 $\mathcal{B}(x)$ 具有如下性质：
+\begin{enumerate}
+  \item[(1)] $\mathcal{B}(x)\neq\varnothing$；
+  \item[(2)] 对任意 $B\in\mathcal{B}(x)$，有 $x\in B$；
+  \item[(3)] 对任意 $B_1,B_2\in\mathcal{B}(x)$，存在 $B_3\in\mathcal{B}(x)$，使得
+  \[
+  x\in B_3\subset B_1\cap B_2；
+  \]
+  \item[(4)] 对任意 $B\in\mathcal{B}(x)$，及任意 $y\in B$，存在 $B_y\in\mathcal{B}(y)$，使得
+  \[
+  y\in B_y\subset B。
+  \]
+\end{enumerate}
+
+---
+
+反之，对于给定的集合 $X$，若对每个 $x\in X$ 构造一族 $\mathcal{B}(x)$，
+并使其满足上述的 (1)--(4)，则定义
+\[
+\mathcal{T}=\{\,U: U\subset X,\ \text{且对任意 }x\in U,\ \exists\,B\in\mathcal{B}(x),\ 
+x\in B\subset U\,\}\cup\{\varnothing\}.
+\]
+容易验证 $\mathcal{T}$ 满足拓扑的三个条件。
+由性质 (4) 可知，对任意 $x\in X$ 及 $B\in\mathcal{B}(x)$，
+有 $B\in\mathcal{T}$。
+因此，$\mathcal{B}(x)$ 正是所构造拓扑的开邻域基。
+\end{proposition}
+\begin{example}[Sorgenfrey 直线]
+设 $X = \mathbb{R}$，对任意 $x \in X$，定义
+\[
+\mathcal{B}(x) = \{[x, r) : r > x,\, r \in \mathbb{Q}\}.
+\]
+令
+\[
+\mathcal{T}_s = 
+\{\,U : \text{对任意 } x \in U,\ \exists\, r > x,\ r \in \mathbb{Q},
+\ \text{使得 } [x, r) \subset U\,\} \cup \{\varnothing\}.
+\]
+称 $(\mathbb{R}, \mathcal{T}_s)$ 为 \textbf{Sorgenfrey 直线}。
+
+则 Sorgenfrey 直线是\textbf{第一可数空间}，但不是\textbf{第二可数空间}。
+\end{example}
+\begin{example}[证明积空间 $\mathbb{R}^2$ 是可分空间]
+令
+\[
+D = \mathbb{Q} \times \mathbb{Q}
+= \{ \langle p, q \rangle : p \in \mathbb{Q},\ q \in \mathbb{Q} \},
+\]
+其中 $\mathbb{Q}$ 是有理数集。则 $|D| \le \omega$ 且 $D \subset \mathbb{R}^2$。
+
+对任意点 $\langle x, y \rangle \in \mathbb{R}^2$ 以及包含它的开集 $U$，
+存在 $\mathbb{R}$ 中的开集 $O_x, O_y$，使得
+\[
+\langle x, y \rangle \in O_x \times O_y \subset U.
+\]
+又因为 $O_x, O_y$ 是 $\mathbb{R}$ 中的开集且 $\mathbb{Q}$ 是 $\mathbb{R}$ 中的稠密集，
+故存在 $p \in \mathbb{Q} \cap O_x,\ q \in \mathbb{Q} \cap O_y$，
+于是
+\[
+\langle p, q \rangle \in (O_x \times O_y) \cap D \subset U \cap D.
+\]
+因此 $U \cap D \ne \varnothing$，
+从而 $\langle x, y \rangle \in \overline{D}$，即 $\overline{D} = \mathbb{R}^2$。
+
+因此，$\mathbb{R}^2$ 是一个可分空间。 
+\end{example}
+\section{子空间拓扑}
+\begin{definition}[子空间拓扑与相关符号]
+设 $(X, \mathcal{T})$ 是一个拓扑空间，$Y \subset X$。  
+定义：
+\[
+\mathcal{T}_Y = \{\,U \cap Y : U \in \mathcal{T}\,\}.
+\]
+则 $(Y, \mathcal{T}_Y)$ 称为 $(X, \mathcal{T})$ 的\textbf{子空间}（或\textbf{相对拓扑}）。
+
+\begin{itemize}
+  \item 若 $V \in \mathcal{T}_Y$，称 $V$ 是 $Y$ 中的\textbf{开集}；
+  \item 对应地，$V$ 可写为 $V = U \cap Y$，其中 $U$ 是 $X$ 中的开集；
+  \item 类似地，若 $F$ 在 $Y$ 中是\textbf{闭集}，则存在 $X$ 中的闭集 $C$，使得 $F = C \cap Y$。
+\end{itemize}
+
+例如，在实数直线 $\mathbb{R}$ 上取通常拓扑，令 $Y = (a,b)$。  
+对任意 $c \in (a,b)$，有
+\[
+(c,b] = (c,b+1) \cap (a,b),
+\]
+因此 $(c,b]$ 是子空间 $Y$ 中的开集。  
+这说明：子空间中的开集\textbf{不一定}是原空间中的开集。
+
+\end{definition}
+
+
+\begin{proposition}[子空间的开集在父空间也是开集]
+设 $(X, \mathcal{T})$ 是拓扑空间，$Y \subset X$。  
+若 $Y$ 是 $X$ 中的开集（或闭集），则 $Y$ 中的开集（或闭集）也是 $X$ 中的开集（或闭集）。
+
+\smallskip
+该结论可由子空间拓扑的定义直接推出。
+\end{proposition}
+
+\begin{definition}[子空间闭包的符号]
+若 $(X, \mathcal{T})$ 是拓扑空间，$Y \subset X$ 是其子空间，且 $A \subset Y$，  
+则记
+\[
+\overline{A}^{(Y)}
+\]
+表示 $A$ 在子空间 $Y$ 中的闭包。
+
+\end{definition}
+\begin{theorem}[遗传性质]
+如果拓扑空间 $X$ 是第二可数（或第一可数）空间，则它的任意子空间 $Y$ 也是第二可数（或第一可数）空间。
+\end{theorem}
+
+\begin{remark}
+然而，并非所有性质都是遗传的。例如，即使空间 $X$ 是 Lindelöf 空间，它的子空间也不一定是 Lindelöf 空间。
+例如例 2.36 中的空间 $X$ 是 Lindelöf 空间，但其子空间 $X_1$ 不是 Lindelöf 空间。
+\end{remark}
+
+\begin{definition}[遗传性质]
+若拓扑性质 $\mathcal{P}$ 满足：空间 $X$ 具有性质 $\mathcal{P}$ 时，$X$ 的任意子空间也具有性质 $\mathcal{P}$，则称此性质 $\mathcal{P}$ 为\emph{遗传的（hereditary）}。
+\end{definition}
+\begin{theorem}[积空间的第一可数性]
+若拓扑空间 $X$ 与 $Y$ 都是第一可数空间，则积空间 $X\times Y$ 也是第一可数空间。
+\end{theorem}
+
+\begin{proof}
+\begin{itemize}
+  \item[(1)] 设 $\langle x,y\rangle \in X\times Y$。  
+  由于 $X\times Y$ 的开集具有积拓扑结构，存在开集 $U\subset X$ 与 $V\subset Y$，使得
+  \[
+  \langle x,y\rangle \in U\times V \subset O,
+  \]
+  其中 $O$ 为包含 $\langle x,y\rangle$ 的任意开集。
+
+  \item[(2)] 由于 $X$ 与 $Y$ 都是第一可数空间，分别存在点 $x$ 与 $y$ 的可数开邻域基
+  \[
+  \mathcal{B}_x = \{B_{x,n}\}_{n\in\mathbb{N}}, \qquad 
+  \mathcal{B}_y = \{B_{y,m}\}_{m\in\mathbb{N}}.
+  \]
+  因此对任意 $U,V$，存在 $B_{x,i}\subset U$ 与 $B_{y,j}\subset V$，使得
+  \[
+  \langle x,y\rangle \in B_{x,i}\times B_{y,j} \subset U\times V \subset O.
+  \]
+
+  \item[(3)] 于是集合族
+  \[
+  \mathcal{B}_{(x,y)} = 
+  \{\,B_{x,i}\times B_{y,j} : i,j\in\mathbb{N}\,\}
+  \]
+  构成 $\langle x,y\rangle$ 在积空间 $X\times Y$ 中的可数开邻域基。
+
+  \item[(4)] 因此 $X\times Y$ 中的每一点都具有可数邻域基，
+  故积空间 $X\times Y$ 是\textbf{第一可数空间}。
+\end{itemize}
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{子基生成的拓扑}
+\begin{definition}[子基]
+设 $X$ 是一个集合，$\varphi$ 是 $X$ 的一集族，若满足：
+\begin{enumerate}[(1)]
+  \item $\varnothing \in \varphi$；
+  \item $\displaystyle \bigcup \varphi = X$；
+\end{enumerate}
+则可令
+\[
+B = \{ B : \text{存在有限子族 } \varphi_B \subset \varphi, \text{ 使 } B = \bigcap \varphi_B \}.
+\]
+此时 $B$ 满足：
+\begin{enumerate}[(1)]
+  \item $\varnothing \in B,\quad X = \bigcup B$；
+  \item 若 $B_1,B_2 \in B$，则 $B_1 \cap B_2 \in B$。
+\end{enumerate}
+
+因此，$B$ 可作为某拓扑 $T$ 的基，称 $\varphi$ 为该拓扑 $T$ 的子基，且称 $B$ 是由子基 $\varphi$ 生成的基。  
+由此得到的拓扑 $T$ 称为由子基 $\varphi$ 生成的拓扑（有时称子基为次基）。
+\end{definition}
+
+\begin{example}
+例如，在 $\mathbb{R}$ 上取通常拓扑，设 $Y = [a,b]$，则子空间 $Y$ 上的拓扑可由子基
+\[
+\varphi = \{[a,c): c \in (a,b]\} \cup \{(c,b]: c \in [a,b)\} \cup \{\varnothing\}
+\]
+生成。
+\end{example}
+由 \(\Phi\) 的并为 \(X\)，且 \(\Phi\) 的有限交可以生成基 \(\mathcal{B}\)。
+\newpage
+\subsection{积空间}
+\begin{definition}[笛卡尔积的定义]
+设 \(\{X_\alpha : \alpha \in \Lambda\}Lambda\) 是一族集合，定义它们的笛卡尔积为
+\[
+\prod_{\alpha \in \Lambda} X_\alpha = \{x = (x_\alpha : \alpha \in \Lambda) : x_\alpha \in X_\alpha\}.
+\]
+对任意 \(\alpha_0 \in \Lambda\)，定义投影映射
+\[
+P_{\alpha_0} : \prod_{\alpha \in \Lambda} X_\alpha \to X_{\alpha_0}, \quad P_{\alpha_0}(x) = x_{\alpha_0}.
+\]
+若 \(U_{\alpha_0} \subset X_{\alpha_0}\)，则定义
+\[
+P_{\alpha_0}^{-1}(U_{\alpha_0}) = \prod_{\alpha \in \Lambda} Y_\alpha,
+\quad \text{其中 } 
+Y_\alpha =
+\begin{cases}
+X_\alpha, & \alpha \ne \alpha_0,\\
+U_{\alpha_0}, & \alpha = \alpha_0.
+\end{cases}
+\]
+\end{definition}
+\begin{example}
+若 \(\Lambda = \{1,2,3\}\)，且
+\[
+X_1 = \mathbb{R}, \quad X_2 = \{a,b\}, \quad X_3 = \{0,1\},
+\]
+则
+\[
+\prod_{\alpha\in\Lambda} X_\alpha
+= \mathbb{R} \times \{a,b\} \times \{0,1\}
+\]
+表示所有形如 \((r,\,a,\,0), (r,\,b,\,1), (r,\,a,\,1)\) 等等的三元组的集合。
+
+
+\end{example}
+\begin{note}
+ 它定义了一族集合 \(\{X_\alpha : \alpha \in \Lambda\}\) 的笛卡尔积，即由每个 \(X_\alpha\) 中取一个元素所组成的所有序列的集合。  \\
+ 它说明：在积空间中，\(P_{\alpha_0}^{-1}(U_{\alpha_0})\) 表示所有第 \(\alpha_0\) 个坐标落在 \(U_{\alpha_0}\) 内、其余坐标任意的点组成的集合。
+\end{note}
+\begin{example}[具体数值示例]
+设 \(X_1 = \{1,2,3\},\ X_2 = \{a,b\}\)。  
+则
+\[
+X_1 \times X_2 = \{(1,a), (1,b), (2,a), (2,b), (3,a), (3,b)\}.
+\]
+取 \(\alpha_0 = 2\)，并令 \(U_{\alpha_0} = \{a\} \subset X_2\)。  
+由定义，
+\[
+P_{\alpha_0}^{-1}(U_{\alpha_0})
+= \prod_{\alpha \in \{1,2\}} Y_\alpha,
+\quad \text{其中 } 
+Y_\alpha =
+\begin{cases}
+X_\alpha, & \alpha \ne 2,\\[4pt]
+U_2, & \alpha = 2.
+\end{cases}
+\]
+在本例中，
+\[
+Y_1 = X_1 = \{1,2,3\}, \qquad Y_2 = U_2 = \{a\}.
+\]
+因此
+\[
+P_2^{-1}(U_2)
+= Y_1 \times Y_2
+= \{1,2,3\} \times \{a\}
+= \{(1,a), (2,a), (3,a)\},
+\]
+即所有第二个坐标是 \(a\)、第一个坐标任意的点的集合。
+\end{example}
+\begin{definition}[积拓扑的基]
+若 \((X_1,\mathcal{T}_1)\)、\((X_2,\mathcal{T}_2)\) 是拓扑空间，则在 \(X_1\times X_2\) 上以
+\[
+\mathcal{B} = \{U_1 \times U_2 : U_1 \in \mathcal{T}_1,\, U_2 \in \mathcal{T}_2\}
+\]
+为基生成的拓扑称为 \((X_1,\mathcal{T}_1)\) 与 \((X_2,\mathcal{T}_2)\) 的\textbf{积拓扑}。  
+若 \(B_i\) 是空间 \(X_i\) 的基（\(i=1,2\)），则
+\[
+\mathcal{B}' = \{B_1 \times B_2 : B_i \in B_i,\, i=1,2\}
+\]
+也是积拓扑的基。
+\end{definition}
+\begin{theorem}[积空间中闭集的积仍为闭集]\label{thm:product-closed}
+设 \((X_\alpha, \mathcal{T}_\alpha)\) 是一族拓扑空间，\(\alpha \in \Lambda\)。  
+若对每个 \(\alpha\)，集合 \(F_\alpha\) 是 \(X_\alpha\) 中的闭集，则
+\[
+F = \prod_{\alpha \in \Lambda} F_\alpha
+\]
+是
+\[
+X = \prod_{\alpha \in \Lambda} X_\alpha
+\]
+中的闭集。
+\end{theorem}
+
+\begin{note}
+如果每个分量空间里的集合都是闭集，那么它们的积在整个积空间中也是闭集。
+\end{note}
+\begin{theorem}[积空间中积集的闭包]\label{thm:product-closure}
+设 \((X_\alpha, \mathcal{T}_\alpha)\) 是一族拓扑空间，\(\alpha \in \Lambda\)。  
+若 \(A_\alpha \subset X_\alpha,\ \alpha \in \Lambda\)，则
+\[
+\overline{\prod_{\alpha \in \Lambda} A_\alpha}
+= \prod_{\alpha \in \Lambda} \overline{A_\alpha}.
+\]
+\end{theorem}
+
+\begin{note}
+如果在每个分量空间里取一个集合，那么它们的积的闭包等于各个闭包的积。
+\end{note}
+\begin{theorem}[可分空间的可数积仍可分]\label{thm:countable-product-separable}
+若 \((X_n, \mathcal{T}_n)\) 是可分空间，且 \(n \in \mathbb{N}\)，  
+则其积空间 \(\displaystyle \prod_{n \in \mathbb{N}} X_n\) 也是可分空间。
+\end{theorem}
+
+\begin{note}
+如果每个分量空间都是可分的，那么它们的可数积仍然是可分的。
+\end{note}
+\begin{theorem}[第一可数空间的可数积仍第一可数]\label{thm:countable-product-first-countable}
+若 \((X_n, \mathcal{T}_n)\) 是第一可数空间，且 \(n \in \mathbb{N}\)，  
+则其积空间 \(\displaystyle \prod_{n \in \mathbb{N}} X_n\) 也是第一可数空间。
+\end{theorem}
+
+\begin{note}
+如果每个分量空间都是第一可数的，那么它们的可数积仍然是第一可数的。
+\end{note}
+\begin{theorem}[第二可数空间的可数积仍第二可数]\label{thm:countable-product-second-countable}
+若 \((X_n, \mathcal{T}_n)\) 是第二可数空间，且 \(n \in \mathbb{N}\)，  
+则 \(X = \displaystyle \prod_{n \in \mathbb{N}} X_n\) 也是第二可数空间。
+\end{theorem}
+
+\begin{note}
+如果每个分量空间都是第二可数的，那么它们的可数积仍然是第二可数的。
+\end{note}
+
+\begin{lemma}[Sorgenfrey 直线的 Lindelöf 性质]\label{lem:sorgenfrey-lindelof}
+记 Sorgenfrey 直线为 \(S\)。则 \(S\) 是 Lindelöf 空间。
+\end{lemma}
+
+\begin{note}
+如果把 Sorgenfrey 直线记作 \(S\)，那么 \(S\) 本身是 Lindelöf 空间。
+\end{note}
+\begin{lemma}[Lindelöf 空间的闭子空间仍是 Lindelöf 空间]\label{lem:lindelof-closed-subspace}
+Lindelöf 空间的闭子空间是 Lindelöf 空间。
+\end{lemma}
+
+\begin{proof}
+设 \(X\) 是 Lindelöf 空间，\(F \subset X\)，且 \(F\) 是 \(X\) 的闭子空间。  
+对 \(F\) 的任意开覆盖 \(\mathcal{U}\)，有 \(F = \bigcup \mathcal{U}\)。  
+对任意 \(U \in \mathcal{U}\)，存在 \(X\) 中的开集 \(V_U\)，使得  
+\[
+V_U \cap F = U,
+\]
+这样 \(F \subset \bigcup \{V_U : U \in \mathcal{U}\}\)。  
+因此，
+\[
+X = \Big(\bigcup \{V_U : U \in \mathcal{U}\}\Big) \cup (X \setminus F)。
+\]
+由于 \(X\) 是 Lindelöf 空间，存在可数子集 \(\{U_i : i \in \mathbb{N}\} \subset \mathcal{U}\)，  
+使得
+\[
+X \subset \Big(\bigcup_{i \in \mathbb{N}} V_{U_i}\Big) \cup (X \setminus F)。
+\]
+于是
+\[
+F \subset \bigcup_{i \in \mathbb{N}} (V_{U_i} \cap F)
+= \bigcup_{i \in \mathbb{N}} U_i。
+\]
+因此 \(F = \bigcup_{i \in \mathbb{N}} U_i\)，即 \(F\) 是 Lindelöf 空间。
+\end{proof}
+\begin{corollary}[2.50]
+$S^2$ 不是 Lindelöf 空间。
+\end{corollary}
+
+\begin{proof}
+由于 
+\[
+F = \{(x,-x): x\in S\}
+\]
+是 $S^2$ 中的闭离散子空间，且 $|F|>\omega$，因此 $F$ 不是 Lindelöf 空间。  
+由引理 2.49 可知 $S^2$ 不是 Lindelöf 空间。
+\end{proof}
+
+
+
+需要说明的是，不可数个第一可数空间的积空间不一定是第一可数空间。
+\section{几种可数性间的相互关系}
+已知每个第二可数空间都是 Lindelöf 空间，也都是第一可数空间。
+
+\begin{theorem}[2.52]
+每个第二可数空间都是可分空间。
+\end{theorem}
+于是每个第二可数空间都是 Lindelöf 空间，也都是第一可数空间及可分空间。  
+但反之不一定成立，下面是一 些反例：
+
+\begin{itemize}
+  \item[(1)] Sorgenfrey 直线是可分的 Lindelöf 空间，但不是第二可数空间；
+  \item[(2)] $S^2$ 是可分空间但不是 Lindelöf 空间；
+  \item[(3)] 若 $X$ 是离散拓扑空间，且 $|X|>\omega$，则 $X$ 是第一可数空间，
+  但 $X$ 不是第二可数空间，也不是可分空间；
+  \item[(4)] 例 2.36 中的空间 $X$ 是 Lindelöf 空间，但不是第一可数空间，也不是可分空间；
+  \item[(5)] 如果 $X$ 是不可数集，
+  \[
+  T=\{A:A\subset X,\ |X\setminus A|<\omega\}\cup\{\varnothing\},
+  \]
+  则 $(X,T)$ 是可分空间但不是第一可数空间。
+\end{itemize}
+\newpage
+\section{习题}
+\begin{exercise}
+证明：可分空间的每一个开子空间也是可分空间。
+\end{exercise}
+
+\begin{exercise}
+证明：每个第一可数（第二可数）空间的子空间也是第一可数（第二可数）空间。
+\end{exercise}
+
+\begin{exercise}
+证明：如果空间 $X$ 的每个开子空间都是 Lindelöf 空间，则 $X$ 是遗传 Lindelöf 空间。
+\end{exercise}
+
+\begin{exercise}
+若 $X=\mathbb{R}$，$\mathbb{R}$ 的拓扑为通常拓扑，$A=\mathbb{Q}$，写出 $A$ 的边界 $\mathrm{Fr}(A)$。
+\end{exercise}
+
+\begin{exercise}
+证明：拓扑空间 $X$ 的子集的导集是闭集，当且仅当单点集 $\{x\}(x\in X)$ 的导集是闭集。
+\end{exercise}
+
+\begin{exercise}
+证明：可分空间满足可数链条件，但反之不成立。
+（提示：如果拓扑空间 $X$ 满足每个互不相交的开集构成的集族是可数的，则称 $X$ 满足可数链条件）。
+\end{exercise}
+
+\begin{exercise}
+设 $\{A_s\}_{s\in S}$ 是空间 $X$ 中的局部有限集族，证明：
+\[
+  \mathrm{Fr}\!\Bigl(\bigcup_{s\in S} A_s\Bigr)\subseteq \bigcup_{s\in S}\mathrm{Fr}(A_s).
+\]
+\end{exercise}
+
+\begin{exercise}
+设 $U$ 是拓扑空间 $X$ 中的开集，$A\subseteq X$，证明：
+\[
+  \overline{U\cap A} = U\cap \overline{A}.
+\]
+\end{exercise}
+
+\begin{exercise}
+如果 $X$ 是不可数集，$T=\{A:A\subseteq X,\,|X\setminus A|<\omega\}\cup\{\varnothing\}$，若 $A$ 是 $X$ 中的无限集，写出 $\overline{A}$ 与 $A^d$。
+\end{exercise}
+
+\begin{exercise}
+设 $X$ 是拓扑空间，$A\subseteq X$。证明：子空间 $A$ 是 Lindelöf 空间当且仅当对于 $X$ 中的任意开集族 $\mathcal{U}$，若 $A\subseteq\bigcup\mathcal{U}$，则存在可数子族 $\mathcal{U}_1\subseteq\mathcal{U}$，使得 $A\subseteq\bigcup\mathcal{U}_1$。
+\end{exercise}
+
+\begin{exercise}
+若 $n\in \mathbb{N}$，对每个 $m\leq n$，$X_m$ 都是可分空间，证明：
+\[
+  \prod_{m\leq n} X_m
+\]
+是可分空间。
+\end{exercise}
+

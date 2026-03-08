@@ -1,0 +1,822 @@
+\chapter{基础知识}
+\begin{definition}[笛卡尔积]
+设 $A$ 与 $B$ 是两个集合，集合 $\{(a,b): a\in A,\, b\in B\}$ 称为集合 $A$ 与集合 $B$ 的笛卡儿积，
+记为 $A\times B$，读作“A 叉乘 B”或“A 与 B 的积”，其中 $(a,b)$ 为一有序偶，
+称 $a$ 为 $(a,b)$ 的第一个坐标，$b$ 为 $(a,b)$ 的第二个坐标。
+称 $A$ 为 $A\times B$ 的第一坐标集，$B$ 为 $A\times B$ 的第二坐标集。
+把 $A\times B$ 称为 $A$ 与 $B$ 的积集，简称为积。
+\end{definition}
+
+\begin{definition}[1.2]
+设 $X$ 与 $Y$ 是两集合，如果 $F$ 是 $X\times Y$ 的一个子集，即 $F\subset X\times Y$，
+则称 $F$ 是从 $X$ 到 $Y$ 的关系。如果 $(x,y)\in F$，则称 $xFy$。
+\end{definition}
+
+\begin{definition}[1.3]
+若 $F$ 是从 $A$ 到 $B$ 的关系，且对每一 $a\in A$，都存在唯一的 $b\in B$，
+使得 $aFb$，则称 $F$ 是从 $A$ 到 $B$ 的映射。
+\end{definition}
+\begin{itemize}
+  \item \textbf{单射} (injective, one-to-one): 
+  \[
+    \forall a_1 \neq a_2, \ f(a_1) \neq f(a_2).
+  \]
+  等价地：
+  \[
+    \forall a_1, a_2, \ f(a_1) = f(a_2) \ \Rightarrow \ a_1 = a_2,
+  \]
+\textcolor{red}{定义域里不一样的元素，必须映射到值域里不一样的元素。}
+  \item \textbf{满射} (surjective, onto):
+  \[
+    f(A) = B.
+  \]
+  等价地：存在右逆 \( h:B\to A \)，使得
+  \[
+    f \circ h = \mathrm{id}_B.
+  \]
+\textcolor{red}{值域里的每一个元素，至少要被定义域里的某个元素映射到。 值域不留空。可以不是单射}
+  \item \textbf{双射} (bijective): 既单又满。  
+  等价地：存在双边逆
+  \[
+    f^{-1}:B \to A,
+  \]
+  且唯一。
+\end{itemize}
+\begin{dxtips}[构造无穷对无穷的满射]要点在于找到无穷的部分或者序列，然后错开构造。
+    
+\end{dxtips}
+\section{序}
+实数集 $\mathbb{R}$ 具有如下性质：
+\begin{enumerate}
+  \item 对于任意 $x \in \mathbb{R},\, y \in \mathbb{R}$，若 $x \ne y$，则有 $x<y$ 或 $y<x$；
+  \item 若 $x \in \mathbb{R},\, y \in \mathbb{R},\, z \in \mathbb{R}$，且 $x<y,\, y<z$，则一定有 $x<z$ 成立。
+\end{enumerate}
+
+把具有上述性质 (1) 与 (2) 的集合称为\textbf{线性序集}，下面是序的具体定义。
+\begin{definition}[序关系]
+在集合 $A$ 上的一个关系 $F$，如果满足如下条件，称之为序关系：
+\begin{enumerate}
+  \item 对任意 $x \in A, y \in A$，如果 $x \neq y$，则有 $xFy$ 或 $yFx$ 成立；
+  \item 对任意 $x \in A$，$xFx$ 都不成立；
+  \item 如果 $xFy, \; yFz$，则有 $xFz$。
+\end{enumerate}
+如果在集合 $A$ 上有如上的序关系，则称 $A$ 是一线性序集，称 $F$ 为 $A$ 上的线性序关系。
+\end{definition}
+序关系就是一种“排队规则”，能把集合里的所有元素排成一条线，不会有“不知道谁在前谁在后”。序关系F就是推广的不等号
+\begin{definition}[后继元successor element]
+如果 $X$ 是一集合且 $<$ 是 $X$ 上的线性序关系，且 $a < b$，用 $(a,b)$ 表示集合 
+\[
+\{x \mid a < x < b\},
+\]
+一般称 $(a,b)$ 为一区间。  
+如果 $(a,b) = \varnothing$，则称 $b$ 是 $a$ 的后继元。
+\end{definition}
+它的作用主要是区分不同类型的序集合：
+\begin{enumerate}
+  \item \textbf{离散型的序集合}
+  \begin{itemize}
+    \item 比如自然数集合 $\mathbb{N}=\{1,2,3,\dots\}$。
+    \item 在 $\mathbb{N}$ 中，$2$ 是 $1$ 的后继元，因为在 $1$ 和 $2$ 之间没有别的数。
+    \item 这种集合里，元素之间有“紧挨着”的关系。
+  \end{itemize}
+  \item \textbf{稠密型的序集合}
+  \begin{itemize}
+    \item 比如实数集合 $\mathbb{R}$。
+    \item 在任意两个不同实数之间，总能找到另一个实数（例如 $1$ 和 $2$ 之间还有 $1.5$）。
+    \item 所以在实数集合里，没有后继元。
+  \end{itemize}
+\end{enumerate}
+
+\begin{definition}[保持序的双射]
+如果 $A$ 与 $B$ 是两个集合，且分别有序关系 $<_{A}$ 与 $<_{B}$，若存在一双射 
+$f:A \to B$，使得当 $a_{1} <_{A} a_{2}$ 时有 $f(a_{1}) <_{B} f(a_{2})$，则称 $A$ 与 $B$ 有相同的序型，
+称这样的 $f$ 是 \textbf{保持序的双射}。
+\end{definition}
+这个 保持序的双射（order-preserving bijection）其实就是 序同构（order isomorphism）。它在序理论里起到的作用，和抽象代数里“群同构 / 环同构 / 向量空间同构”是一个层次的概念：\\
+	•	抽象代数里：两个群如果同构，说明它们在代数结构上“本质相同”。
+	\\•	序理论里：两个序集合如果序同构，说明它们的顺序结构完全一致。
+\begin{definition}[上确界]
+若 $A$ 是一序集，$<$ 为 $A$ 上的线性序关系，$A_0 \subset A$。
+
+\begin{enumerate}
+  \item 如果 $b \in A_0$，且对每一个 $x \in A_0$，若 $x \ne b$，都有 $x < b$，则称 $b$ 是 $A_0$ 的最大元，记为 $b = \max A_0$；
+  \item 如果存在 $b \in A$，对任意 $x \in A_0$，都有 $x < b$ 或 $x = b$，则称 $b$ 是 $A_0$ 的上界；
+  \item 如果 $b$ 是 $A_0$ 的上界，且对 $A_0$ 的每一个上界 $c$，若 $c \ne b$，都有 $b < c$，则称 $b$ 是 $A_0$ 的上确界，记为 $b = \sup A_0$。
+\end{enumerate}
+
+类似地有下界、最小元 (min) 及下确界 (inf) 的定义，这里不再重复。
+\end{definition}
+
+\begin{definition}[良序集]
+若 $A$ 是一线性序集，且对 $A$ 的任一非空子集 $B$ 都存在最小元，则称 $A$ 是良序集。
+\end{definition}
+\begin{itemize}
+  \item 保证集合有“明确的起点”（最小元）。
+  \item 为归纳法提供基础。
+  \item 在集合论中和选择公理紧密相关。
+\end{itemize}
+\begin{theorem}[自然数集良序集]
+自然数集 $\mathbb{N}$ 是一良序集。
+\end{theorem}
+
+\begin{proof}
+按良序集的定义，只需证 $\mathbb{N}$ 的每一非空子集 $A$ 都存在最小元。易知对任一 $n \in \mathbb{N}$，$\{1,2,\dots,n\}$ 的任一非空子集存在最小元。令 $A \subset \mathbb{N}, A \neq \varnothing$，取 $a \in A$，则有 $n \in \mathbb{N}$，使得 $a \in \{1,2,\dots,n\}$。因此 
+\[
+A \cap \{1,2,\dots,n\} \neq \varnothing,
+\]
+且有
+\[
+A \cap \{1,2,\dots,n\} \subset \{1,2,\dots,n\},
+\]
+这样 $A \cap \{1,2,\dots,n\}$ 的最小元即是 $A$ 的最小元。
+\end{proof}
+
+\noindent \textbf{注：} 整数集 $\mathbb{Z}$ 和实数集 $\mathbb{R}$ 都不是良序集，但它们都是线性序集。
+\begin{definition}[传递集]
+如果集合 $A$ 的每个元素都是 $A$ 的子集，则称 $A$ 是一传递集。
+\end{definition}
+
+例如：$\{\varnothing, \{\varnothing\}, \{\{\varnothing\}\}\}$ 是一传递集。
+元素都是集合。
+\begin{definition}{序数性质良好集合的名称}
+按 $\in$ 关系是良序的传递集合称为序数。对于一个序数 $\alpha$，如果存在序数 $\beta$，使得 
+\[
+\alpha = \beta \cup \{\beta\},
+\]
+则称 $\alpha$ 是 $\beta$ 的后继序数；如果序数 $\alpha$ 不是后继序数且不等于 $0$，则称 $\alpha$ 是极限序数；如果 $\beta \in \alpha$，则称 $\beta < \alpha$。
+
+例如：令 $1 = \{\varnothing\}, \quad n+1 = n \cup \{n\}, \quad \omega = \{0,1,\dots,n,\dots\}$。
+\end{definition}
+良序+传递集合
+\[
+0 = \varnothing, \quad
+1 = \{0\} = \{\varnothing\}, \quad
+2 = \{0,1\} = \{\varnothing, \{\varnothing\}\}, \quad
+3 = \{0,1,2\} = \{\varnothing, \{\varnothing\}, \{\varnothing, \{\varnothing\}\}\}.
+\]
+\begin{theorem}[良序化定理]
+如果 $A$ 是一个集合，则在 $A$ 上存在一序关系，使 $A$ 是一良序集。
+
+一般这样来用这个定理：对于给定的集合 $A$，不妨设
+\[
+A = \{ a_\alpha : \alpha \in \gamma \},
+\]
+其中 $\gamma$ 是一序数。
+\end{theorem}
+\begin{definition}[严格偏序集]
+设 $A$ 是一集合，如果 $A$ 上的关系 $\prec$ 满足下述条件，则称 $A$ 是一个\textbf{严格偏序集}：
+\begin{enumerate}
+  \item 对任意 $a \in A$，有 $a \prec a$ 不成立；
+  \item 如果 $a \prec b,\, b \prec c$，则 $a \prec c$。
+\end{enumerate}
+
+如果 $\prec$ 是 $A$ 上的严格偏序关系，且 $B \subset A$ 满足对 $B$ 中的任意两个不同元 $a,b$，都有 $a \prec b$ 或 $b \prec a$ 成立，则称 $B$ 是 $A$ 在关系 $\prec$ 下的\textbf{线性序子集}。
+\end{definition}
+\begin{theorem}[定理 1.18]
+如果 $A$ 是一集合，$\prec$ 是 $A$ 上的严格偏序关系，则在 $A$ 中存在极大的线性序子集 $B$（即不存在线性序子集 $C$，使得 $C \subset A,\, B \subset C,\, B \neq C$）。
+\end{theorem}
+
+\begin{definition}[定义 1.19]
+如果 $A$ 是一集合，$\prec$ 是 $A$ 上的严格偏序关系，$B \subset A,\, c \in A$，如果对任一 $b \in B$，都有 $b \prec c$ 或 $b = c$，则称 $c$ 是 $B$ 的上界。$A$ 中的元 $c$ 如果满足对任一 $a \in A$，$c \prec a$ 都不成立，则称 $c$ 是 $A$ 的极大元。
+\end{definition}
+
+\begin{corollary}[引理 1.20 (Zorn 引理)]
+$A$ 是严格偏序集，如果 $A$ 的每一线性序子集都有上界，则 $A$ 有极大元。
+\end{corollary}
+
+\begin{axiom}[选择公理 1.21]
+$A$ 是一集合，$B$ 是由 $A$ 的某些非空子集构成的集族，则存在一映射
+\[
+f:B \to \bigcup\{B: B \in B\},
+\]
+使得对每一 $B \in B$，都有 $f(B) \in B$。
+\end{axiom}
+
+\noindent\textbf{注：} 如果已知良序化定理，可以把集合 $A$ 先良序化，对 $A$ 中的任一非空子集 $B$，可令 $f(B)$ 为 $B$ 中的最小元。因此，如果已知良序化定理，可证明选择公理；另一方面，若已知选择公理，也可证良序化定理。
+\section{集合的势cardinality of a set}
+\begin{definition}[基数cardinal number]
+定义1.22如果一个序数 $\alpha$ 不能与比它小的序数建立双射，则称 $\alpha$ 是一个基数。
+\end{definition}
+
+因此 $n$ 与 $\omega$ 都是基数，但 $\omega+1$ 不是基数。
+
+\begin{definition}[势]
+集合 $A$ 的势是能与集合 $A$ 建立双射的最小序数，记为 $|A|$。
+\end{definition}
+
+由定义可知，$|A|$ 是一个基数。	•	定义方式一般是：
+	•	如果两个集合之间存在双射，就认为它们“等势”；
+	•	一个集合的“势”就是它与某个基数对应的“大小”。
+	•	所以“势”更多是一个 等价类的概念 —— 代表“集合大小”的性质。
+\begin{definition}[势的比较]
+设 $A, B$ 是两个集合。  
+\begin{itemize}
+  \item 如果存在一个双射 $f: A \to B$，则称 $|A| = |B|$；  
+  \item 如果存在一个单射 $f: A \to B$，则称 $|A| \leq |B|$。  
+\end{itemize}
+
+易知：若 $|A| = |B|, \; |B| = |C|$，则 $|A| = |C|$。
+\end{definition}
+\begin{theorem}[有单射就有反项满射]
+定理 1.26
+存在从集合 $A$ 到集合 $B$ 的单射等价于存在由集合 $B$ 到集合 $A$ 的满射。
+\end{theorem}
+\begin{corollary}[满射与势的比较]
+推论 1.27:
+如果存在由集合 $A$ 到集合 $B$ 的满射，则 $|B| \leq |A|$。
+\end{corollary}
+
+\begin{theorem}[双射等于等势]
+定理 1.28:
+对于集合 $A$ 与 $B$，如果存在单射 $f: A \to B$ 与单射 $g: B \to A$，则 $|A| = |B|$。
+\end{theorem}
+\begin{definition}[可数集]定义1.29:
+设 $A$ 是一个非空集合。
+
+\begin{itemize}
+  \item 如果存在一个自然数 $n \in \mathbb{N}$ 以及一个双射
+  \[
+  f: A \to \{1,2,\dots,n\},
+  \]
+  则称 $A$ 是有限集；否则称 $A$ 是无限集。
+  
+  \item 如果 $A$ 是空集，也称其为有限集。
+  
+  \item 如果存在双射
+  \[
+  f: A \to \mathbb{N},
+  \]
+  则称 $A$ 是可数无限集。
+  
+  \item 若 $A$ 是有限集或可数无限集，则称 $A$ 为可数集。
+\end{itemize}
+\end{definition}
+
+\begin{theorem}[   有限集判定]
+设 $A$ 是一个集合。若存在 $n \in \mathbb{N}$，且存在单射
+\[
+f: A \to \{1,2,\dots,n\},
+\]
+则 $A$ 是有限集。
+\end{theorem}
+\begin{corollary}
+自然数集 $\mathbb{N}$ 的任一无限子集都可与自然数集 $\mathbb{N}$ 建立双射。
+\end{corollary}
+\begin{corollary}
+设 $A$ 是一非空集合，则下述三个条件等价：
+\begin{enumerate}
+  \item $A$ 是可数集；
+  \item 存在由 $A$ 到 $\mathbb{N}$ 的单映射；
+  \item 存在由 $\mathbb{N}$ 到 $A$ 的满映射。
+\end{enumerate}
+\end{corollary}
+
+\begin{corollary}
+可数集的子集是可数集。
+\end{corollary}
+
+\begin{theorem}
+定理1.34:如果集合 $B$ 是可数集的满映射像，则 $B$ 是可数集。
+\end{theorem}
+\begin{lemma}
+引理1.35:$\mathbb{N} \times \mathbb{N}$ 是可数集。
+\end{lemma}
+
+\begin{theorem}
+定理[1.36]:
+若每个 $A_i$ 都是可数集，则可数个可数集的并
+\[
+\bigcup_{i=1}^{\infty} A_i
+\]
+也是可数集。
+\end{theorem}
+\begin{theorem}定理:[1.37]
+有限个可数集的积集是可数集。
+\end{theorem}
+\begin{theorem}[A的幂集的势大于A的势]定理:[1.39]
+设 $A$ 是一集合，则
+\[
+|\mathcal{P}(A)| > |A|.
+\]
+\end{theorem}
+\begin{theorem}[幂集的势和原集的势的关系]定理:[1.40]
+设 $A$ 是一集合，则
+\[
+|\mathcal{P}(A)| = 2^{|A|}.
+\]
+\end{theorem}
+\begin{theorem}定理:[1.41]
+可数集的所有有限子集构成的集族是可数集族。
+\end{theorem}
+\section{超极限归纳}
+用数学归纳法来证明关于自然数 $n$ 的命题 $P(n)$ 的证明过程是：
+
+\begin{enumerate}
+  \item 验证 $P(1)$ 成立；
+  \item 对于 $n \in \mathbb{N}$，已知对每个 $m \leq n$，$P(m)$ 正确，如果能够证明 $P(n+1)$ 是正确的，则最终就证明了命题 $P(n)$。
+\end{enumerate}
+
+可能有这样的疑问，为什么证明了 $P(1)$ 成立，假如 $P(n)$ 成立，且证明了 $P(n+1)$ 是正确的，就能证明该命题呢？
+
+解释如下：前面提到自然数集的每一非空子集都有最小元。假若对某个自然数 $m$，命题 $P(m)$ 不成立，则知道 $m \neq 1$，因为 $P(1)$ 是对的。这样
+\[
+A = \{ n : P(n) \text{不成立} \} \neq \varnothing, \quad A \subset \mathbb{N},
+\]
+因此 $A$ 存在最小元 $m$。则 $m \neq 1$，从而 $P(m-1)$ 成立。另一方面，由于
+\[
+P(m) = P\big( (m-1)+1 \big),
+\]
+因此由证明可知 $P(m)$ 又是成立的。矛盾。  
+因此不存在自然数 $m$ 使得 $P(m)$ 不成立。
+\begin{definition}[超极限归纳]
+    
+
+对于每一序数 $\alpha$，给定命题 $P(\alpha)$，如果 $P(0)$ 是正确的；对于序数 $\beta$，不妨设对每个比 $\beta$ 小的序数 $\gamma$，命题 $P(\gamma)$ 成立，如果证明了 $P(\beta)$ 也是正确的，则对每个序数 $\alpha$，命题 $P(\alpha)$ 都是正确的。
+\end{definition}
+
+\begin{proposition}[直积符号]
+    记号
+\[
+\prod_{i \in \mathbb{N}} X_i
+\]
+称为\textbf{直积符号}（product, big product），它与大和符号 $\sum$ 类似，只不过表示“乘积”运算。
+
+\begin{itemize}
+  \item \textbf{代数/数论：}  
+  与求和 $\sum$ 类似，但表示一系列元素的乘积：
+  \[
+  \prod_{i=1}^n a_i \;=\; a_1 a_2 \cdots a_n.
+  \]
+
+  \item \textbf{拓扑/集合论：}  
+  表示集合的笛卡尔积：
+  \[
+  \prod_{i \in I} X_i \;=\; \{ (x_i)_{i \in I} \mid x_i \in X_i \},
+  \]
+  即所有“按下标选一个元素”的向量集合。  
+
+  在上图的例子中，
+  \[
+  X = \prod_{i \in \mathbb{N}} X_i, \quad X_i = \{0,1\},
+  \]
+  表示由所有无限 $0$-$1$ 序列组成的集合。
+\end{itemize}
+\end{proposition}
+\begin{definition}[Cantor 空间]
+称
+\[
+C = \{0,1\}^{\mathbb{N}} = \prod_{i \in \mathbb{N}} \{0,1\}
+\]
+为 \textbf{Cantor 空间}，即所有无限 $0$-$1$ 序列构成的集合，赋予积拓扑（每个 $\{0,1\}$ 取离散拓扑）。
+\end{definition}
+一些元素举例：
+\[
+(0,0,0,0,\dots),\quad
+(1,0,1,0,1,0,\dots),\quad
+(0,1,1,0,0,1,\dots),\ \text{等等。}
+\]
+\begin{dxtips}[补充说明]
+\begin{itemize}
+  \item Cantor 空间与实直线上著名的三进制 Cantor 集同胚。
+  \item 基本性质：
+    \begin{enumerate}
+      \item 紧致（Tychonoff 定理保证）；
+      \item 全不连通（任意两个点可被不交开的集分开）；
+      \item 无孤立点（每个点都是极限点）；
+      \item 度量化：可赋予度量
+      \[
+      d(x,y) = 2^{-n}, \quad n = \min\{k : x_k \neq y_k\}.
+      \]
+    \end{enumerate}
+  \item 重要结论：任意紧致、可度量、零维、无孤立点的空间都与 Cantor 空间同胚。
+  \item 直观理解：$C$ 就像一棵无限二叉树，每个点对应一条从根到无限的路径。
+\end{itemize}
+\end{dxtips}
+\begin{proposition}
+集合
+\[
+X = \prod_{i \in \mathbb{N}} \{0,1\} = \{0,1\}^{\mathbb{N}}
+\]
+是不可数的。
+\end{proposition}
+
+\begin{proof}
+假设 $X$ 可数，则所有元素可以列为一个序列
+\[
+x^{(1)}, x^{(2)}, x^{(3)}, \dots,
+\]
+其中每个 $x^{(k)} = (x^{(k)}_1, x^{(k)}_2, \dots)$，且 $x^{(k)}_i \in \{0,1\}$。
+
+构造一个新的序列 $y = (y_1,y_2,y_3,\dots)$，令
+\[
+y_i =
+\begin{cases}
+0, & x^{(i)}_i = 1, \\
+1, & x^{(i)}_i = 0.
+\end{cases}
+\]
+
+这样 $y$ 与每个 $x^{(i)}$ 至少在第 $i$ 个分量上不同，因此 $y$ 不在所列序列中。  
+这与“$X$ 可数”的假设矛盾。
+
+因此，$X$ 是不可数的。
+\end{proof}
+\begin{proposition}[要想可数要不然增加维度有限，要不然升维只能加固定数字]
+设
+\[
+X=\prod_{n\in\mathbb N} B_n .
+\]
+若 $|X|\le \omega$（$X$ 可数），则必有下列结论：
+\begin{enumerate}[(a)]
+  \item 若存在 $m$ 使 $B_m=\varnothing$，则 $X=\varnothing$；
+  \item 若对一切 $n$ 均有 $B_n\ne\varnothing$，则
+  \[
+  \exists\, m\in\mathbb N\ \text{使得}\ 
+  \begin{cases}
+    |B_n|=1, & n>m,\\
+    |B_n|\le \omega, & n\le m.
+  \end{cases}
+  \]
+  换言之：除有限多个指标外，所有因子都是单元素集；而那有限多个非常量因子至多可数。
+\end{enumerate}
+反之，若满足 (a) 或 (b) 的条件，则 $|X|\le \omega$。
+\end{proposition}
+\begin{example}
+若 $|X|=\gamma$，则 $|\mathcal{P}(X)|=2^\gamma$。
+
+\textbf{证明：}  
+由于 $|X|=\gamma$，可取双射 $f:X \to \gamma$，于是 $|\mathcal{P}(X)|=|\mathcal{P}(\gamma)|$。
+
+令 $Y=\prod_{\alpha<\gamma}\{0,1\}$，则 $|Y|=2^\gamma$。  
+构造映射 $g:\mathcal{P}(\gamma)\to Y$，对 $B\subseteq\gamma$ 定义
+\[
+g(B)(\alpha) =
+\begin{cases}
+1, & \alpha \in B,\\
+0, & \alpha \notin B,
+\end{cases}
+\]
+显然 $g$ 为双射。故
+\[
+|\mathcal{P}(\gamma)| = |Y| = 2^\gamma.
+\]
+\end{example}
+\begin{example}
+对于实数集 $\mathbb{R}$，证明 $|\mathbb{R}| = 2^{\aleph_0}$。
+
+\textbf{证明：}  
+由前面的例子 1 可知 $|\mathbb{R}| \geq 2^{\aleph_0}$。  
+下面证明 $|\mathbb{R}| \leq 2^{\aleph_0}$。  
+
+由例 4 可知 $|\mathcal{P}(\mathbb{Q})| = 2^{\aleph_0}$。因此只需证明
+\[
+|\mathbb{R}| \leq |\mathcal{P}(\mathbb{Q})|.
+\]
+
+对任意 $x \in \mathbb{R}$ 及 $n \in \mathbb{N}$，取有理数 $q_n(x) \in (x - \tfrac{1}{n}, \, x)$。  
+令
+\[
+A_x = \{q_n(x) : n \in \mathbb{N}\}, \quad A_x \subseteq \mathbb{Q}.
+\]
+
+定义映射
+\[
+f : \mathbb{R} \to \mathcal{P}(\mathbb{Q}), \quad f(x) = A_x.
+\]
+
+显然 $f$ 是单射，于是
+\[
+|\mathbb{R}| \leq |\mathcal{P}(\mathbb{Q})| = 2^{\aleph_0}.
+\]
+
+综上可得：
+\[
+|\mathbb{R}| = 2^{\aleph_0}.
+\]
+\end{example}
+\section{第一章习题}
+
+\title{第一周作业}
+\begin{homework}[1.1]
+建立从集合 $A$ 到集合 $B$ 的双映射：
+\begin{enumerate}
+  \item $A = \omega, \quad B = \omega + 1$；
+  \item $A = \mathbb{N}, \quad B = \{-1,-2,0\} \cup \mathbb{N}$；
+  \item $A = \mathbb{N}, \quad B = \mathbb{Z}$；
+  \item $A = (0,2), \quad B = [0,2)$；
+  \item $A = (0,2), \quad B = (5,10)$；
+  
+  \begin{dxtips}[当函数做一个定义域一个值域]
+      这里 $a=0, \; b=2, \; c=5, \; d=10$，代入得：
+\[
+f(x) = \frac{10-5}{2-0}(x-0) + 5 = \tfrac{5}{2}x + 5.
+\]
+  \end{dxtips}
+  \item $A = \mathbb{R}, \quad B = \left(-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right)$；
+  \item $A = \mathbb{R}, \quad B = (0,2)$。
+\end{enumerate}
+\end{homework}
+
+\begin{solution}
+(1) \; \omega = \{0\} \cup \mathbb{N}, \; 因此 \; B = \omega + 1 = \omega \cup \{\omega\} = \{0,1,\dots,\omega\}.  
+
+令映射 $f:\omega \to \omega+1$ 满足：  
+\[
+f(x) =
+\begin{cases}
+\omega, & x=0, \\
+x-1, & x \in \omega \setminus \{0\}.
+\end{cases}
+\]
+这样 $f:\omega \to \omega+1$ 是双射。
+
+\medskip
+
+(2) 令 $f:\mathbb{N} \to \{-1,-2,0\}\cup \mathbb{N}$ 满足：  
+\[
+f(x) = x-3, \quad x \in \mathbb{N}.
+\]
+这样 $f:\mathbb{N} \to \{-1,-2,0\}\cup \mathbb{N}$ 是双射。
+
+\medskip
+
+(3) 令 $f:\mathbb{N} \to \mathbb{Z}$ 满足：  
+\[
+f(x) =
+\begin{cases}
+\dfrac{x}{2}, & x=2n, \\
+0, & x=1, \\
+-\dfrac{x-1}{2}, & x=2n+1.
+\end{cases}
+\]
+这样 $f:\mathbb{N}\to\mathbb{Z}$ 是双射。
+\end{solution}
+
+\begin{solution}
+(4) 令 $f : (0,2) \to [0,2]$ 满足：
+\[
+f(x) =
+\begin{cases}
+2, & x = 1, \\
+0, & x = \tfrac{1}{2}, \\
+\dfrac{1}{n-2}, & x = \tfrac{1}{n}, \; n>2, \\
+x, & x \in (0,2)\setminus \bigl\{\tfrac{1}{n}: n \in \mathbb{N}\bigr\}.
+\end{cases}
+\]
+这样 $f : (0,2) \to [0,2]$ 是双射。
+\end{solution}
+
+\begin{solution}
+(5) 令 $f : (0,2) \to (5,10)$ 满足
+\[
+f(x) = \tfrac{5}{2}x + 5, \quad x \in (0,2).
+\]
+由于
+\[
+f'(x) = \tfrac{5}{2} > 0, \quad x \in (0,2),
+\]
+所以 $f$ 是严格单调的，从而 $f$ 是单射。另一方面，
+\[
+\lim_{x \to 0^+} f(x) = 5, \qquad \lim_{x \to 2^-} f(x) = 10,
+\]
+因此 $f : (0,2) \to (5,10)$ 是满射。  
+综上，$f : (0,2) \to (5,10)$ 是双射。
+
+\vspace{1em}
+
+(6) 令 $f : \mathbb{R} \to \left(-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right)$ 满足
+\[
+f(x) = \arctan x, \quad x \in \mathbb{R}.
+\]
+由于
+\[
+f'(x) = \frac{1}{1+x^2} > 0, \quad x \in \mathbb{R},
+\]
+所以 $f$ 在 $\mathbb{R}$ 上严格单调递增，从而 $f$ 是单射。又因为
+\[
+\lim_{x \to +\infty} f(x) = \tfrac{\pi}{2}, \qquad
+\lim_{x \to -\infty} f(x) = -\tfrac{\pi}{2},
+\]
+所以 $f$ 是满射。  
+因此 $f : \mathbb{R} \to \left(-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right)$ 是双射。
+\end{solution}
+
+\begin{homework}[1.2]
+建立从集合 $A$ 到集合 $B$ 的满映射：
+\begin{enumerate}
+  \item $A = \{5,8,9,2,6\}, \quad B = \{a,b,c,d\}$；
+  \item $A = \{a,b,e\}, \quad B = \{a,b,c\}$；
+  \item $A = \mathbb{Z}, \quad B = \{0,1\}$。
+\end{enumerate}
+\end{homework}
+
+\begin{homework}[1.3]
+证明 $|\mathbb{R}| = |(-\tfrac{\pi}{2}, \tfrac{\pi}{2})|$。
+\end{homework}
+
+\begin{dxtips}
+    还得证明是单调的双射要求一一对应
+\end{dxtips}
+
+\begin{homework}[1.4]
+证明 $|(a,b)| = |[c,d]|$。
+\end{homework}
+
+\begin{homework}[1.5]
+如果 $A = \mathbb{N}, \quad B = \{-1,-2,0\} \cup \mathbb{N}$，证明 $|A| = |B|$。
+\end{homework}
+
+\begin{homework}[1.6]
+证明 $|\mathbb{R}| = |[-\tfrac{\pi}{2}, \pi]|$。
+\end{homework}
+
+\begin{homework}[1.7]
+能否把一堆苹果分成堆？在什么情况下可以？如何分？
+\end{homework}
+
+\begin{homework}[1.8]
+现在有 $4$ 堆苹果，有 $4$ 个人，每人分 $1$ 个苹果，怎样分？
+\end{homework}
+
+\begin{homework}[1.9]
+现在有一堆苹果，如果这堆苹果是可数无限个，每个自然数代表一个人，
+要使每个人选一个苹果，同时每个人选的都不一样，如何选？
+\end{homework}
+
+\begin{homework}[1.10]
+证明可数集的满映射像是可数集。
+\end{homework}
+
+\begin{homework}[1.11]
+证明 $|[0,1]| = |(0,1]|$。
+\end{homework}
+
+\begin{homework}[1.12]
+证明 $|(1,2)| = |\mathbb{R}|$。
+\end{homework}
+
+\begin{homework}[1.13]
+证明整数集 $\mathbb{Z}$ 是可数集。
+\end{homework}
+
+\begin{homework}[1.14]
+证明有理数集 $\mathbb{Q}$ 是可数集。
+\end{homework}
+
+\begin{proof}
+已知整数集 $\mathbb{Z}$ 与自然数集 $\mathbb{N}$ 都是可数集，因此它们的笛卡尔积
+\[
+\mathbb{Z}\times\mathbb{N}_{\ge 1}
+\]
+也是可数集。
+
+定义映射
+\[
+\pi:\mathbb{Z}\times\mathbb{N}_{\ge 1}\longrightarrow \mathbb{Q}, \qquad 
+\pi(a,b)=\frac{a}{b}.
+\]
+对任意 $q\in\mathbb{Q}$，存在整数 $a\in\mathbb{Z}$ 与正整数 $b\in\mathbb{N}_{\ge1}$ 使得 $q=a/b$，因此 $\pi$ 是满射。
+
+于是有理数集 $\mathbb{Q}$ 是可数集 $\mathbb{Z}\times\mathbb{N}_{\ge 1}$ 的像。由于可数集的像至多是可数的，故 $\mathbb{Q}$ 可数。
+
+\medskip
+为了避免分数的重复表示（如 $2/4=1/2$），可以考虑集合
+\[
+S=\{(a,b)\in\mathbb{Z}\times\mathbb{N}_{\ge1}:\gcd(a,b)=1\},
+\]
+并约定负号统一放在分子上（或分母上）。此时 $\pi|_{S}:S\to\mathbb{Q}$ 就成为一个双射，从而更加严格地说明了 $\mathbb{Q}$ 可数。
+\end{proof}
+
+\begin{dxtips}
+    把有理数都转化为互素的两个数的分数形式。
+\end{dxtips}
+
+\begin{homework}[1.15]
+证明 $B=\{(a,b): a\in \mathbb{Q}, b\in \mathbb{Q}\}$ 是可数集，其中 $\mathbb{Q}$ 是有理数集，$(a,b)$ 是开区间。
+\end{homework}
+
+\textcolor{blue}{数对用<>表示用于区分}
+
+\begin{homework}[1.16]
+证明 $B=\{(a,b)\times (c,d): a<b<c<d,\, a\in \mathbb{Q}, b\in \mathbb{Q}, c\in \mathbb{Q}, d\in \mathbb{Q}\}$ 是可数集，其中 $\mathbb{Q}$ 是有理数集，$(a,b)$ 是开区间。
+\end{homework}
+
+\begin{homework}[1.17]
+写出下列集合 $X$ 的幂集 $P(X)$，并写出 $|X|$ 与 $|P(X)|$：
+\begin{enumerate}[(1)]
+  \item $X = \varnothing$；
+  \item $X = \{\varnothing, \{\varnothing\}\}$；
+  \item $X = \{a,b,c\}$。
+\end{enumerate}
+\end{homework}
+
+\begin{solution}
+\begin{itemize}
+  \item $\emptyset$：空集，本身是一个集合，但里面没有任何元素。
+  \item $\{\emptyset\}$：这是一个单元素集合，它的唯一元素就是空集。
+\end{itemize}(1) 当 $X = \varnothing$ 时，$|X| = 0$，  
+\[
+P(X) = \{\varnothing\}, \quad |P(X)| = 1.
+\]
+
+(2) 当 $X = \{\varnothing, \{\varnothing\}\}$ 时，$|X| = 2$，  
+\[
+P(X) = \big\{ \varnothing,\ \{\varnothing\},\ \{\{\varnothing\}\},\ \{\varnothing, \{\varnothing\}\} \big\}, 
+\quad |P(X)| = 4.
+\]
+
+(3) 当 $X = \{a,b,c\}$ 时，$|X| = 3$，  
+\[
+P(X) = \big\{ \varnothing,\ \{a\},\ \{b\},\ \{c\},\ \{a,b\},\ \{a,c\},\ \{b,c\},\ \{a,b,c\} \big\}, 
+\quad |P(X)| = 8.
+\]
+\end{solution}
+
+\begin{homework}[1.18]
+下列集合是可数集还是不可数集？若是可数集，说明是否有限集。
+\begin{enumerate}[(1)]
+  \item $X = \mathbb{Z}$；
+  \item $X = \mathbb{R}$；
+  \item $X = \mathbb{R}\cap \mathbb{Q}$；
+  \item $X = \mathbb{Q}\times \mathbb{Z}$；
+  \item $X = \prod_{i\in\mathbb{N}} X_i, \ X_i=\{0,1\},\ i\in\mathbb{N}$；
+  \item $X = \prod_{i=1}^{10} X_i, \ X_i=\{0,1\},\ i\leq 10$；
+  \item $X = \prod_{i\in\mathbb{N}} X_i, \ X_i=\{0,1\},\ i\leq 10时,\ X_i=\{0,1\},\ i\geq 11时,\ X_i=\{1\}$；
+  \item $X = \prod_{i\in\mathbb{N}} X_i, \ X_i=\{0\},\ i\in\mathbb{N}$；
+  \item $X = \prod_{i=1}^{10} X_i, \ X_i=\mathbb{Q},\ i\leq 10$；
+  \item $X = \prod_{i=1}^{\infty} X_i, \ X_i=\mathbb{Q},\ i\leq 10$。
+\end{enumerate}
+\end{homework}
+
+\begin{solution}
+\begin{enumerate}[(1)]
+  \item $X=\mathbb Z$：\textbf{可数}（可数无限）。
+  \item $X=\mathbb R$：\textbf{不可数}。
+  \item $X=\mathbb R\cap\mathbb Q=\mathbb Q$：\textbf{可数}（可数无限）。
+  \item $X=\mathbb Q\times\mathbb Z$：\textbf{可数}（可数无限），因为可数集的笛卡尔积（有限个）仍可数。
+  \item $X=\prod_{i\in\mathbb N}X_i,\ X_i=\{0,1\}$：即$\{0,1\}^{\mathbb N}$，\textbf{不可数}（0-1无限序列，Cantor 对角线）。
+  \item $X=\prod_{i=1}^{10}X_i,\ X_i=\{0,1\}$：\textbf{可数且有限}，$|X|=2^{10}$。
+  \item $X=\prod_{i\in\mathbb N}X_i,\ X_i=\{0,1\}$ $(i\le 10)$，$X_i=\{1\}$ $(i\ge 11)$：只有前10个坐标自由，\textbf{可数且有限}，$|X|=2^{10}$。
+  \item $X=\prod_{i\in\mathbb N}X_i,\ X_i=\{0\}$：\textbf{可数且有限}，单元素集合。
+  \item $X=\prod_{i=1}^{10}X_i,\ X_i=\mathbb Q$：\textbf{可数}（可数无限），有限个可数集的积仍可数。
+  \item $X=\prod_{i=1}^{\infty}X_i,\ X_i=\mathbb Q$：即$\mathbb Q^{\mathbb N}$，\textbf{不可数}（可数集的可数次笛卡尔积一般不可数，例如 $\mathbb N^{\mathbb N}$ 已不可数）。
+\end{enumerate}
+\end{solution}
+
+在集合论和实分析里，符号 $I$ 一般指的是 \emph{无理数集}（irrationals）。  
+也就是说：
+\[
+I = \mathbb{R} \setminus \mathbb{Q}.
+\]
+
+\begin{homework}[1.19]
+证明 $|(0,1)| = |(0,1)\cap I|$。
+后面是前面的子集势小于等于(0,1)
+\end{homework}
+
+\begin{proof}
+记 $A=(0,1)$，$B=(0,1)\cap I$。显然 $B\subseteq A$，因此
+\[
+|B| \le |A|.
+\]
+
+接下来构造一个单射 $f:A\to B$，从而推出 $|A|\le |B|$。
+
+首先，因 $\mathbb{Q}$ 是可数的，所以 $A\cap \mathbb{Q}$ 也是可数集。设
+\[
+A\cap \mathbb{Q} = \{q_1,q_2,q_3,\dots\}.
+\]
+另一方面，$B$ 是不可数的，因此我们可以从 $B$ 中选出一列互不相同的无理数
+\[
+r_1,r_2,r_3,\dots \in B.
+\]
+
+定义映射 $f:A\to B$ 为
+\[
+f(x) =
+\begin{cases}
+x, & x\in B \quad (\text{即 $x$ 为无理数}), \\[6pt]
+r_n, & x=q_n \quad (\text{即 $x$ 为第 $n$ 个有理数}).
+\end{cases}
+\]
+
+检查 $f$ 的单射性：  
+- 若 $x,y\in B$ 且 $x\neq y$，则 $f(x)=x\neq y=f(y)$；  
+- 若 $x=q_m,y=q_n$ 且 $m\neq n$，则 $f(x)=r_m\neq r_n=f(y)$；  
+- 若 $x\in B, y=q_n$，则 $f(x)=x$ 是某个无理数，而 $f(y)=r_n$ 是预先挑选的一列无理数，与 $x$ 不重合。  
+
+因此 $f$ 为单射。于是 $|A|\le |B|$。
+
+综上有
+\[
+|B|\le |A|\quad\text{且}\quad |A|\le |B|,
+\]
+由康托–施罗德–伯恩斯坦定理可知
+\[
+|(0,1)| = |(0,1)\cap I|.
+\]
+\end{proof}
+
+\begin{homework}[1.20]
+证明 $|\mathbb{R}| = |(0,1)\cap I|$。
+\end{homework}

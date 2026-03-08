@@ -1,0 +1,223 @@
+\chapter{联通空间与道路联通空间}
+\begin{enumerate}
+    \item connected space：空间不能表示为两个不交的非空开集的并。
+	\item path-connected space：空间中任意两点可以由一条**连续路径（continuous path）**连接。
+
+\end{enumerate}
+\section{联通空间与联通集的基本性质}
+\begin{definition}[联通空间的定义]
+设 $X$ 是拓扑空间，如果 $X$ 不能表示为两个非空不相交开集的并，则称 $X$ 为连通空间。
+\end{definition}
+\begin{dxtips}
+    不连通就是能写成两个不相交开集的并。
+\end{dxtips}
+\begin{example}
+设 $X=\{0,1\}$，拓扑为 $T=\{\varnothing, X, \{0\}, \{1\}\}$。  
+则 $X$ 可以表示为两个非空不相交开集的并，即  
+\[
+X = A \cup B,\qquad A=\{0\},\ B=\{1\}.
+\]
+\end{example}
+
+\begin{example}
+设 $X=\{a,b,c\}$，拓扑为 $T=\{\varnothing, X, \{a\}, \{a,c\}\}$。  
+则 $X$ 不能表示为两个非空不相交开集的并。
+\end{example}
+\begin{theorem}[不是连通的等价条件]
+设 $X$ 是拓扑空间，则下述条件等价：
+\begin{itemize}
+    \item[(1)] $X$ 不是连通空间；
+    \item[(2)] $X$ 可表示为两个非空不相交闭集的并；
+    \item[(3)] $X$ 存在非空的真子集是既开又闭的；
+    \item[(4)] 存在由 $X$ 到离散空间 $\{0,1\}$ 的连续满映射。
+\end{itemize}
+\end{theorem}
+\begin{definition}[连通集的定义]
+设 $X$ 是拓扑空间，$A\subset X$。如果不存在这样的两集合 $C$ 与 $D$，使得
+\[
+C\cap A\neq\varnothing,\quad D\cap A\neq\varnothing,\quad A=C\cup D,
+\quad C\cap \overline{D}=D\cap \overline{C}=\varnothing,
+\]
+则称 $A$ 是 $X$ 中的连通集。（换句话说，如果 $A$ 作为子空间是连通的，则称 $A$ 是 $X$ 中的连通集），简称为连通集。
+\end{definition}
+\begin{note}
+    这里的 $C,D$ 确实没要求是开集，它们只要求“互相和对方的闭包不碰”，这叫\emph{分离}（separated）。
+\end{note}
+
+\begin{theorem}[若一族连通集有非空公共交，则其并集必连通]
+如果对每一 $\alpha\in\Lambda$，$P_\alpha$ 是 $X$ 的连通集，且 
+\[
+\bigcap_{\alpha\in\Lambda} P_\alpha \neq \varnothing,
+\]
+则 
+\[
+\bigcup_{\alpha\in\Lambda} P_\alpha
+\]
+是 $X$ 中的连通集。
+\end{theorem}
+\begin{theorem}[所有与某个公共连通集相交的一族连通集的并仍然是连通的]
+设 $\{P_\alpha : \alpha \in \Lambda\}$ 是 $X$ 中非空连通集构成的集族，且 $0 \in \Lambda$。  
+若对每个 $\alpha \in \Lambda$，都有 $P_\alpha \cap P_0 \neq \varnothing$，  
+则 $\bigcup_{\alpha \in \Lambda} P_\alpha$ 是 $X$ 中的连通集。
+\end{theorem}
+\begin{theorem}[连通集和他的闭包之间的集合都是连通的]
+设 $A \subset X$, 若 $A$ 是连通集，且 $A \subset B \subset \overline{A}$，则 $B$ 也是连通集。
+\end{theorem}
+\begin{theorem}[连通空间+连续映射=连通]
+连通空间的连续映射像是连通空间。
+\end{theorem}
+\section{实数直线上的连通集}
+\begin{proposition}[通常拓扑的结论]
+在实数直线 $\mathbb{R}$ 上取通常拓扑，则有以下结论成立：
+\begin{itemize}
+    \item[(1)] $\mathbb{R}$ 是连通空间。
+    \item[(2)] $\mathbb{R}$ 上的任一开区间 $(a,b)$ 是连通集。
+    \item[(3)] 若 $a,b\in\mathbb{R}$ 且 $a<b$，则区间 $[a,b],\ (a,b),\ [a,b),\ (a,b]$ 均为连通集。
+    \item[(4)] 若 $a\in\mathbb{R}$，则区间 $(-\infty,a)$ 和 $(a,+\infty)$ 都是连通集。
+    \item[(5)] 若 $a\in\mathbb{R}$，则区间 $(-\infty,a]$ 和 $[a,+\infty)$ 都是连通集。
+\end{itemize}
+\end{proposition}
+\begin{theorem}[实数直线上连通集]
+在实数直线 $\mathbb{R}$ 上取通常拓扑，若 $A\subset \mathbb{R}$，则 $A$ 是 $\mathbb{R}$ 上的连通集当且仅当 $A$ 是单点集或者 $A$ 是区间。
+\end{theorem}
+\section{连通空间的积空间及连通性质}
+\begin{lemma}[ 连通+有限积还是连通]
+若 $X_1, X_2, \dots, X_n$ 均为连通空间，则其有限积
+\[
+X_1 \times X_2 \times \cdots \times X_n
+\]
+也是连通空间。
+\end{lemma}
+\begin{theorem}[无限积也是连通的]
+连通空间的积空间是连通空间。
+\end{theorem}
+\begin{theorem}[介值定理-连通+连续映射，用于确保介值点存在]\label{thm:IVT-connected}
+设 $X$ 是连通空间，$f:X\to \mathbb{R}$ 是连续映射。若 $a,b\in f(X)$ 且 $a<b$，则对任意 $c\in(a,b)$，都存在 $x\in X$ 使得
+\[
+f(x)=c.
+\]
+\end{theorem}
+\begin{lemma}[一串首尾相接、两两相邻有交的连通集的有限并仍然是连通集]
+设 $X$ 是拓扑空间，$n\in\mathbb{N}$，$A_i$ 是 $X$ 中的连通集（$i\le n$）。若 
+\[
+A_i\cap A_{i+1}\ne\varnothing,\qquad i+1\le n,
+\]
+则 
+\[
+\bigcup_{i=1}^n A_i
+\]
+是连通集。
+\end{lemma}
+\begin{note}
+    不连通就是先找到两个集合并起来是整个空间，然后再想办法证明他们是开集。
+\end{note}
+
+结论 4.22\quad $\mathbb{R}^2\setminus\{(0,0)\}\text{ 仍是连通集。}$
+结论 4.23\quad $\mathbb{R}^2 \text{ 与 } \mathbb{R} \text{ 不同胚。}$
+\section{道路连通空间}
+\begin{definition}[道路]
+$X$ 是拓扑空间，如果对任意 $a,b\in X$，都存在连续映射 
+\[
+f:[0,1]\to X,
+\]
+使得 $f(0)=a,\ f(1)=b$，则称 $X$ 是道路连通空间，称 $f([0,1])$ 是连接两点 $a$ 与 $b$ 的道路，称 $a$ 是该道路的起点，$b$ 是该道路的终点。
+\end{definition}
+
+例如实数直线 $\mathbb{R}$ 是道路连通空间，这是因为对于 $x\in \mathbb{R},\ y\in \mathbb{R}$，不妨设 $x<y$，令  
+\[
+f:[0,1]\to \mathbb{R},\qquad f(t)=x+t(y-x),
+\]
+则 $f$ 连续且 $f(0)=x,\ f(1)=y$。
+
+由于每个道路都是区间 $[0,1]$ 的连续映射像，因此，每个道路都是空间 $X$ 中的连通集。
+\begin{note}{凸集、道路连通、连通（简明对比）}{convex-path}
+\textbf{凸集：}
+\[
+C\subset X \text{ 凸 }\iff 
+\forall x,y\in C,\ \forall t\in[0,1],\ 
+tx+(1-t)y\in C.
+\]
+
+\textbf{道路连通：}
+\[
+X \text{ 道路连通 }\iff 
+\forall x,y\in X,\ \exists f:[0,1]\to X\ (\text{连续}),\ f(0)=x,\ f(1)=y.
+\]
+
+\textbf{连通：}
+\[
+X \text{ 连通 }\iff 
+X\neq U\cup V\ (\text{不交非空开集}).
+\]
+
+\textbf{关系：}
+\[
+\text{凸集 }\Longrightarrow \text{道路连通 }\Longrightarrow \text{连通}.
+\]
+\end{note}
+\begin{theorem}[道路连通-连通]
+如果空间 $X$ 是道路连通空间，则 $X$ 是连通空间。
+\end{theorem}
+\begin{theorem}[达成连续满映射像集也是连通空间]
+如果空间 $X$ 是道路连通空间，且 $f:X\to Y$ 是连续的满映射，则 $Y$ 也是道路连通空间。
+\end{theorem}
+\begin{theorem}[连通空间的积空间是连通的]
+若 $X_i$ 是道路连通空间，$i\in\{1,2\}$，则积空间 $X_1\times X_2$ 也是道路连通空间。
+\end{theorem}
+\begin{theorem}[有限个道路连通空间的笛卡儿积仍然是道路连通空间]
+$n\in\mathbb{N}$，对每个 $i\le n$，若 $X_i$ 是道路连通空间，则积空间 $\prod_{i\le n} X_i$ 也是道路连通空间。
+\end{theorem}
+
+这样可知 $\mathbb{R}^2$ 与 $\mathbb{R}^3$ 都是道路连通空间。
+
+对于空间 $X$ 的两条道路，若第二条道路的起点与第一条道路的终点重合，则它们仍是一条道路。为此，需要如下的引理。
+
+\begin{lemma}[闭集上相容的连续映射可拼成整体连续映射]
+设 $X=A\cup B$ 且 $A$ 与 $B$ 都是 $X$ 中的闭集，$f:A\to Y$ 与 $g:B\to Y$ 都是连续映射。若对任意 $x\in A\cap B$ 都有 $f(x)=g(x)$，则 $f$ 和 $g$ 可组成连续映射 $h:X\to Y$，使得当 $x\in A$ 时，有 $h(x)=f(x)$；当 $x\in B$ 时，有 $h(x)=g(x)$。
+\end{lemma}
+\begin{example}
+取 $X=\mathbb{R}$，$A=(-\infty,0]$，$B=[0,+\infty)$，则 $A,B$ 都是 $X$ 中的闭集且
+$A\cup B=X$。令
+\[
+f:A\to\mathbb{R},\quad f(x)=x^2+x;
+\qquad
+g:B\to\mathbb{R},\quad g(x)=x^2+x.
+\]
+显然 $f,g$ 在各自定义域上连续，并且在交集 $A\cap B=\{0\}$ 上有
+\[
+f(0)=0^2+0=0=g(0),
+\]
+即 $f|_{A\cap B}=g|_{A\cap B}$。
+
+由引理可知，存在连续映射 $h:\mathbb{R}\to\mathbb{R}$，使得
+\[
+h(x)=
+\begin{cases}
+f(x), & x\in A,\\[0.3em]
+g(x), & x\in B,
+\end{cases}
+\]
+这里就是 $h(x)=x^2+x$ 在整个 $\mathbb{R}$ 上的连续延拓。
+\end{example}
+\begin{theorem}[若两条连续路径首尾相接，则可以把它们拼成一条新的连续路径。]
+若 $f:[0,1]\to X$ 连续，$g:[0,1]\to X$ 连续，且 $f(1)=g(0)$，则存在连续映射
+\[
+h:[0,1]\to X
+\]
+使得 $h(0)=f(0)$，$h(1)=g(1)$ 且
+\[
+h([0,1])=f([0,1])\cup g([0,1]).
+\]
+\end{theorem}
+\begin{example}
+下面说明并非每个连通空间都是道路连通空间。
+
+在例 4.19 中的 $A\cup B$ 是连通空间，但它不是道路连通空间。
+
+令 $f(x)=\sin\!\left(\frac{1}{x}\right)$，$x\in\left(0,\frac{2}{\pi}\right]$，
+\[
+A=\{(x,f(x)) : x\in(0,\tfrac{2}{\pi}]\},\qquad 
+B=\{(0,y): -1\le y\le 1\},
+\]
+则 $A\cup B$ 是 $\mathbb{R}^2$ 中的连通集，但它作为子空间不是道路连通空间。
+\end{example}

@@ -1,0 +1,2618 @@
+\chapter{完整的作业}
+\subsection*{第一章习题}
+
+
+\begin{homework}[1.1]
+建立从集合 $A$ 到集合 $B$ 的双映射：
+\begin{enumerate}
+  \item $A = \omega, \quad B = \omega + 1$；
+  \item $A = \mathbb{N}, \quad B = \{-1,-2,0\} \cup \mathbb{N}$；
+  \item $A = \mathbb{N}, \quad B = \mathbb{Z}$；
+  \item $A = (0,2), \quad B = [0,2)$；
+  \item $A = (0,2), \quad B = (5,10)$；
+  
+  \begin{dxtips}[当函数做一个定义域一个值域]
+      这里 $a=0, \; b=2, \; c=5, \; d=10$，代入得：
+\[
+f(x) = \frac{10-5}{2-0}(x-0) + 5 = \tfrac{5}{2}x + 5.
+\]
+  \end{dxtips}
+  \item $A = \mathbb{R}, \quad B = \left(-\tfrac{\pi}{2}, \tfrac{\pi}{2}\right)$；
+  \item $A = \mathbb{R}, \quad B = (0,2)$。
+\end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{itemize}
+  \item[(1)] $A=\omega,\ B=\omega+1$。记 $\omega=\{0,1,2,\dots\}$，$\omega+1=\omega\cup\{\omega\}$。
+  定义
+  \[
+  f:\omega\to\omega+1,\qquad
+  f(x)=
+  \begin{cases}
+  \omega, & x=0,\\
+  x-1, & x\ge 1.
+  \end{cases}
+  \]
+  则 $f$ 为双射。
+
+  \item[(2)] $A=\mathbb N,\ B=\{-1,-2,0\}\cup\mathbb N$（取 $\mathbb N=\{1,2,3,\dots\}$）。
+  定义
+  \[
+  f:\mathbb N\to B,\qquad f(x)=x-3.
+  \]
+  显然 $f$ 为双射。
+
+  \item[(3)] $A=\mathbb N,\ B=\mathbb Z$（取 $\mathbb N=\{0,1,2,\dots\}$）。
+  定义
+  \[
+  f(0)=0,\qquad f(2n-1)=n,\qquad f(2n)=-n\quad(n\ge1).
+  \]
+  则 $f:\mathbb N\to\mathbb Z$ 为双射。
+
+  \item[(4)] $A=(0,2),\ B=[0,2)$。
+  取 $S=\{1/n:\ n\ge1\}\subset(0,1)$，定义
+  \[
+  f(x)=
+  \begin{cases}
+  0, & x=1,\\[4pt]
+  \dfrac{1}{n+1}, & x=\dfrac{1}{n}\ (n\ge1),\\[6pt]
+  x, & x\in(0,2)\setminus\bigl(S\cup\{1\}\bigr).
+  \end{cases}
+  \]
+  则 $f$ 的像为 $[0,2)$，且一一对应，故为双射。
+
+  \item[(5)] $A=(0,2),\ B=(5,10)$。
+  定义
+  \[
+  f(x)=\tfrac{5}{2}x+5,\quad x\in(0,2).
+  \]
+  $f$ 严格单调，且
+  \(
+  \lim_{x\to0^+}f(x)=5,\ 
+  \lim_{x\to2^-}f(x)=10
+  \)，
+  故为双射。
+
+  \item[(6)] $A=\mathbb R,\ B=\bigl(-\tfrac{\pi}{2},\tfrac{\pi}{2}\bigr)$。
+  定义
+  \[
+  f(x)=\arctan x.
+  \]
+  $\arctan$ 在 $\mathbb R$ 上严格单调，且值域为
+  $\bigl(-\tfrac{\pi}{2},\tfrac{\pi}{2}\bigr)$，
+  故为双射。
+
+  \item[(7)] $A=\mathbb R,\ B=(0,2)$。
+  定义
+  \[
+  f(x)=1+\frac{2}{\pi}\arctan x.
+  \]
+  则 $f(\mathbb R)=(0,2)$，且 $f$ 一一对应，故为双射。
+\end{itemize}
+\end{solution}
+
+
+\begin{homework}[1.2]
+建立从集合 $A$ 到集合 $B$ 的满映射：
+\begin{enumerate}
+  \item $A = \{5,8,9,2,6\}, \quad B = \{a,b,c,d\}$；
+  \item $A = \{a,b,e\}, \quad B = \{a,b,c\}$；
+  \item $A = \mathbb{Z}, \quad B = \{0,1\}$。
+\end{enumerate}
+\end{homework}
+\begin{solution}
+分别构造满映射。
+
+\begin{itemize}
+  \item[(1)] $A=\{5,8,9,2,6\},\ B=\{a,b,c,d\}$。  
+  定义映射 $f:A\to B$：
+  \[
+  f(5)=a,\quad f(8)=b,\quad f(9)=c,\quad f(2)=d,\quad f(6)=a.
+  \]
+  则
+  \(
+  f(A)=\{a,b,c,d\}=B
+  \)，
+  因此 $f$ 是满映射。
+
+  \item[(2)] $A=\{a,b,e\},\ B=\{a,b,c\}$。  
+  定义映射 $f:A\to B$：
+  \[
+  f(a)=a,\quad f(b)=b,\quad f(e)=c.
+  \]
+  显然 $f(A)=B$，故 $f$ 是满映射。
+
+  \item[(3)] $A=\mathbb Z,\ B=\{0,1\}$。  
+  定义映射 $f:\mathbb Z\to B$：
+  \[
+  f(n)=
+  \begin{cases}
+  0, & n \text{ 为偶数},\\
+  1, & n \text{ 为奇数}.
+  \end{cases}
+  \]
+  则 $f(\mathbb Z)=\{0,1\}$，因此 $f$ 是满映射。
+\end{itemize}
+\end{solution}
+\begin{homework}[1.3]
+证明 $|\mathbb{R}| = |(-\tfrac{\pi}{2}, \tfrac{\pi}{2})|$。
+\end{homework}
+\begin{solution}
+定义映射
+\[
+f:\mathbb R\longrightarrow \Bigl(-\frac{\pi}{2},\frac{\pi}{2}\Bigr),\qquad f(x)=\arctan x.
+\]
+
+由于
+\[
+f'(x)=\frac{1}{1+x^2}>0\quad(x\in\mathbb R),
+\]
+故 $f$ 在 $\mathbb R$ 上严格单调递增，从而为单射。又因为
+\[
+\lim_{x\to+\infty}\arctan x=\frac{\pi}{2},\qquad
+\lim_{x\to-\infty}\arctan x=-\frac{\pi}{2},
+\]
+并且 $f$ 连续且严格单调，所以其值域恰为
+\(
+\bigl(-\frac{\pi}{2},\frac{\pi}{2}\bigr)
+\)，从而 $f$ 为满射。
+
+因此 $f$ 是从 $\mathbb R$ 到 $\bigl(-\frac{\pi}{2},\frac{\pi}{2}\bigr)$ 的双射，故
+\[
+|\mathbb R|=\Bigl|-\frac{\pi}{2},\frac{\pi}{2}\Bigr|.
+\]
+\end{solution}
+\begin{dxtips}
+    还得证明是单调的双射要求一一对应
+\end{dxtips}
+
+
+
+
+
+
+
+
+\begin{homework}[1.14]
+证明有理数集 $\mathbb{Q}$ 是可数集。
+\end{homework}
+
+\begin{proof}
+已知整数集 $\mathbb{Z}$ 与自然数集 $\mathbb{N}$ 都是可数集，因此它们的笛卡尔积
+\[
+\mathbb{Z}\times\mathbb{N}_{\ge 1}
+\]
+也是可数集。
+
+定义映射
+\[
+\pi:\mathbb{Z}\times\mathbb{N}_{\ge 1}\longrightarrow \mathbb{Q}, \qquad 
+\pi(a,b)=\frac{a}{b}.
+\]
+对任意 $q\in\mathbb{Q}$，存在整数 $a\in\mathbb{Z}$ 与正整数 $b\in\mathbb{N}_{\ge1}$ 使得 $q=a/b$，因此 $\pi$ 是满射。
+
+于是有理数集 $\mathbb{Q}$ 是可数集 $\mathbb{Z}\times\mathbb{N}_{\ge 1}$ 的像。由于可数集的像至多是可数的，故 $\mathbb{Q}$ 可数。
+
+\medskip
+为了避免分数的重复表示（如 $2/4=1/2$），可以考虑集合
+\[
+S=\{(a,b)\in\mathbb{Z}\times\mathbb{N}_{\ge1}:\gcd(a,b)=1\},
+\]
+并约定负号统一放在分子上（或分母上）。此时 $\pi|_{S}:S\to\mathbb{Q}$ 就成为一个双射，从而更加严格地说明了 $\mathbb{Q}$ 可数。
+\end{proof}
+
+\begin{dxtips}
+    把有理数都转化为互素的两个数的分数形式。
+\end{dxtips}
+
+\begin{homework}[1.15]
+证明 $B=\{(a,b): a\in \mathbb{Q}, b\in \mathbb{Q}\}$ 是可数集，其中 $\mathbb{Q}$ 是有理数集，$(a,b)$ 是开区间。
+\end{homework}
+\begin{solution}
+这里
+\[
+B=\{(a,b):a\in\mathbb Q,\ b\in\mathbb Q\}=\mathbb Q\times\mathbb Q.
+\]
+已知 $\mathbb Q$ 是可数集，故存在满射（甚至双射）$g:\mathbb N\to\mathbb Q$。
+
+定义映射
+\[
+F:\mathbb N\times\mathbb N\longrightarrow \mathbb Q\times\mathbb Q,\qquad
+F(m,n)=\bigl(g(m),g(n)\bigr).
+\]
+显然 $F$ 是满射：任取 $(a,b)\in\mathbb Q\times\mathbb Q$，可取 $m,n\in\mathbb N$ 使
+$g(m)=a,\ g(n)=b$，于是 $F(m,n)=(a,b)$。
+
+又因为 $\mathbb N\times\mathbb N$ 是可数集，满射像至多可数，
+故 $\mathbb Q\times\mathbb Q$ 是可数集，即 $B$ 可数。
+\end{solution}
+\textcolor{blue}{数对用<>表示用于区分}
+
+\begin{homework}[1.16]
+证明 $B=\{(a,b)\times (c,d): a<b<c<d,\, a\in \mathbb{Q}, b\in \mathbb{Q}, c\in \mathbb{Q}, d\in \mathbb{Q}\}$ 是可数集，其中 $\mathbb{Q}$ 是有理数集，$(a,b)$ 是开区间。
+\end{homework}
+\begin{solution}
+设
+\[
+S=\{(a,b,c,d)\in\mathbb Q^4:\ a<b<c<d\}.
+\]
+由于 $\mathbb Q$ 可数，有限次笛卡尔积 $\mathbb Q^4$ 也可数，从而其子集 $S$ 至多可数。
+
+定义映射
+\[
+\Phi:S\longrightarrow B,\qquad \Phi(a,b,c,d)=(a,b)\times(c,d).
+\]
+对任意 $(a,b)\times(c,d)\in B$，其端点 $(a,b,c,d)\in S$，并且
+\(
+\Phi(a,b,c,d)=(a,b)\times(c,d)
+\)，
+故 $\Phi$ 为满射。
+
+可数集的满射像至多可数，因此 $B=\Phi(S)$ 为可数集。
+\end{solution}
+\begin{homework}[1.17]
+写出下列集合 $X$ 的幂集 $P(X)$，并写出 $|X|$ 与 $|P(X)|$：
+\begin{enumerate}[(1)]
+  \item $X = \varnothing$；
+  \item $X = \{\varnothing, \{\varnothing\}\}$；
+  \item $X = \{a,b,c\}$。
+\end{enumerate}
+\end{homework}
+
+\begin{solution}
+\begin{itemize}
+  \item $\emptyset$：空集，本身是一个集合，但里面没有任何元素。
+  \item $\{\emptyset\}$：这是一个单元素集合，它的唯一元素就是空集。
+\end{itemize}(1) 当 $X = \varnothing$ 时，$|X| = 0$，  
+\[
+P(X) = \{\varnothing\}, \quad |P(X)| = 1.
+\]
+
+(2) 当 $X = \{\varnothing, \{\varnothing\}\}$ 时，$|X| = 2$，  
+\[
+P(X) = \big\{ \varnothing,\ \{\varnothing\},\ \{\{\varnothing\}\},\ \{\varnothing, \{\varnothing\}\} \big\}, 
+\quad |P(X)| = 4.
+\]
+
+(3) 当 $X = \{a,b,c\}$ 时，$|X| = 3$，  
+\[
+P(X) = \big\{ \varnothing,\ \{a\},\ \{b\},\ \{c\},\ \{a,b\},\ \{a,c\},\ \{b,c\},\ \{a,b,c\} \big\}, 
+\quad |P(X)| = 8.
+\]
+\end{solution}
+
+\begin{homework}[1.18]
+下列集合是可数集还是不可数集？若是可数集，说明是否有限集。
+\begin{enumerate}[(1)]
+  \item $X = \mathbb{Z}$；
+  \item $X = \mathbb{R}$；
+  \item $X = \mathbb{R}\cap \mathbb{Q}$；
+  \item $X = \mathbb{Q}\times \mathbb{Z}$；
+  \item $X = \prod_{i\in\mathbb{N}} X_i, \ X_i=\{0,1\},\ i\in\mathbb{N}$；
+  \item $X = \prod_{i=1}^{10} X_i, \ X_i=\{0,1\},\ i\leq 10$；
+  \item $X = \prod_{i\in\mathbb{N}} X_i, \ X_i=\{0,1\},\ i\leq 10时,\ X_i=\{0,1\},\ i\geq 11时,\ X_i=\{1\}$；
+  \item $X = \prod_{i\in\mathbb{N}} X_i, \ X_i=\{0\},\ i\in\mathbb{N}$；
+  \item $X = \prod_{i=1}^{10} X_i, \ X_i=\mathbb{Q},\ i\leq 10$；
+  \item $X = \prod_{i=1}^{\infty} X_i, \ X_i=\mathbb{Q},\ i\leq 10$。
+\end{enumerate}
+\end{homework}
+
+\begin{solution}
+\begin{enumerate}[(1)]
+  \item $X=\mathbb Z$：\textbf{可数}（可数无限）。
+  \item $X=\mathbb R$：\textbf{不可数}。
+  \item $X=\mathbb R\cap\mathbb Q=\mathbb Q$：\textbf{可数}（可数无限）。
+  \item $X=\mathbb Q\times\mathbb Z$：\textbf{可数}（可数无限），因为可数集的笛卡尔积（有限个）仍可数。
+  \item $X=\prod_{i\in\mathbb N}X_i,\ X_i=\{0,1\}$：即$\{0,1\}^{\mathbb N}$，\textbf{不可数}（0-1无限序列，Cantor 对角线）。
+  \item $X=\prod_{i=1}^{10}X_i,\ X_i=\{0,1\}$：\textbf{可数且有限}，$|X|=2^{10}$。
+  \item $X=\prod_{i\in\mathbb N}X_i,\ X_i=\{0,1\}$ $(i\le 10)$，$X_i=\{1\}$ $(i\ge 11)$：只有前10个坐标自由，\textbf{可数且有限}，$|X|=2^{10}$。
+  \item $X=\prod_{i\in\mathbb N}X_i,\ X_i=\{0\}$：\textbf{可数且有限}，单元素集合。
+  \item $X=\prod_{i=1}^{10}X_i,\ X_i=\mathbb Q$：\textbf{可数}（可数无限），有限个可数集的积仍可数。
+  \item $X=\prod_{i=1}^{\infty}X_i,\ X_i=\mathbb Q$：即$\mathbb Q^{\mathbb N}$，\textbf{不可数}（可数集的可数次笛卡尔积一般不可数，例如 $\mathbb N^{\mathbb N}$ 已不可数）。
+\end{enumerate}
+\end{solution}
+
+在集合论和实分析里，符号 $I$ 一般指的是 \emph{无理数集}（irrationals）。  
+也就是说：
+\[
+I = \mathbb{R} \setminus \mathbb{Q}.
+\]
+
+\begin{homework}[1.19]
+证明 $|(0,1)| = |(0,1)\cap I|$。
+后面是前面的子集势小于等于(0,1)
+\end{homework}
+
+\begin{proof}
+记 $A=(0,1)$，$B=(0,1)\cap I$。显然 $B\subseteq A$，因此
+\[
+|B| \le |A|.
+\]
+
+接下来构造一个单射 $f:A\to B$，从而推出 $|A|\le |B|$。
+
+首先，因 $\mathbb{Q}$ 是可数的，所以 $A\cap \mathbb{Q}$ 也是可数集。设
+\[
+A\cap \mathbb{Q} = \{q_1,q_2,q_3,\dots\}.
+\]
+另一方面，$B$ 是不可数的，因此我们可以从 $B$ 中选出一列互不相同的无理数
+\[
+r_1,r_2,r_3,\dots \in B.
+\]
+
+定义映射 $f:A\to B$ 为
+\[
+f(x) =
+\begin{cases}
+x, & x\in B \quad (\text{即 $x$ 为无理数}), \\[6pt]
+r_n, & x=q_n \quad (\text{即 $x$ 为第 $n$ 个有理数}).
+\end{cases}
+\]
+
+检查 $f$ 的单射性：  
+- 若 $x,y\in B$ 且 $x\neq y$，则 $f(x)=x\neq y=f(y)$；  
+- 若 $x=q_m,y=q_n$ 且 $m\neq n$，则 $f(x)=r_m\neq r_n=f(y)$；  
+- 若 $x\in B, y=q_n$，则 $f(x)=x$ 是某个无理数，而 $f(y)=r_n$ 是预先挑选的一列无理数，与 $x$ 不重合。  
+
+因此 $f$ 为单射。于是 $|A|\le |B|$。
+
+综上有
+\[
+|B|\le |A|\quad\text{且}\quad |A|\le |B|,
+\]
+由康托–施罗德–伯恩斯坦定理可知
+\[
+|(0,1)| = |(0,1)\cap I|.
+\]
+\end{proof}
+
+\chapter{2}
+\subsection{第三周作业}
+\begin{exercise}
+设 $\mathbb{R}$ 是实数直线，拓扑是通常拓扑，判断下列集合 $A$ 是否是开集：  
+\begin{enumerate}
+  \item $A = (1,2);$
+  \item $A = (1,2) \cup \{3\};$
+  \item $A = \mathbb{Q}, \quad \mathbb{Q}$ 为有理数集;
+  \item $A = [3,4);$
+  \item $A = \mathbb{R}\setminus\left\{\tfrac{1}{n} : n\in\mathbb{N}\right\};$
+  \item $A = \mathbb{R}\setminus\mathbb{Z};$
+  \item $A = (1,3]\cup(2,4).$
+\end{enumerate}
+\end{exercise}
+\begin{enumerate}
+  \item $A=(1,2)$  
+  $\quad$ 开集。
+
+  \item $A=(1,2)\cup\{3\}$  
+  $\quad$ 不是开集。
+
+  \item $A=\mathbb{Q}$（有理数集）  
+  $\quad$ 不是开集。
+
+  \item $A=[3,4)$  
+  $\quad$ 不是开集。
+
+  \item $A=\mathbb{R}\setminus\{\tfrac{1}{n}:n\in\mathbb{N}\}$  
+  $\quad$ 开集。
+
+  \item $A=\mathbb{R}\setminus\mathbb{Z}$  
+  $\quad$ 开集。
+
+  \item $A=(1,3]\cup(2,4)=(1,4)$  
+  $\quad$ 开集。
+\end{enumerate}
+\begin{exercise}
+证明：空间 $X$ 是离散空间当且仅当 $X$ 中的每个单点集是开集。
+\end{exercise}
+
+\begin{exercise}
+设 $\mathbb{R}$ 是实数直线，拓扑是通常拓扑，判断下列集合 $A$ 是否是闭集：  
+\begin{enumerate}
+  \item $A = [1,2];$
+  \item $A = [1,2]\cup\{3\};$
+  \item $A = \mathbb{Q}, \quad \mathbb{Q}$ 为有理数集;
+  \item $A = [3,4];$
+  \item $A = \mathbb{R}\setminus\left\{\tfrac{1}{n}:n\in\mathbb{N}\right\};$
+  \item $A = \mathbb{Z};$
+  \item $A = [1,3)\cup(2,4];$
+  \item $A = \left\{\tfrac{1}{n}:n\in\mathbb{N}\right\}.$
+\end{enumerate}
+\end{exercise}
+% 练习 2.13 答案
+\begin{proof}[解答 2.13]
+($\Rightarrow$) 若 $X$ 为离散空间，则 $X$ 的任意子集都是开集，特别地每个单点集 $\{x\}$ 都是开集。\\
+($\Leftarrow$) 反之，若对每个 $x\in X$，单点集 $\{x\}$ 都是开集，则任意 $A\subseteq X$ 可写成
+\[
+A=\bigcup_{x\in A}\{x\},
+\]
+为开集的并，故 $A$ 也是开集。于是 $X$ 的任意子集皆开，$X$ 为离散空间。
+\end{proof}
+
+% 练习 2.14 答案（实数直线的通常拓扑）
+\begin{solution}[解答 2.14]
+判断下列 $A\subset\mathbb{R}$ 是否为闭集（并给出理由）：
+\begin{enumerate}
+  \item $A=[1,2]$：\emph{闭集}。其补集 $(-\infty,1)\cup(2,\infty)$ 为开集。
+  \item $A=[1,2]\cup\{3\}$：\emph{闭集}。闭集的并仍是闭集；$\{3\}$ 在 $\mathbb{R}$ 中闭。
+  \item $A=\mathbb{Q}$：\emph{非闭集}。$\overline{\mathbb{Q}}=\mathbb{R}$，如 $\sqrt2$ 是 $\mathbb{Q}$ 的极限点但 $\sqrt2\notin\mathbb{Q}$。
+  \item $A=[3,4]$：\emph{闭集}。同（1）。
+  \item $A=\mathbb{R}\setminus\{1/n:n\in\mathbb{N}\}$：\emph{非闭集}。每个 $1/n$ 都是 $A$ 的极限点（任意邻域均含 $A$ 中点），但 $1/n\notin A$，故 $A$ 不含其全部极限点，非闭。
+  \item $A=\mathbb{Z}$：\emph{闭集}。对任意 $x\notin\mathbb{Z}$，可取足够小的开区间不与 $\mathbb{Z}$ 相交，故 $\mathbb{R}\setminus\mathbb{Z}$ 开，从而 $\mathbb{Z}$ 闭。
+  \item $A=[1,3)\cup(2,4]$：\emph{闭集}。该并等于 $[1,4]$（两段区间重叠覆盖），为闭集。
+  \item $A=\{1/n:n\in\mathbb{N}\}$：\emph{非闭集}。$0$ 是其极限点且 $0\notin A$，故非闭；其闭包为 $A\cup\{0\}$。
+\end{enumerate}
+
+\end{solution}
+
+
+
+
+
+\section{第四周作业}
+\begin{homework}[(4)]
+\begin{enumerate}
+  \item 证明 $\mathbb{R}$ 在通常拓扑下是第二可数空间；
+  \item 证明：如果 $X$ 是不可数的离散拓扑空间，则 $X$ 不是 Lindel\"of 空间；
+  \item 如果 $X$ 是离散拓扑空间，则 $\mathcal{B}=\{\{x\}:x\in X\}$ 是空间 $X$ 的一个基。
+\end{enumerate}
+\end{homework}
+
+\begin{solution}
+(1)\;
+取
+\[
+\mathcal{B}=\{(a,b):a,b\in\mathbb{Q},\,a<b\}.
+\]
+则 $\mathcal{B}$ 可数（因为 $\mathbb{Q}\times\mathbb{Q}$ 可数，而满足 $a<b$ 的子集仍可数）。
+任取通常拓扑下的开集 $U\subset\mathbb{R}$ 与点 $x\in U$，则存在 $\varepsilon>0$ 使
+\[
+(x-\varepsilon,x+\varepsilon)\subset U.
+\]
+由有理数在 $\mathbb{R}$ 中稠密，可取 $a,b\in\mathbb{Q}$ 使
+\[
+x-\varepsilon<a<x<b<x+\varepsilon,
+\]
+从而 $x\in(a,b)\subset(x-\varepsilon,x+\varepsilon)\subset U$，并且 $(a,b)\in\mathcal{B}$。
+因此 $\mathcal{B}$ 是 $\mathbb{R}$ 的一个可数基，故 $\mathbb{R}$ 在通常拓扑下为第二可数空间。
+\end{solution}
+
+\begin{solution}
+(2)\;
+设 $X$ 为不可数离散拓扑空间。考虑开覆盖
+\[
+\mathcal{U}=\bigl\{\{x\}:x\in X\bigr\}.
+\]
+由于 $X$ 离散，任意子集开，故每个单点集 $\{x\}$ 都是开集，从而 $\mathcal{U}$ 为 $X$ 的开覆盖。
+
+若 $\mathcal{U}_0\subset\mathcal{U}$ 是任意可数子族，则
+\[
+\bigcup \mathcal{U}_0
+\]
+至多是可数集（可数个单点集的并至多可数），因而不可能等于不可数的 $X$。
+所以该开覆盖不存在可数子覆盖，即 $X$ 不是 Lindel\"of 空间。
+\end{solution}
+
+\begin{solution}
+(3)\;
+设 $X$ 为离散拓扑空间，令
+\[
+\mathcal{B}=\bigl\{\{x\}:x\in X\bigr\}.
+\]
+首先，对任意 $x\in X$，有 $x\in\{x\}\in\mathcal{B}$，故 $\mathcal{B}$ 覆盖 $X$。
+其次，若 $B_1=\{x\},\,B_2=\{y\}\in\mathcal{B}$ 且 $z\in B_1\cap B_2$，
+则必有 $x=y=z$，从而
+\[
+B_1\cap B_2=\{z\}\in\mathcal{B},
+\]
+并满足 $z\in\{z\}\subset B_1\cap B_2$。
+因此 $\mathcal{B}$ 满足基的判据，故 $\mathcal{B}$ 是 $X$ 的一个基。
+\end{solution}
+\begin{exercise}
+(5) 证明：$\mathbb{R}$ 在通常拓扑下是第一可数空间。
+\end{exercise}
+\begin{dxsolution}
+
+要证 $(\mathbb{R},\mathcal{T}_{\mathrm{std}})$ 为第一可数空间，只需对每个 $x\in\mathbb{R}$ 构造一组可数的邻域基。
+
+对任意 $x\in\mathbb{R}$，令
+\[
+\mathcal{B}_x=\left\{\,\bigl(x-\tfrac{1}{n},\,x+\tfrac{1}{n}\bigr):\, n\in\mathbb{N}\,\right\}.
+\]
+显然 $\mathcal{B}_x$ 是可数的，且每个区间都是 $x$ 的邻域。下证 $\mathcal{B}_x$ 为 $x$ 的邻域基：  
+任取 $x$ 的邻域 $U$，因 $U$ 为开集且 $x\in U$，存在 $\varepsilon>0$ 使得 $(x-\varepsilon,x+\varepsilon)\subset U$。取 $n\in\mathbb{N}$ 满足 $1/n<\varepsilon$，则
+\[
+\bigl(x-\tfrac{1}{n},\,x+\tfrac{1}{n}\bigr)\subset (x-\varepsilon,x+\varepsilon)\subset U.
+\]
+故对任意邻域 $U$，都存在 $B\in\mathcal{B}_x$ 使得 $B\subset U$。于是 $\mathcal{B}_x$ 是 $x$ 的可数邻域基。
+
+由于 $x\in\mathbb{R}$ 任意，$\mathbb{R}$ 在通常拓扑下为第一可数空间。
+
+\tcblower
+$B_x$是可数的因为他的两边都是正负n分之一，n是属于自然数的，自然数是可数的。开领域就是靠 x 属于开集 U 再 U 中还能找到开集 V 包含 x 来刻画的。因为直接找V不好找所以通过构造最简单最经典的开领域基再找。邻域基要求不管多小的包含x的邻域，领域基里面都能选出一个集合包含在这个邻域里面。邻域是
+\end{dxsolution}
+\section{第五周作业}
+\begin{exercise}
+6.设 $\mathbb{R}$ 是实数直线，拓扑为通常拓扑。对 $A \subset \mathbb{R}$，分别写出其闭包 $\overline{A}$、导集 $A^{d}$、内点集 $A^{\circ}$。
+
+\begin{enumerate}[(1)]
+  \item $A = (1,2)$；
+  \item $A = (1,2)\cup\{3\}$；
+  \item $A = \mathbb{Q}$，其中 $\mathbb{Q}$ 为有理数集；
+  \item $A = [3,4)$；
+  \item $A = \left\{\tfrac{1}{n} : n\in\mathbb{N}\right\}$；
+  \item $A = \{\pi\}$；
+  \item $A = \mathbb{Z}$；
+  \item $A = \{2 - \tfrac{1}{n} : n\in\mathbb{N}\}$；
+  \item $A = \mathbb{I}$，其中 $\mathbb{I}$ 为无理数集。
+\end{enumerate}
+
+\end{exercise}
+\begin{dxtips}有理数与无理数在 $\mathbb{R}$ 中处处稠密，任一点邻域都有它们的点，故闭包与导集均为 $\mathbb{R}$。
+\end{dxtips}
+\begin{solution}
+在 $\mathbb{R}$ 的通常拓扑下，各项的闭包 $\overline{A}$、导集 $A^{d}$（全体聚点）与内点集 $A^\circ$ 如下：
+\begin{enumerate}[(1)]
+\item $A=(1,2)$：\quad
+$\overline{A}=[1,2],\quad A^{d}=[1,2],\quad A^\circ=(1,2)$.
+
+\item $A=(1,2)\cup\{3\}$：\quad
+$\overline{A}=[1,2]\cup\{3\},\quad A^{d}=[1,2],\quad A^\circ=(1,2)$.
+
+\item $A=\mathbb{Q}$：\quad
+$\overline{A}=\mathbb{R},\quad A^{d}=\mathbb{R},\quad A^\circ=\varnothing$.
+
+\item $A=[3,4)$：\quad
+$\overline{A}=[3,4],\quad A^{d}=[3,4]4这个点也是去心邻域总有A的点,\quad A^\circ=(3,4)$.
+
+\item $A=\left\{\tfrac{1}{n}:n\in\mathbb{N}\right\}$：\quad
+$\overline{A}=A\cup\{0\},\quad A^{d}=\{0\},\quad A^\circ=\varnothing$.
+
+\item $A=\{\pi\}$：\quad
+$\overline{A}=\{\pi\},\quad A^{d}=\varnothing,\quad A^\circ=\varnothing$.
+
+\item $A=\mathbb{Z}$：\quad
+$\overline{A}=\mathbb{Z},\quad A^{d}=\varnothing,\quad A^\circ=\varnothing$.
+
+\item $A=\{\,2-\tfrac{1}{n}:n\in\mathbb{N}\,\}$：\quad
+$\overline{A}=A\cup\{2\},\quad A^{d}=\{2\},\quad A^\circ=\varnothing$.
+
+\item $A=\mathbb{I}$（无理数集）：\quad
+$\overline{A}=\mathbb{R},\quad A^{d}=\mathbb{R},\quad A^\circ=\varnothing$.
+\end{enumerate}
+\end{solution}
+\begin{exercise}
+7.设 $\mathbb{R}^2$ 是平面上的实数直线空间，拓扑为通常拓扑。对 $A \subset \mathbb{R}^2$，分别写出其闭包 $\overline{A}$、导集 $A^{d}$、内点集 $A^{\circ}$。
+
+\begin{enumerate}[(1)]
+  \item $A = (1,2)\times(3,4)$；
+  \item $A = (1,2)\times\{3\}$；
+  \item $A = \mathbb{Q}\times\mathbb{Q}$，其中 $\mathbb{Q}$ 为有理数集；
+  \item $A = \{(x,y): x^{2}+y^{2}<4\}$；
+  \item $A = \{(x,y): x+y=4\}$；
+  \item $A = \mathbb{R}\times\{0\}$；
+  \item $A = \mathbb{R}^{2}\setminus\{(x,y):x^{2}+y^{2}=4\}$。
+\end{enumerate}
+
+\end{exercise}
+\begin{solution}
+在 $\mathbb{R}^2$ 的通常拓扑下，闭包 $\overline{A}$、导集 $A^{d}$（聚点集）与内部 $A^\circ$ 如下：
+
+\begin{enumerate}[(1)]
+  \item $A=(1,2)\times(3,4)$：开矩形  
+  \[
+  \overline{A}=[1,2]\times[3,4],\qquad A^{d}=[1,2]\times[3,4],\qquad A^\circ=A.
+  \]
+
+  \item $A=(1,2)\times\{3\}$：一条水平开线段  
+  \[
+  \overline{A}=[1,2]\times\{3\},\qquad A^{d}=[1,2]\times\{3\},\qquad A^\circ=\varnothing.
+  \]空集是因为开球，线上面的部分总是有不在里面的
+
+  \item $A=\mathbb{Q}\times\mathbb{Q}$：$\mathbb{R}^2$ 中稠密且无内点  
+  \[
+  \overline{A}=\mathbb{R}^2,\qquad A^{d}=\mathbb{R}^2,\qquad A^\circ=\varnothing.
+  \]
+
+  \item $A=\{(x,y):x^2+y^2<4\}$：半径 $2$ 的开圆盘  
+  \[
+  \overline{A}=\{x^2+y^2\le 4\},\qquad A^{d}=\{x^2+y^2\le 4\},\qquad A^\circ=A.
+  \]
+
+  \item $A=\{(x,y):x+y=4\}$：一直线（闭且无内点）  
+  \[
+  \overline{A}=A,\qquad A^{d}=A,\qquad A^\circ=\varnothing.
+  \]
+
+  \item $A=\mathbb{R}\times\{0\}$：$x$ 轴  
+  \[
+  \overline{A}=A,\qquad A^{d}=A,\qquad A^\circ=\varnothing.
+  \]
+
+  \item $A=\mathbb{R}^2\setminus\{(x,y):x^2+y^2=4\}$：去掉半径 $2$ 的圆（开集，边界为该圆）  
+  \[
+  \overline{A}=\mathbb{R}^2,\qquad A^{d}=\mathbb{R}^2,\qquad A^\circ=A.
+  \]
+\end{enumerate}
+\end{solution}
+\begin{homework}
+[14]证明R在通常拓扑写是可分的
+\end{homework}
+\begin{dxtips}[证明可分就要找到稠密可数子集，稠密需要通过补集等于全集证明]
+    证明可分就要证明有可数稠密子集，可数稠密的闭包就是全集，通过他来找。然后只要证明任意x属于全集都有a属于稠密子集使得a和x的距离无限。这题关键就是设计x-q小于$\epsilon$，nx<m+1是为了两边都除n以后整个区间长度小于n分之一
+\end{dxtips}
+\begin{solution}
+要证 $\mathbb{R}$ 在通常拓扑下可分，只需构造一个可数稠密子集。取
+\[
+D=\mathbb{Q}.
+\]
+显然 $\mathbb{Q}$ 可数。下证 $\overline{\mathbb{Q}}=\mathbb{R}$。
+
+任取 $x\in\mathbb{R}$ 与 $\varepsilon>0$。由阿基米德性质可取 $n\in\mathbb{N}$ 使得 $1/n<\varepsilon$，再取唯一的 $m\in\mathbb{Z}$ 使
+\[
+m \le nx < m+1.
+\]
+令 $q=\frac{m}{n}\in\mathbb{Q}$，则
+\[
+|x-q|=\left|x-\frac{m}{n}\right|<\frac{1}{n}<\varepsilon.
+\]
+因此任意 $x\in\mathbb{R}$ 的任意邻域都含有有理数，故 $\overline{\mathbb{Q}}=\mathbb{R}$。
+
+综上，$\mathbb{Q}$ 是 $\mathbb{R}$ 的可数稠密子集，$\mathbb{R}$ 可分。
+\end{solution}
+\section{第六周作业}
+\begin{dxtips}[ 判断是什么空间的标准]
+三个常见的可数性性质及其关系如下：
+
+\begin{itemize}
+  \item \textbf{第一可数空间}：每个点都有一个\textbf{可数邻域基}。
+  \item \textbf{第二可数空间}：存在一个\textbf{可数拓扑基}（整个空间的基）。
+  \item \textbf{Lindelöf 空间}：任意开覆盖都有一个\textbf{可数子覆盖}。
+\end{itemize}
+
+它们之间的推导关系为：
+
+\begin{itemize}
+  \item $\text{第二可数} \;\Rightarrow\; \text{第一可数}$；
+  \item $\text{第二可数} \;\Rightarrow\; \text{Lindelöf}$；
+  \item 但反向一般不成立：
+    \begin{itemize}
+      \item 第一可数 $\not\Rightarrow$ 第二可数；
+      \item Lindelöf $\not\Rightarrow$ 第二可数；
+      \item 第一可数 $\not\Rightarrow$ Lindelöf。
+    \end{itemize}
+\end{itemize}
+
+因此：
+\[
+\boxed{
+\text{第二可数空间是三者中最强的性质，}
+\quad
+\text{它同时蕴含第一可数与 Lindelöf。}
+}
+\]
+
+\end{dxtips}
+\begin{homework}[第 7 题]
+设 $\mathbb{R}$ 是实数直线，拓扑为通常拓扑。  
+$A \subset \mathbb{R}^2$，分别写出 $\overline{A}$ 与 $A^\circ$。
+
+\begin{enumerate}[(1)]
+  \item $A = (1,2) \times (3,4);$
+  \item $A = (1,2) \times \{3\};$
+  \item $A = \mathbb{Q} \times \mathbb{Q}$，其中 $\mathbb{Q}$ 是有理数集；
+  \item $A = \{(x,y): x^2 + y^2 < 4\};$
+  \item $A = \{(x,y): x + y = 4\};$
+  \item $A = \mathbb{R} \times \{0\};$
+  \item $A = \mathbb{R}^2 \setminus \{(x,y): x^2 + y^2 = 4\}.$
+\end{enumerate}
+\end{homework}
+\begin{solution}
+在 $\mathbb{R}^2$ 的通常拓扑下，各集合的闭包 $\overline{A}$ 与内部 $A^\circ$ 为：
+
+\begin{enumerate}[(1)]
+  \item $A=(1,2)\times(3,4)$：
+  \[
+  \overline{A}=[1,2]\times[3,4],\qquad A^\circ=(1,2)\times(3,4).
+  \]
+
+  \item $A=(1,2)\times\{3\}$：
+  \[
+  \overline{A}=[1,2]\times\{3\},\qquad A^\circ=\varnothing.
+  \]
+
+  \item $A=\mathbb{Q}\times\mathbb{Q}$：
+  \[
+  \overline{A}=\mathbb{R}^2,\qquad A^\circ=\varnothing.
+  \]
+
+  \item $A=\{(x,y):x^2+y^2<4\}$：
+  \[
+  \overline{A}=\{(x,y):x^2+y^2\le 4\},\qquad A^\circ=\{(x,y):x^2+y^2<4\}.
+  \]
+
+  \item $A=\{(x,y):x+y=4\}$：
+  \[
+  \overline{A}=\{(x,y):x+y=4\},\qquad A^\circ=\varnothing.
+  \]
+
+  \item $A=\mathbb{R}\times\{0\}$：
+  \[
+  \overline{A}=\mathbb{R}\times\{0\},\qquad A^\circ=\varnothing.
+  \]
+
+  \item $A=\mathbb{R}^2\setminus\{(x,y):x^2+y^2=4\}$：
+  \[
+  \overline{A}=\mathbb{R}^2,\qquad A^\circ=\mathbb{R}^2\setminus\{(x,y):x^2+y^2=4\}.
+  \]
+\end{enumerate}
+\end{solution}
+\begin{homework}[第 8 题]
+证明 $\mathbb{R}^2$ 是可分空间。
+\begin{solution}
+取
+\[
+D:=\mathbb{Q}\times\mathbb{Q}
+=\{(r,s): r\in\mathbb{Q},\ s\in\mathbb{Q}\}.
+\]
+
+\textbf{(1) 可数性.}
+因 $\mathbb{Q}$ 可数，设其枚举为 $\{q_k\}_{k\in\mathbb{N}}$。
+用配对函数（如 Cantor 配对）或按对角线枚举 $(i,j)\in\mathbb{N}^2$，
+得到
+\[
+\mathbb{Q}\times\mathbb{Q}
+=\{(q_i,q_j):(i,j)\in\mathbb{N}^2\}
+\]
+可数。
+
+\textbf{(2) 稠密性.}
+任取 $(x,y)\in\mathbb{R}^2$ 与 $\varepsilon>0$。
+由于有理数在实数中稠密，可取
+\[
+r\in\mathbb{Q}\cap\bigl(x-\tfrac{\varepsilon}{2},\,x+\tfrac{\varepsilon}{2}\bigr),\qquad
+s\in\mathbb{Q}\cap\bigl(y-\tfrac{\varepsilon}{2},\,y+\tfrac{\varepsilon}{2}\bigr).
+\]
+则 $(r,s)\in D$ 且
+\[
+\textcolor{purple}{\|(r,s)-(x,y)\|}
+=\sqrt{(r-x)^2+(s-y)^2}
+\le \sqrt{\bigl(\tfrac{\varepsilon}{2}\bigr)^2+\bigl(\tfrac{\varepsilon}{2}\bigr)^2}
+<\varepsilon.
+\]
+\textcolor{purple}{于是任意开球 $B((x,y),\varepsilon)$ 都与 $D$ 相交，故 $\overline{D}=\mathbb{R}^2$。}
+
+综上，存在可数稠密子集 $D\subset\mathbb{R}^2$，从而 $\mathbb{R}^2$ 是可分空间。
+\end{solution}
+
+\end{homework}
+\begin{homework}[第 9 题]
+证明 $\mathbb{R}^2$ 是第一可数空间。
+\end{homework}
+\begin{solution}
+记欧氏距离 $d\bigl((x_1,y_1),(x_2,y_2)\bigr)=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$。
+对任意点 $p\in\mathbb{R}^2$，定义一列开球
+\[
+\mathcal{B}_p:=\bigl\{\,B(p,1/n):= \{q\in\mathbb{R}^2:\ d(p,q)<1/n\}\ \bigm|\ n\in\mathbb{N}\,\bigr\}.
+\]
+显然 $\mathcal{B}_p$ 是可数的。下证它是 $p$ 的邻域基。
+
+任取开集 $U\subset\mathbb{R}^2$ 且 $p\in U$。由于度量空间的开集定义，存在 $\varepsilon>0$ 使得
+$B(p,\varepsilon)\subset U$。取 $n\in\mathbb{N}$ 满足 $1/n<\varepsilon$，则
+\[
+B(p,1/n)\subset B(p,\varepsilon)\subset U.
+\]
+因此，对于包含 $p$ 的任意开集 $U$，总能找到 $\mathcal{B}_p$ 中的某个开球包含于 $U$，从而
+$\mathcal{B}_p$ 是 $p$ 的可数邻域基。因 $p$ 任意，$\mathbb{R}^2$ 为第一可数空间。
+
+\medskip
+\textbf{（可选等价表述）} 亦可取
+$\{(x-1/n,x+1/n)\times(y-1/n,y+1/n)\}_{n\in\mathbb{N}}$
+为点 $(x,y)$ 的可数邻域基；或由结论“任一度量空间皆第一可数”直接推出。
+\end{solution}
+\begin{homework}[10]
+证明 Lindelöf 空间的任意子空间是 Lindelöf 空间。
+\end{homework}
+\begin{solution}
+设 $(X,\tau)$ 为 Lindelöf 空间，$Y\subset X$。  
+欲证：$Y$（带子空间拓扑）亦为 Lindelöf 空间。
+
+\begin{itemize}
+  \item 取 $\mathcal{U}$ 为 $Y$ 的一族开集，使得 $\mathcal{U}$ 覆盖 $Y$。
+  \item 由子空间拓扑定义：对每个 $U\in\mathcal{U}$，存在 $X$ 的开集 $V_U$，
+        使得 $U = V_U \cap Y$。
+  \item 于是 $\{V_U : U\in\mathcal{U}\}$ 是 $X$ 中一族开集，且
+        \[
+        Y \subseteq \bigcup_{U\in\mathcal{U}} U
+        = \bigcup_{U\in\mathcal{U}} (V_U \cap Y)
+        \subseteq \bigcup_{U\in\mathcal{U}} V_U.
+        \]
+        因此 $\{V_U\}$ 是 $X$ 的一族开集，覆盖 $Y$。
+  \item 由 $X$ 为 Lindelöf，存在可数子族 $\{V_{U_n}\}_{n\in\mathbb{N}}$，
+        使得
+        \[
+        Y \subseteq \bigcup_{n=1}^{\infty} V_{U_n}.
+        \]
+  \item 则
+        \[
+        Y = Y \cap \bigcup_{n=1}^{\infty} V_{U_n}
+        = \bigcup_{n=1}^{\infty} (Y \cap V_{U_n})
+        = \bigcup_{n=1}^{\infty} U_n,
+        \]
+        即 $\{U_n\}_{n\in\mathbb{N}}$ 为 $\mathcal{U}$ 的可数子覆盖。
+\end{itemize}
+
+因此，$Y$ 的任意开覆盖都有可数子覆盖，故 $Y$ 为 Lindelöf 空间。
+\end{solution}
+
+\begin{homework}[11]
+设 $\mathbb{R}$ 是实数直线，拓扑是通常拓扑。证明 $\mathbb{R}$ 的每个开子空间都是可分空间。
+\end{homework}
+\begin{solution}
+设 $U\subset\mathbb{R}$ 为任意开子空间（即 $U$ 在 $\mathbb{R}$ 中开，并带子空间拓扑）。记 $\mathbb{Q}$ 为有理数集。则 $\mathbb{Q}\cap U$ 是可数集。下证它在 $U$ 中稠密。
+
+任取 $U$ 的非空开集 $W$。由于 $U$ 在 $\mathbb{R}$ 中开，且 $W$ 对 $U$ 相对开，故 $W=U\cap G$，其中 $G$ 为 $\mathbb{R}$ 中的开集；于是 $W$ 亦是 $\mathbb{R}$ 中的开集。因而存在开区间 $(a,b)\subset W$。有理数在实数中稠密，故 $(a,b)\cap\mathbb{Q}\neq\varnothing$，取 $q\in (a,b)\cap\mathbb{Q}$。由 $(a,b)\subset W\subset U$，得 $q\in \mathbb{Q}\cap U$ 且 $q\in W$。这表明 $W\cap(\mathbb{Q}\cap U)\neq\varnothing$。
+
+由于 $W$ 是 $U$ 的任意非空开集，上述结论说明 $\overline{\mathbb{Q}\cap U}^{\,U}=U$，即 $\mathbb{Q}\cap U$ 在 $U$ 中稠密。于是 $U$ 存在可数稠密子集，$U$ 为可分空间。
+
+综上，$\mathbb{R}$ 的每个开子空间都是可分空间。
+\end{solution}
+\begin{homework}[12]
+证明积空间 $\mathbb{R}^2$ 是第二可数空间。
+\end{homework}
+\begin{solution}
+已知实数直线 $\mathbb{R}$ 在通常拓扑下是第二可数空间。其一个可数基为
+\[
+\mathcal{B}_1 = \{(a,b): a,b\in\mathbb{Q},\ a<b\}.
+\]
+
+在积空间 $\mathbb{R}^2 = \mathbb{R}\times\mathbb{R}$ 上取积拓扑。  
+由积拓扑定义，所有形如 $U\times V$（其中 $U,V$ 为 $\mathbb{R}$ 的开集）的集合构成 $\mathbb{R}^2$ 的一个拓扑基。
+
+于是取
+\[
+\mathcal{B}_2 = \{\, (a,b)\times(c,d)\mid a,b,c,d\in\mathbb{Q},\ a<b,\ c<d \,\}.
+\]
+
+显然：
+\begin{itemize}
+  \item $\mathcal{B}_2$ 是可数的（可数集有限次笛卡尔积仍可数）；
+  \item 对任意开集 $G\subset\mathbb{R}^2$ 与任意点 $(x,y)\in G$，存在有理数 $a<b$、$c<d$，
+        使 $(x,y)\in(a,b)\times(c,d)\subset G$。
+\end{itemize}
+
+因此 $\mathcal{B}_2$ 是 $\mathbb{R}^2$ 的一个可数拓扑基。  
+由定义，$\mathbb{R}^2$ 是第二可数空间。
+\end{solution}
+\chapter{3}
+\section{第七周作业,连续映射}
+\begin{homework}[2.1]
+可分空间的每个开子空间也都是可分空间。
+\end{homework}
+\begin{note}
+首先，父空间 $X$ 可分，说明它存在一个可数稠密子集 $O\subset X$。  
+取 $O$ 与开子空间 $Y$ 的交集 $O\cap Y$，显然它仍是可数集。  
+
+任意取 $x\in Y$，由于 $x\in X$，可知存在 $O$ 中的点 $y$，  
+使得对于任意 $\varepsilon>0$，都有 $|x-y|<\varepsilon$。  
+
+又因为 $Y$ 是开集，$x$ 的某个 $\varepsilon$ 邻域仍包含于 $Y$，  
+因此该点 $y$ 既属于 $Y$，又属于 $O$，即 $y\in O\cap Y$。  
+
+于是，$O\cap Y$ 在 $Y$ 中稠密，且是可数的，  
+因此 $Y$ 是可分空间。    
+\end{note}
+\begin{solution}
+    
+
+设 $(X,\mathcal{T})$ 是可分空间，存在可数稠密子集 $A\subset X$。  
+取 $Y\subset X$ 为开子空间，证明 $Y$ 可分。
+
+由于 $Y$ 具有相对拓扑，
+\[
+\mathcal{T}_Y = \{\,U\cap Y : U\in\mathcal{T}\,\}.
+\]
+令 $B = A \cap Y$。因为 $A$ 可数，所以 $B$ 亦可数。现证 $B$ 在 $Y$ 中稠密。
+
+任取 $V$ 为 $Y$ 中非空开集，则存在 $U\in\mathcal{T}$ 使得 $V = U\cap Y$。  
+由于 $A$ 在 $X$ 中稠密，故 $U\cap A \ne \varnothing$，  
+于是
+\[
+V\cap B = (U\cap Y)\cap (A\cap Y)
+= (U\cap A)\cap Y \ne \varnothing.
+\]
+因此 $B$ 在 $Y$ 中稠密，故 $Y$ 是可分空间。
+\end{solution}
+\begin{note}
+   \begin{itemize}
+  \item 任意取 $V$ 为 $Y$ 中的非空开集，则存在 $U \in \mathcal{T}$ 使得 $V = U \cap Y$；
+  \item 又 $B$ 是 $A \cap Y$ 的形式；
+  \item 由于 $U \cap A \ne \varnothing$，所以 $(U \cap A) \cap Y \ne \varnothing$；
+  \item 因此 $V \cap B = (U \cap Y) \cap (A \cap Y) \ne \varnothing$。
+\end{itemize}
+\end{note}
+\begin{theorem}[稠密集的等价条件]
+设 $A$ 是拓扑空间 $(X,\mathcal{T})$ 的稠密子集。  
+则以下命题等价：
+\begin{enumerate}
+  \item $\overline{A}=X$；
+  \item 对任意非空开集 $U\subset X$，都有 $U\cap A\ne\varnothing$。
+\end{enumerate}
+\end{theorem}
+\begin{homework}[13]
+设 $\mathbb{R}$ 是实数直线，拓扑是通常拓扑，$A\subset \mathbb{R}^2$。  
+判断下列集合是否是积空间 $\mathbb{R}^2$ 中的开集？是否是闭集？
+\begin{enumerate}[(1)]
+  \item $A = (1,2)\times(3,4)$；
+  \item $A = (1,2)\times\{3\}$；
+  \item $A = \mathbb{Q}\times\mathbb{Q}$，其中 $\mathbb{Q}$ 是有理数集；
+  \item $A = \{(x,y): x^2+y^2<4\}$；
+  \item $A = \{(x,y): x+y=4\}$；
+  \item $A = \mathbb{R}\times\{0\}$；
+  \item $\mathbb{R}^2\setminus\{(x,y):x^2+y^2=4\}$。
+\end{enumerate}
+\end{homework}
+\begin{solution}
+(1) 开；(2) 非开非闭；(3) 非开非闭；(4) 开；(5) 闭；(6) 闭；(7) 开。
+\end{solution}
+5，6用自己等于自己的闭包判定是闭集，线的话半径为$\epsilon$的圆球保证有点不在里面
+\begin{homework}[2.2]
+每个第一可数（第二可数）空间的子空间也是第一可数（第二可数）空间。
+\end{homework}
+我的思路是第一可数子空间里面每一个点都来自父空间自然每一个点都有可数领域级，第二可数空间那可数覆盖父空间的几何族与子空间做交集就可以得出覆盖子空间的集族
+\begin{proof}
+设 $(X,\mathcal{T})$ 是一个第一可数空间，$Y\subset X$。  
+对任意 $y\in Y$，由 $X$ 的第一可数性，存在 $y$ 在 $X$ 中的可数邻域基
+\[
+\{U_n : n\in\mathbb{N}\},
+\]
+其中每个 $U_n$ 是 $X$ 中的开集，且任意 $y$ 的开邻域 $U$ 中存在某个 $U_n\subset U$。  
+则在子空间 $Y$ 中，集合族
+\[
+\{U_n\cap Y : n\in\mathbb{N}\}
+\]
+构成 $y$ 在 $Y$ 中的可数邻域基。  
+因此 $Y$ 也是第一可数空间。
+
+若 $(X,\mathcal{T})$ 是第二可数空间，设 $\mathcal{B}$ 为 $X$ 的可数拓扑基。  
+则集合族
+\[
+\mathcal{B}_Y=\{B\cap Y : B\in\mathcal{B}\}
+\]
+构成 $Y$ 的拓扑基，且 $\mathcal{B}_Y$ 仍为可数集。  
+因此 $Y$ 也是第二可数空间。
+\end{proof}
+\begin{homework}[1]
+证明：\(X\) 与 \(Y\) 是拓扑空间且 \(X\) 是离散拓扑空间。  
+则任一映射 \(f:X\to Y\) 都是连续映射。
+\end{homework}
+\begin{solution}
+设 $f: X \to Y$，其中 $X, Y$ 为拓扑空间且 $X$ 是离散拓扑空间。  
+根据连续映射的定义，$f$ 连续当且仅当对任意开集 $V \subset Y$，其原像 $f^{-1}(V)$ 在 $X$ 中是开集。  
+
+由于 $X$ 是离散拓扑空间，$X$ 的任意子集都是开集，特别地，$f^{-1}(V) \subset X$ 作为 $X$ 的子集必为开集。  
+因此，$f$ 对任意开集 $V$ 都满足连续性的要求。  
+
+综上，任意映射 $f: X \to Y$ 都是连续映射。
+\end{solution}
+\begin{homework}[2]
+证明：\(X\) 与 \(Y\) 是拓扑空间且 \(Y\) 是平凡拓扑空间。  
+则任一映射 \(f:X\to Y\) 都是连续映射。
+\end{homework}
+\begin{solution}
+设 $f: X \to Y$，其中 $X, Y$ 为拓扑空间，且 $Y$ 是平凡拓扑空间。  
+根据连续映射的定义，$f$ 连续当且仅当对于任意开集 $V \subset Y$，其原像 $f^{-1}(V)$ 在 $X$ 中是开集。  
+
+由于 $Y$ 为平凡拓扑空间，$Y$ 的开集只有 $\varnothing$ 与 $Y$ 两个。  
+此时：
+\[
+f^{-1}(\varnothing)=\varnothing,\qquad f^{-1}(Y)=X.
+\]
+显然 $\varnothing$ 与 $X$ 在任意拓扑空间中都是开集。  
+
+因此，$f^{-1}(V)$ 对所有开集 $V\subset Y$ 都是开集，  
+故任意映射 $f: X \to Y$ 都是连续映射。
+\end{solution}
+\begin{homework}[5]
+设 \(\mathbb{R}\) 是实数直线，拓扑为通常拓扑。  
+定义映射 \(f:\mathbb{R}\to\mathbb{R}\) 为
+\[
+f(x)=
+\begin{cases}
+2, & x\ge0,\\
+5, & x<0.
+\end{cases}
+\]
+证明：\(f\) 不是连续映射。
+\end{homework}
+\begin{solution}
+由题设，
+\[
+f(x)=
+\begin{cases}
+2, & x \ge 0,\\
+5, & x < 0.
+\end{cases}
+\]
+取 $V=(1,3)\subset \mathbb{R}$，则 $V$ 是开集，且 $2\in V$ 而 $5\notin V$。  
+于是
+\[
+f^{-1}(V)=\{x\in\mathbb{R}\mid f(x)\in(1,3)\}=[0,+\infty).
+\]
+然而在实数通常拓扑下，$[0,+\infty)$ 不是开集（因为 $0$ 没有完全包含在区间内的开邻域）。  
+因此存在开集 $V$ 使得 $f^{-1}(V)$ 非开，  
+故 $f$ 不是连续映射。
+\end{solution}
+\begin{homework}[6]
+设 \(\mathbb{R}\) 是实数直线，拓扑为离散拓扑。  
+定义映射 \(f:\mathbb{R}\to\mathbb{R}\) 为
+\[
+f(x)=
+\begin{cases}
+2, & x\ge0,\\
+5, & x<0.
+\end{cases}
+\]
+证明：\(f\) 是连续映射。
+\end{homework}
+\begin{solution}
+由题设，$f:\mathbb{R}\to\mathbb{R}$ 定义为
+\[
+f(x)=
+\begin{cases}
+2, & x \ge 0,\\
+5, & x < 0.
+\end{cases}
+\]
+且 $\mathbb{R}$ 的拓扑为离散拓扑。
+
+根据连续映射的定义，$f$ 连续当且仅当对于任意开集 $V \subset \mathbb{R}$，其原像 $f^{-1}(V)$ 在定义域中是开集。
+
+由于定义域 $\mathbb{R}$ 具有离散拓扑，其任意子集都是开集。  
+无论 $V$ 是何种开集，$f^{-1}(V) \subset \mathbb{R}$ 总是定义域的某个子集，因此必为开集。
+
+故 $f$ 对所有开集 $V$ 均满足连续性的要求。  
+因此，$f$ 是连续映射。
+\end{solution}
+\section{第八周作业，连续映射}
+\begin{homework}[7]
+设 $X=\{a,b,c\}$，拓扑为 
+\[
+\mathcal{T}_X=\{X,\varnothing,\{a\},\{a,b\},\{a,c\}\},
+\]
+又设
+\[
+Y=\{a,b,c\},\quad 
+\mathcal{T}_Y=\{Y,\varnothing,\{a\},\{a,b\},\{a,c\}\}.
+\]
+若映射 $f:X\to Y$ 满足 $f(x)=x,\ x\in X$，  
+问：$f$ 是否连续？
+\end{homework}
+\begin{solution}
+判断 $f$ 是否连续，只需验证
+\[
+\forall V\in\mathcal{T}_Y,\quad f^{-1}(V)\in\mathcal{T}_X.
+\]
+由于 $f(x)=x$，可得 $f^{-1}(V)=V$。  
+而
+\[
+\mathcal{T}_Y=\{Y,\varnothing,\{a\},\{a,b\},\{a,c\}\}
+=\mathcal{T}_X,
+\]
+故对任意 $V\in\mathcal{T}_Y$，都有 $f^{-1}(V)=V\in\mathcal{T}_X$。
+
+因此，$f$ 是连续的。
+\end{solution}
+\begin{homework}[8]
+设 $X=\{a,b,c\}$，拓扑为 
+\[
+\mathcal{T}_X=\{X,\varnothing,\{a\},\{a,b\},\{a,c\}\},
+\]
+又设
+\[
+Y=\{a,b\},\quad 
+\mathcal{T}_Y=\{Y,\varnothing,\{b\}\}.
+\]
+若映射 $f:X\to Y$ 满足 
+\[
+f(a)=b,\quad f(b)=b,\quad f(c)=a,
+\]
+问：$f$ 是否连续？
+\end{homework}
+\begin{solution}
+要判断映射 $f:X\to Y$ 是否连续，只需检验 $Y$ 中每一个开集的原像在 $X$ 中是否为开集。
+
+由题设，
+\[
+\mathcal{T}_Y=\{Y,\varnothing,\{b\}\}.
+\]
+
+逐一计算其原像：
+
+\begin{itemize}
+  \item $f^{-1}(Y)=X\in\mathcal{T}_X$；
+  \item $f^{-1}(\varnothing)=\varnothing\in\mathcal{T}_X$；
+  \item $f^{-1}(\{b\})=\{a,b\}$，因为 $f(a)=b,\ f(b)=b,\ f(c)=a$，
+        而 $\{a,b\}\in\mathcal{T}_X$。
+\end{itemize}
+
+由于 $Y$ 中每个开集的原像在 $X$ 中均为开集，
+因此映射 $f:X\to Y$ 是连续的。
+\end{solution}
+\begin{homework}[9]
+设 $X=\{a,b,c\}$，拓扑为 
+\[
+\mathcal{T}_X=\{X,\varnothing,\{a\},\{a,b\},\{a,c\}\},
+\]
+又设
+\[
+Y=\{a,b\},\quad 
+\mathcal{T}_Y=\{Y,\varnothing,\{b\}\}.
+\]
+若映射 $f:X\to Y$ 满足 
+\[
+f(a)=a,\quad f(b)=b,\quad f(c)=a,
+\]
+问：$f$ 是否连续？
+\end{homework}
+\begin{solution}
+判断映射 $f:X\to Y$ 是否连续，只需检验 $Y$ 中每一个开集的原像在 $X$ 中是否为开集。
+
+由题设，
+\[
+\mathcal{T}_Y=\{Y,\varnothing,\{b\}\}.
+\]
+
+逐一计算其原像：
+
+\begin{itemize}
+  \item $f^{-1}(Y)=X\in\mathcal{T}_X$；
+  \item $f^{-1}(\varnothing)=\varnothing\in\mathcal{T}_X$；
+  \item $f^{-1}(\{b\})=\{b\}$，因为 $f(b)=b$，而 $f(a)=a,\ f(c)=a$。
+\end{itemize}
+
+注意到 $\{b\}\notin\mathcal{T}_X$，因此 $\{b\}$ 不是 $X$ 中的开集。
+
+故存在 $Y$ 中的开集 $\{b\}$，其原像 $f^{-1}(\{b\})$ 在 $X$ 中不是开集，
+从而映射 $f:X\to Y$ \textbf{不是连续的}。
+\end{solution}
+\begin{homework}[12]
+证明：映射 $f:X\to Y$ 连续，当且仅当 $f:X\to f(X)$ 连续。
+\end{homework}
+ \begin{solution}
+\textbf{必要性：}  
+对于 $f(X)$ 中任意开集 $U$，存在 $Y$ 中开集 $V$ 使得 $V\cap f(X)=U$。  
+已知 $f:X\to Y$ 连续，所以 $f^{-1}(V)$ 是 $X$ 中开集。  
+而
+\[
+f^{-1}(U)=f^{-1}(V\cap f(X))=f^{-1}(V),
+\]
+因此 $f^{-1}(U)$ 是 $X$ 中开集。  
+故 $f:X\to f(X)$ 连续。
+
+\textbf{充分性：}  
+对于 $Y$ 中的开集 $U$，$U\cap f(X)$ 是 $f(X)$ 中的开集。  
+已知 $f:X\to f(X)$ 连续，所以
+\[
+f^{-1}(U)=f^{-1}(U\cap f(X))
+\]
+是 $X$ 中开集。  
+因此 $f:X\to Y$ 连续。 \qed
+\end{solution}
+\begin{homework}[3]
+证明：Lindelöf 拓扑空间的连续像是 Lindelöf 空间。
+\end{homework}
+\begin{solution}
+设 $X$ 为 Lindelöf 空间，$f:X\to Y$ 为连续映射，记 $Y_0=f(X)\subseteq Y$（赋予子空间拓扑）。欲证 $Y_0$ 为 Lindelöf。
+
+取 $Y_0$ 的任意开覆盖 $\mathcal{V}=\{V_\alpha:\alpha\in A\}$，即
+\[
+Y_0\subset \bigcup_{\alpha\in A} V_\alpha ,\qquad V_\alpha\ \text{为}\ Y\ \text{中的开集}.
+\]
+由 $f$ 的连续性，$\{f^{-1}(V_\alpha):\alpha\in A\}$ 是 $X$ 的开覆盖，因为
+\[
+X=f^{-1}(Y_0)\subset f^{-1}\!\Big(\bigcup_{\alpha\in A}V_\alpha\Big)
+=\bigcup_{\alpha\in A} f^{-1}(V_\alpha).
+\]
+由于 $X$ 为 Lindelöf，存在可数子族 $\{f^{-1}(V_{\alpha_n})\}_{n\in\mathbb{N}}$ 覆盖 $X$。于是
+\[
+Y_0=f(X)\subset f\!\Big(\bigcup_{n} f^{-1}(V_{\alpha_n})\Big)
+\subset \bigcup_{n} V_{\alpha_n}.
+\]
+故 $\{V_{\alpha_n}\}_{n\in\mathbb{N}}$ 为 $\mathcal{V}$ 的一个可数子覆盖，证明 $Y_0$ 为 Lindelöf。
+
+综上，Lindelöf 空间在连续映射下的像仍为 Lindelöf 空间。
+\end{solution}
+\begin{dxtips}
+    任何连续映射 $f:X\to Y$ 的像 $f(X)$ 上，诱导的映射 $f:X\to f(X)$ 一定连续且满射。
+\end{dxtips}
+\begin{proposition}[稠密子集的开集判定]
+设 $(X,\mathcal{T})$ 为拓扑空间，$A\subset X$。  
+则 $A$ 在 $X$ 中稠密当且仅当对任意非空开集 $U\subset X$，都有
+\[
+U\cap A \ne \varnothing.
+\]
+\end{proposition}
+\begin{homework}[4]
+证明：可分拓扑空间的连续像是可分空间。
+\end{homework}
+\begin{solution}
+设 $X$ 为可分拓扑空间，$f:X\to Y$ 为连续映射，记 $Y_0=f(X)\subseteq Y$（赋予子空间拓扑）。  
+欲证 $Y_0$ 为可分空间。
+
+由于 $X$ 可分，存在可数稠密子集 $D\subset X$，即 $\overline{D}=X$。  
+考虑其像 $f(D)\subset Y_0$。我们断言：$f(D)$ 在 $Y_0$ 中稠密。
+
+任取 $Y_0$ 中的非空开集 $V$，由子空间拓扑的定义，存在 $Y$ 中的开集 $U$，使得
+\[
+V=U\cap Y_0=U\cap f(X).
+\]
+由于 $f$ 连续，$f^{-1}(U)$ 是 $X$ 中的开集；且
+\[
+f^{-1}(V)=f^{-1}(U\cap f(X))=f^{-1}(U),
+\]
+从而 $f^{-1}(V)$ 在 $X$ 中非空。  
+因为 $D$ 在 $X$ 中稠密，故
+\[
+f^{-1}(V)\cap D\ne\varnothing,
+\]
+\textcolor{purple}{取 $x\in f^{-1}(V)\cap D$，则 $f(x)\in f(D)\cap V$，因此 $V\cap f(D)\ne\varnothing$。}
+
+由此可见，$f(D)$ 与 $Y_0$ 的每个非空开集都有交，故 $f(D)$ 在 $Y_0$ 中稠密。  
+而 $f(D)$ 是可数集（连续映射下可数集的像仍可数），  
+因此 $Y_0$ 含有可数稠密子集，$Y_0$ 为可分空间。
+
+综上，连续映射的可分拓扑空间的像仍为可分空间。
+\end{solution}
+
+\begin{homework}[14]
+如果 $f:X\to Y$ 是连续映射，$A\subset X$，证明：$f|_A:A\to Y$ 也是连续映射。
+\end{homework}
+\begin{solution}
+设 $f:(X,\mathcal T_X)\to(Y,\mathcal T_Y)$ 连续，$A\subset X$，考虑限制映射
+\[
+f|_A:A\to Y,\qquad f|_A(x)=f(x)\ (x\in A).
+\]
+对任意 $Y$ 中开集 $V$，由 $f$ 连续性知 $f^{-1}(V)$ 为 $X$ 中开集。按子空间拓扑定义，
+$A\cap f^{-1}(V)$ 为 $A$ 中开集。又
+\textcolor{purple}{\[
+(f|_A)^{-1}(V)=\{x\in A:\ f(x)\in V\}=A\cap f^{-1}(V),
+\]}
+故 $(f|_A)^{-1}(V)$ 对任意开集 $V$ 都是 $A$ 中开集，因而 $f|_A$ 连续。
+
+（亦可用闭集表述：对任意 $Y$ 中闭集 $F$，$f^{-1}(F)$ 在 $X$ 中闭，
+$(f|_A)^{-1}(F)=A\cap f^{-1}(F)$ 在 $A$ 中闭，从而 $f|_A$ 连续。）
+\end{solution}
+\begin{note}
+    空集永远是开集
+\end{note}
+\begin{example}
+设函数
+\[
+f:\mathbb{R}\to\mathbb{R},\quad f(x)=2x+1.
+\]
+取子集 $A=[0,2]$。
+
+则
+\[
+f|_A:A\to\mathbb{R}
+\]
+表示 $f$ 在区间 $[0,2]$ 上的限制函数。其定义为
+\[
+f|_A(x)=2x+1,\quad x\in[0,2].
+\]
+\end{example}
+\begin{homework}[3.2]
+若 $f_i:X\to\mathbb{R}$ 是连续映射，$i\in\{1,2\}$，证明：$f_1+f_2$、$f_1-f_2$、$f_1f_2$ 及 $f_1,f_2$ 都是连续映射。
+\end{homework}
+\begin{solution}
+设 $f_1,f_2:X\to\mathbb{R}$ 连续，并记
+\[
+F:X\to\mathbb{R}^2,\qquad F(x)=(f_1(x),f_2(x)).
+\]
+由分量连续可知 $F$ 连续。令
+\[
+s:\mathbb{R}^2\to\mathbb{R},\qquad s(u,v)=u-v.
+\]
+$s$ 连续（例如：对任意 $(u_0,v_0)$，有
+$|s(u,v)-s(u_0,v_0)|=|(u-u_0)-(v-v_0)|\le |u-u_0|+|v-v_0|$，
+从而由 $\varepsilon$–$\delta$ 可证）。于是
+\[
+f_1-f_2=s\circ F
+\]
+为连续映射（连续映射的复合仍连续）。故 $f_1-f_2$ 连续。
+\end{solution}
+\begin{homework}[2.1]
+证明：可分空间的每个开子空间也是可分空间。
+\end{homework}
+
+\begin{solution}
+设空间 $X$ 是可分空间，$Y$ 是 $X$ 中的一个开子空间。
+由于 $X$ 是可分空间，因此存在 $X$ 中的可数子集 $D$ 使得
+\[
+\overline{D} = X.
+\]
+令
+\[
+D_Y = Y \cap D,
+\]
+则 $D_Y$ 是子空间 $Y$ 的可数子集。
+
+因为 $Y$ 是 $X$ 中的开集，且 $\overline{D} = X$，所以
+\[
+Y \cap D \ne \varnothing,
+\]
+即 $D_Y \ne \varnothing$。
+
+对任意 $y \in Y$，取 $Y$ 中任一含 $y$ 的开集 $V$。
+由于 $Y$ 是 $X$ 的开子空间，因此 $V$ 也是 $X$ 中的非空开集。
+于是
+\[
+V \cap D \ne \varnothing.
+\]
+又因为 $V \subset Y$，所以
+\[
+V \cap D = V \cap D_Y \ne \varnothing.
+\]
+因此 $y \in \overline{D_Y}^{\,Y}$，即
+\[
+\overline{D_Y}^{\,Y} = Y.
+\]
+故 $Y$ 也是可分空间。
+\end{solution}
+\section{第九周作业，闭映射}
+\begin{homework}[13]
+证明函数 $y = f(x) = \sin x \ (x \in \mathbb{R})$ 不是从 $\mathbb{R}$ 到 $[-1,1]$ 的闭映射。
+\end{homework}
+\begin{solution}
+取集合
+\[
+A=\left\{\frac{\pi}{n}+2k\pi : n\in\mathbb{N},\, n>1,\, k\in\mathbb{Z}\right\}.
+\]
+显然 $A$ 是 $\mathbb{R}$ 中的闭集，因为 
+\[
+\lim_{n\to\infty}\left(\frac{\pi}{n}+2k\pi\right)=2k\pi\in A,
+\]
+即包含其所有极限点。
+
+计算其像：
+\[
+f(A)=\left\{\sin\left(\frac{\pi}{n}\right): n\in\mathbb{N},\, n>1\right\}.
+\]
+由于
+\[
+\sin\left(\frac{\pi}{n}\right)\longrightarrow 0 \quad (n\to\infty),
+\]
+可知 $0$ 是 $f(A)$ 的极限点。
+
+但 $0\notin f(A)$，因为对每个 $n>1$，有 $\sin(\pi/n)>0$。
+
+因此
+\[
+\overline{f(A)} = f(A)\cup\{0\} \neq f(A),
+\]
+说明 $f(A)$ 不是闭集，于是 $f$ 不是闭映射。
+
+\end{solution}
+\begin{dxtips}
+    为了让闭集映射过去不顺闭集，映射过去的集合的闭包就不顺本身，最简单的办法就是增加极限点
+\end{dxtips}
+\begin{homework}[3.6]
+设 $f : X \to Y$ \textcolor{purple}{是连续映射}，证明：$f$ 是闭映射当且仅当对每个 $A \subset X$ 都有
+\[
+f(\overline{A}) = \overline{f(A)}.
+\]
+\end{homework}
+\begin{solution}
+\textbf{必要性：} 假设 $f$ 是闭映射。  
+对任意 $A \subset X$，$\overline{A}$ 是闭集，因此 $f(\overline{A})$ 是 $Y$ 中的闭集。又因为 $A \subset \overline{A}$，有
+\[
+f(A) \subset f(\overline{A}) \quad \Rightarrow \quad \overline{f(A)} \subset f(\overline{A}).
+\]
+另一方面，由连续性，
+\[
+f(\overline{A}) \subset \overline{f(A)}.
+\]
+综上，
+\[
+f(\overline{A}) = \overline{f(A)}.
+\]
+
+\textbf{充分性：} 设条件对所有 $A \subset X$ 成立。  
+取任意闭集 $F \subset X$，则 $\overline{F}=F$，由条件得
+\[
+f(F)=f(\overline{F})=\overline{f(F)},
+\]
+即 $f(F)$ 是闭集。  
+因此 $f$ 将闭集映为闭集，即 $f$ 是闭映射。
+
+\end{solution}
+\begin{dxtips}
+    用的定理3.2连续映射补集逆的性质
+\end{dxtips}
+\begin{homework}[3.3]
+若 $f_n : X \to [a,b]$ 是连续映射，$n \in \mathbb{N}$，证明若
+\[
+f(x) = \sum_{n=1}^{\infty} \frac{f_n(x)}{2^n},
+\]
+则 $f : X \to [a,b]$ 是连续映射。
+\end{homework}
+\begin{proof}
+由已知，对每个 $n\in\mathbb{N}$，映射 $f_n:X\to[a,b]$ 连续。
+令 
+\[
+M=\max\{|a|,|b|\}.
+\]
+则对一切 $x\in X$ 及 $n\in\mathbb{N}$ 有
+\[
+|f_n(x)|\le M.
+\]
+于是
+\[
+\left|\frac{f_n(x)}{2^n}\right|\le \frac{M}{2^n}.
+\]
+
+又因为
+\[
+\sum_{n=1}^{\infty}\frac{M}{2^n}=M\sum_{n=1}^\infty\frac1{2^n}<\infty,
+\]
+由 Weierstrass 判别法可知，级数
+\[
+\sum_{n=1}^{\infty}\frac{f_n(x)}{2^n}
+\]
+在 $X$ 上一致收敛。
+
+令部分和
+\[
+s_N(x)=\sum_{n=1}^N \frac{f_n(x)}{2^n}.
+\]
+因为有限个连续函数的线性组合仍为连续函数，故每个 $s_N$ 均连续。
+且上式的级数一致收敛到
+\[
+f(x)=\sum_{n=1}^{\infty}\frac{f_n(x)}{2^n}.
+\]
+
+根据一致极限定理（连续函数列一致收敛的极限仍连续），可知 $f$ 连续。
+
+因此，$f:X\to[a,b]$ 为连续映射。
+\end{proof}
+\begin{dxtips}
+    一致收敛传递连续性
+\end{dxtips}
+\begin{homework}[10] 
+设 $\mathbb{R}$ 是实数直线，拓扑是通常拓扑，$( -\frac{\pi}{2}, \frac{\pi}{2} )$ 是 $\mathbb{R}$ 的子空间。证明 $\mathbb{R}$ 与 $ \left( -\frac{\pi}{2}, \frac{\pi}{2} \right)$ 同胚。
+\end{homework}
+\begin{proof}
+定义映射
+\[
+f:\mathbb R\longrightarrow\Bigl(-\frac{\pi}{2},\frac{\pi}{2}\Bigr),\qquad 
+f(x)=\arctan x.
+\]
+由于 $\arctan x$ 在 $\mathbb R$ 上严格单调递增，且
+\[
+\lim_{x\to -\infty}\arctan x=-\frac{\pi}{2},\qquad 
+\lim_{x\to +\infty}\arctan x=\frac{\pi}{2},
+\]
+因此 $f$ 是从 $\mathbb R$ 到 $(-\frac{\pi}{2},\frac{\pi}{2})$ 的双射。
+
+又因为 $\arctan x$ 在 $\mathbb R$ 上连续，且其逆映射
+\[
+f^{-1}(y)=\tan y,\qquad y\in\Bigl(-\frac{\pi}{2},\frac{\pi}{2}\Bigr)
+\]
+在该开区间上亦连续，所以 $f$ 是同胚映射。
+
+因此 $\mathbb R$ 与 $(-\frac{\pi}{2},\frac{\pi}{2})$ 同胚。
+\end{proof}
+\begin{dxtips}
+    构造一个严格单调、连续、双射、且逆连续的函数。
+
+为什么单调很重要？因为：
+	•	单调连续函数一定不会“折返”，不会把不同的点映射到奇怪的位置。
+	•	单调还能保证 逆映射也是连续的（这是实直线上一个特别强的性质）
+\end{dxtips}
+\begin{homework}
+[11] 设 $\mathbb{R}$ 是实数直线，拓扑是通常拓扑，$(0,1)$ 与 $(0,2)$ 是 $\mathbb{R}$ 的子空间。证明 $(0,1)$ 与 $(0,2)$ 同胚。
+\end{homework}
+\begin{proof}
+定义映射
+\[
+f:(0,1)\to(0,2),\qquad f(x)=2x.
+\]
+显然，$f$ 是双射，其逆映射为
+\[
+f^{-1}(y)=\frac{y}{2}, \qquad y\in(0,2).
+\]
+
+因为 $f$ 与 $f^{-1}$ 都是由初等函数构成的连续函数，因此它们均连续。
+
+于是 $f$ 是连续双射且具有连续逆映射，即 $f$ 是同胚映射。
+
+因此，区间 $(0,1)$ 与区间 $(0,2)$ 同胚。
+\end{proof}
+\chapter{4}
+\section{第十周作业，连通空间}
+\begin{homework}[1]
+
+\begin{enumerate}
+  \item 
+  设 $X=\{a,b,c\}$，$\mathcal{T}=\{X,\varnothing,\{a\},\{a,b\},\{a,c\}\}$。
+
+  \item
+  设 $Y=\{a,b,c\}$，$\mathcal{T}=\{Y,\varnothing,\{a\},\{a,c\}\}$。
+
+  \item
+  设 $X=\{a,b,c\}$，$\mathcal{T}=\{X,\varnothing,\{a\},\{b\},\{a,b\},\{b,c\}\}$。
+
+  \item
+  设 $X=\{a,b,c\}$，$\mathcal{T}=\{X,\varnothing,\{b\},\{a,c\}\}$。
+
+  \item
+  设 $X=\{a,b,c,d\}$，$\mathcal{T}=\{X,\varnothing,\{b\},\{a,c\},\{d\},\{b,d\},\{a,b,c\}\}$。
+\end{enumerate}
+
+\end{homework}
+\begin{homework}[2] 
+证明连通空间的连续像是连通空间。
+
+\end{homework}
+\begin{proof}
+设 $(X,\mathcal{T}_X)$ 为连通空间，$Y$ 为拓扑空间，$f:X\to Y$ 为连续映射。
+记 $A = f(X)\subset Y$，证明 $A$ 在子空间拓扑下连通。
+
+反设 $A$ 不连通，则存在 $A$ 中两个互不相交的非空开集 $U,V$，使得
+\[
+A = U \cup V,\qquad U\cap V = \varnothing,
+\]
+且 $U,V$ 在子空间 $A$ 中都是开集。
+
+由子空间拓扑的定义，存在 $Y$ 中开集 $G,H$，使得
+\[
+U = A\cap G,\qquad V = A\cap H.
+\]
+
+由于 $f$ 连续，$f^{-1}(G)$ 与 $f^{-1}(H)$ 在 $X$ 中都是开集。
+并且
+\[
+X = f^{-1}(A) = f^{-1}(U\cup V)
+= f^{-1}(U)\cup f^{-1}(V)
+= f^{-1}(G)\cup f^{-1}(H),
+\]
+同时
+\[
+f^{-1}(U)\cap f^{-1}(V)
+= f^{-1}(U\cap V)
+= f^{-1}(\varnothing)
+= \varnothing.
+\]
+又因为 $U,V$ 非空，故 $f^{-1}(U),f^{-1}(V)$ 也都是非空开集。
+于是 $X$ 被分解为两个不交的非空开集的并，这与 $X$ 连通矛盾。
+
+因此假设不成立，$A=f(X)$ 必为连通空间。
+\end{proof}
+\begin{homework}[3]
+证明 $\mathbb{R}$ 上的连通集都是单点集或是区间。
+\end{homework}
+\begin{solution}
+设 $E\subset\mathbb{R}$ 连通。若 $E$ 只含一个点，则结论显然。下设 $E$ 含至少两个不同点。
+
+取 $a,b\in E$ 且 $a<b$。欲证 $(a,b)\subset E$。若不然，存在 $c\in(a,b)$ 使得 $c\notin E$。令
+\[
+U := E\cap(-\infty,c),\qquad V := E\cap(c,+\infty).
+\]
+则 $(-\infty,c)$ 与 $(c,+\infty)$ 在 $\mathbb{R}$ 中开，故 $U,V$ 在子空间 $E$ 中亦为开集；又 $a\in U,\ b\in V$，故 $U,V$ 均非空；显然 $U\cap V=\varnothing$。
+
+对任意 $x\in E$，因 $c\notin E$，必有 $x<c$ 或 $x>c$，从而 $x\in U\cup V$，即 $E=U\cup V$。这与 $E$ 的连通性矛盾，故假设不成立，只能有 $(a,b)\subset E$。
+
+于是 $E$ 满足：若 $a,b\in E$ 且 $a<b$，则 $(a,b)\subset E$。由 $\mathbb{R}$ 上区间的刻画知，此时 $E$ 必为区间。综上，$\mathbb{R}$ 上的连通集要么是单点集，要么是区间。
+\end{solution}
+\begin{homework}[4.1]
+证明空间 $X$ 中包含给定点 $x$ 的所有连通集的并是闭的连通集。
+\end{homework}
+\begin{solution}
+设
+\[
+C:=\bigcup\{A\subset X:\ A\ \text{连通且}\ x\in A\}.
+\]
+显然 $x\in C$，且由定义知 $C$ 本身是包含 $x$ 的所有连通集的并。下证：$C$ 连通且闭。
+
+\begin{itemize}
+  \item \textbf{$C$ 连通：}
+  对任意一族连通子集 $\{A_i\}_{i\in I}$，若它们有公共点，则并集连通。
+  在此，任取 $A_i$，都有 $x\in A_i$，故 $\bigcap_{i\in I}A_i\supset\{x\}\neq\varnothing$。
+  于是
+  \[
+  C=\bigcup_{i\in I}A_i
+  \]
+  为连通集。
+
+  \item \textbf{$C$ 闭：}
+  只需证 $\overline{C}\subset C$。取任意 $y\in \overline{C}$，考虑集合
+  \[
+  D:=C\cup\{y\}.
+  \]
+  我们证明 $D$ 连通，从而 $D$ 是一个包含 $x$ 的连通集；由 $C$ 的定义便有 $D\subset C$，
+  进而 $y\in C$，即 $\overline{C}\subset C$，故 $C$ 闭。
+
+  下面证 $D$ 连通。反设 $D$ 不连通，则存在 $D$ 的分离（separation）
+  \[
+  D=U\cup V,\qquad U,V\ \text{非空、互不相交，且在}\ D\ \text{中开}.
+  \]
+  不妨设 $y\in U$（否则交换 $U,V$）。由于 $U$ 在子空间 $D$ 中开，
+  存在 $X$ 中开集 $G$ 使得
+  \[
+  U=D\cap G.
+  \]
+  因为 $y\in U$，所以 $y\in G$。又由于 $y\in \overline{C}$，故 $G\cap C\neq\varnothing$。
+  于是 $U\cap C=(D\cap G)\cap C=G\cap C\neq\varnothing$。
+
+  同理，$V$ 在 $D$ 中开，存在 $X$ 中开集 $H$ 使 $V=D\cap H$。
+  因为 $V\neq\varnothing$ 且 $y\notin V$，故 $V\subset C$，从而 $V\cap C=V\neq\varnothing$。
+
+  于是
+  \[
+  C=(U\cap C)\cup (V\cap C),
+  \]
+  且 $U\cap C$ 与 $V\cap C$ 非空、互不相交，并且在子空间 $C$ 中开（因为 $U,V$ 在 $D$ 中开）。
+  这给出了 $C$ 的一个分离，矛盾于 $C$ 连通。
+  故 $D$ 必连通。
+\end{itemize}
+
+综上，$C$ 为闭的连通集（且包含 $x$）。它也常称为点 $x$ 的连通分支（connected component）。
+\end{solution}
+\begin{homework}[4.4]
+设 $A$ 是 $X$ 中既开又闭的集合，$B$ 是中连通集。若 $A \cap B \neq \varnothing$，则证明 $B \subset A$。
+\end{homework}
+\begin{solution}
+设 $A\subset X$ 既开又闭，$B\subset X$ 连通，且 $A\cap B\neq\varnothing$。
+考虑 $B$ 的两个子集
+\[
+B\cap A,\qquad B\cap (X\setminus A).
+\]
+由于 $A$ 在 $X$ 中开，故 $B\cap A$ 在子空间 $B$ 中开；又由于 $A$ 在 $X$ 中闭，
+$X\setminus A$ 在 $X$ 中开，故 $B\cap (X\setminus A)$ 也在子空间 $B$ 中开。
+
+并且有分解
+\[
+B=(B\cap A)\ \cup\ \bigl(B\cap (X\setminus A)\bigr),
+\]
+且二者互不相交。又因 $A\cap B\neq\varnothing$，故 $B\cap A\neq\varnothing$。
+
+若 $B\cap (X\setminus A)\neq\varnothing$，则上述分解给出 $B$ 的一个分离（两个非空、互不相交的开集之并），
+与 $B$ 连通矛盾。故必有
+\[
+B\cap (X\setminus A)=\varnothing.
+\]
+于是 $B\subset A$。
+\end{solution}
+\section{第十一周作业，紧集}
+\begin{homework}[4.5]
+$\,\mathbb R$ 是实数直线，拓扑为通常拓扑。判断下列集合是否连通：
+
+\begin{enumerate}
+    \item $Y=(1,2)\cup(2,5)$;
+    \item $Y=(1,3)\cup(3,5)$;
+    \item $Y=[1,3)\cup(3,5]$;
+    \item $Y=[1,3)\cup[3,5]$;
+    \item $Y=[1,2]\cup(3,5]$;
+    \item $I_Y=\mathbb Q$;
+    \item $Y=\{\pi,\pi+1\}$;
+    \item $Y=\mathbb Q\cup I$;
+    \item $Y=\overline{\mathbb Q}$.
+\end{enumerate}
+\end{homework}
+\begin{solution}
+在实数直线 $\mathbb{R}$ 上（通常拓扑），\textbf{连通子集当且仅当是区间}。据此逐一判断：
+
+\begin{enumerate}
+  \item $Y=(1,2)\cup(2,5)$：中间缺少点 $2$，不是区间，故 $Y$ 不连通。
+
+  \item $Y=(1,3)\cup(3,5)$：中间缺少点 $3$，不是区间，故 $Y$ 不连通。
+
+  \item $Y=[1,3)\cup(3,5]$：中间缺少点 $3$，不是区间，故 $Y$ 不连通。
+
+  \item $Y=[1,3)\cup[3,5]$：注意
+  \[
+    [1,3)\cup[3,5]=[1,5],
+  \]
+  这是一个连续的闭区间，是区间，故 $Y$ 连通。
+
+  \item $Y=[1,2]\cup(3,5]$：中间有空档 $(2,3]$，不是区间，故 $Y$ 不连通。
+
+  \item $Y=\mathbb{Q}$：有理数在 $\mathbb{R}$ 中不是区间；事实上，对任意 $a<b$，区间 $(a,b)$ 中既有有理数也有无理数，可用
+  \[
+    U=\mathbb{Q}\cap(-\infty,c),\quad V=\mathbb{Q}\cap(c,\infty)
+  \]
+  将其分成两个非空不相交相对开集，故 $Y$ 不连通。
+
+  \item $Y=\{\pi,\pi+1\}$：在子空间拓扑中，$\{\pi\}$ 与 $\{\pi+1\}$ 都是相对开集，且非空、不相交，并成整个 $Y$，故 $Y$ 不连通。
+
+  \item $Y=\mathbb{Q}\cup I$：其中 $I$ 为无理数集，则
+  \[
+    Y=\mathbb{Q}\cup I=\mathbb{R},
+  \]
+  是整条实数轴，是区间，故 $Y$ 连通。
+
+  \item $Y=\overline{\mathbb{Q}}$：有理数在 $\mathbb{R}$ 中的闭包为
+  \[
+    \overline{\mathbb{Q}}=\mathbb{R},
+  \]
+  仍为区间，故 $Y$ 连通。
+\end{enumerate}
+\end{solution}
+\begin{homework}[4.6]
+设 $\mathbb{R}$ 是实数直线，拓扑是通常拓扑。$X$ 是连通空间且映射  
+$f: X \to \mathbb{R}$ 连续。  
+如果 $x\in X,\ y\in X$ 且 $f(x)f(y)<0$，证明存在 $z\in X$ 使得 $f(z)=0$。
+\end{homework}
+\begin{solution}
+因为 $X$ 是连通空间且 $f:X\to\mathbb{R}$ 连续，所以 $f(X)$ 是 $\mathbb{R}$ 中的连通子集。
+在通常拓扑下，$\mathbb{R}$ 中的连通子集必为区间，因此 $f(X)$ 是某个区间 $I\subset\mathbb{R}$。
+
+设 $a=f(x)$，$b=f(y)$。已知 $f(x)f(y)<0$，故要么 $a<0<b$，要么 $b<0<a$，总之 $0$ 介于 $a$ 与 $b$
+之间。又 $a,b\in f(X)=I$，而 $I$ 为区间，故有 $0\in I=f(X)$。
+
+于是存在 $z\in X$，使得 $f(z)=0$。证毕。
+\end{solution}
+\begin{homework}[4.7]
+证明 $\mathbb{R}^2$ 与 $\mathbb{R}$ 不同胚。
+\end{homework}
+\begin{solution}
+用反证法．若 $\mathbb{R}$ 与 $\mathbb{R}^2$ 同胚，则存在同胚
+\[
+h:\mathbb{R}\longrightarrow\mathbb{R}^2 .
+\]
+取一点 $0\in\mathbb{R}$，记 $p=h(0)\in\mathbb{R}^2$。由于同胚是双射且连续，其逆也是连续，
+于是 $h$ 在去掉这一点后给出一个同胚
+\[
+h:\mathbb{R}\setminus\{0\}\;\longrightarrow\;\mathbb{R}^2\setminus\{p\}.
+\]
+
+另一方面，连通性在同胚下保持。
+
+\begin{itemize}
+  \item 在通常拓扑下，$\mathbb{R}\setminus\{0\}=(-\infty,0)\cup(0,\infty)$，
+  它可以写成两个非空不相交开集的并，因此 \(\mathbb{R}\setminus\{0\}\) \emph{不连通}。
+  \item 但 $\mathbb{R}^2\setminus\{p\}$ 是\emph{路径连通}的：对任意
+        $x,y\in\mathbb{R}^2\setminus\{p\}$，可以略微绕开 $p$ 画一条折线或圆弧连接 $x$、$y$，
+        因而它是连通的。
+\end{itemize}
+
+于是 $\mathbb{R}\setminus\{0\}$ 与 $\mathbb{R}^2\setminus\{p\}$ 在连通性上不同，一个不连通，
+一个连通，不可能同胚。这与上面的结论矛盾。
+
+故 $\mathbb{R}$ 与 $\mathbb{R}^2$ 不同胚。
+\end{solution}
+\begin{homework}[4.8]
+证明 $\mathbb{R}$ 与区间 $[1,2)$ 不同胚。
+\end{homework}
+\begin{solution}
+用反证法．若 $\mathbb{R}$ 与区间 $[1,2)$ 同胚，则存在同胚
+\[
+h:\mathbb{R}\longrightarrow[1,2).
+\]
+因为 $h$ 为满射，存在 $a\in\mathbb{R}$ 使得 $h(a)=1$。
+
+考虑去掉这两个对应点后的子空间
+\[
+X'=\mathbb{R}\setminus\{a\},\qquad
+Y'=[1,2)\setminus\{1\}=(1,2).
+\]
+由于 $h$ 是同胚，限制映射
+\[
+h|_{X'}:X'\longrightarrow Y'
+\]
+仍是连续双射，且其逆映射也是连续的，所以 $X'$ 与 $Y'$ 也同胚。
+
+然而，同胚保持连通性，而
+\[
+X'=\mathbb{R}\setminus\{a\}=(-\infty,a)\cup(a,\infty)
+\]
+可以写成两个非空不相交开集的并，因此 $X'$ 不连通；而
+\[
+Y'=(1,2)
+\]
+是实直线上的开区间，是连通的。于是得到一个不连通空间与连通空间同胚，矛盾。
+
+故 $\mathbb{R}$ 与区间 $[1,2)$ 不同胚。
+\end{solution}
+\begin{homework}[4.9]
+设 $\mathbb{R}$ 是实数直线，拓扑为通常拓扑，$A\subset\mathbb{R}^2$。判断下列集合 $A$ 是否连通：
+\begin{enumerate}
+  \item $A=(1,2)\times(3,4)$；
+  \item $A=(1,2)\times\{3\}$；
+  \item $A=\mathbb{Q}\times\mathbb{Q}$，其中 $\mathbb{Q}$ 为有理数集；
+  \item $A=\{(x,y):x^{2}+y^{2}<4\}$；
+  \item $A=\{(x,y):x+y=4\}$；
+  \item $A=\{(x,y):x^{2}+y^{2}<4\}\,\cup\,\{(x,y):x^{2}+y^{2}>4\}$。
+\end{enumerate}
+\end{homework}
+\begin{dxtips}
+    空间连通：连通-X不能写成两个不相交开集的并比如(0,1)连通-但是他的逆命题不是可以写成两个相交开集。（0，1）可以写成（0，0.5）并（0.4，1）
+    不连通是X可以表示为两个非空闭集的并下面只是上述文字的数学符号
+\[
+C\cap A\neq\varnothing,\quad D\cap A\neq\varnothing,\quad A=C\cup D,
+\quad C\cap \overline{D}=D\cap \overline{C}=\varnothing,
+\]
+\end{dxtips}
+\begin{dxtips}
+    R上就区间和单点是连通，什么区间都行。然后证明不是同胚去掉一个点然后用连通性就行，4.6就是介值定理使用方法X是连通开集映射到R，映射是连续映射
+\end{dxtips}
+\section{第十二周作业}
+\begin{homework}[5.1]
+证明在 $T_2$ 拓扑空间中，每个收敛序列有唯一的极限点。
+\end{homework}
+\begin{definition}[豪斯多夫空间 / $T_2$ 空间]
+若拓扑空间 $(X,\tau)$ 满足：对任意两个不同点 $x,y\in X$（即 $x\neq y$），
+都存在开集 $U,V\in\tau$，使得
+\[
+x\in U,\qquad y\in V,\qquad U\cap V=\varnothing,
+\]
+则称 $(X,\tau)$ 为一个 \emph{豪斯多夫空间}（或 \emph{$T_2$ 空间}）。
+\end{definition}
+\begin{definition}[拓扑空间中序列的极限]
+设 $(X,\tau)$ 为拓扑空间，$\{x_n\}_{n\in\mathbb N}$ 为 $X$ 中一点列。若存在点
+$x\in X$，使得对每一个包含 $x$ 的邻域 $U$，都存在 $N\in\mathbb N$，使得对一切
+$n\ge N$ 都有
+\[
+x_n\in U,
+\]
+则称序列 $\{x_n\}$ 在 $X$ 中\emph{收敛}到 $x$，并称 $x$ 为该序列的\emph{极限}
+（或极限点、收敛点），记作
+\[
+x_n \to x\quad (n\to\infty).
+\]
+\end{definition}
+
+\begin{homework}[5.2]
+在空间 $X$ 中，若序列 $\{x_n\}_{n\in\mathbb{N}}$ 收敛于点 $x_0$，证明
+\[
+\{x_0\}\cup\{x_n : n\in\mathbb{N}\}
+\]
+是 $X$ 中的紧集。
+\end{homework}
+\begin{dxtips}
+    5.2用的就是收敛点附近任意领域内都可以把点列无限的部分涵盖。
+\end{dxtips}
+\begin{solution}
+记
+\[
+A=\{x_0\}\cup\{x_n : n\in\mathbb{N}\}\subset X.
+\]
+要证：$A$ 是紧集，即 $A$ 的每个开覆盖都有有限子覆盖。
+
+设 $\mathcal{U}$ 是 $X$ 中的一族开集，使得
+\[
+A \subset \bigcup_{U\in\mathcal{U}} U.
+\]
+因为 $x_0\in A$，故存在某个 $U_0\in\mathcal{U}$ 使得 $x_0\in U_0$，且 $U_0$ 为开集。
+
+由 $x_n\to x_0$，对这个开邻域 $U_0$，存在 $N\in\mathbb{N}$，使得
+\[
+n\ge N \implies x_n\in U_0.
+\]
+因此 $U_0$ 已经覆盖了 $x_0$ 以及所有 $n\ge N$ 的 $x_n$。
+
+剩下的点只有有限个：
+\[
+x_1,x_2,\dots,x_{N-1}.
+\]
+每一个 $x_k$（$1\le k\le N-1$）都在 $A\subset\bigcup\mathcal{U}$ 中，故对每个 $k$，可取 $U_k\in\mathcal{U}$ 使得
+\[
+x_k\in U_k.
+\]
+
+于是
+\[
+A \subset U_0 \cup U_1 \cup \cdots \cup U_{N-1},
+\]
+其中 $U_0,U_1,\dots,U_{N-1}$ 只是一族\emph{有限个}开集，且都属于原来的开覆盖 $\mathcal{U}$。
+
+因此 $\mathcal{U}$ 存在有限子覆盖，故 $A$ 是紧集。
+\end{solution}
+\begin{homework}[2]
+    证明紧子空间的像都是紧子空间
+\end{homework}
+\begin{dxtips}
+    这周连续映射的题，要把一个性质从原像转到像，要证明那个空间具有性质就在该空间先提出基础假设，然后到找子覆盖啊，可数子集啊就先把基础假设映射回去然后在像集找完了再映射回原像集
+\end{dxtips}
+\begin{solution}
+设 $(X,\tau_X)$ 与 $(Y,\tau_Y)$ 为拓扑空间，$K\subset X$ 为紧子空间，
+$f:X\to Y$ 为连续映射。欲证：$f(K)$ 是 $Y$ 中的紧子空间。
+
+根据紧性的定义，只需证明：$f(K)$ 的任一开覆盖都有有限子覆盖。
+
+取 $Y$ 中一族开集 $\mathcal{U}$，满足
+\[
+f(K)\subset \bigcup_{U\in\mathcal{U}} U.
+\]
+对每个 $U\in\mathcal{U}$，由 $f$ 连续知 $f^{-1}(U)$ 在 $X$ 中是开集，
+故 $f^{-1}(U)\cap K$ 在 $K$ 的子空间拓扑中也是开集。
+
+并且对 $K$ 有
+\[
+K \subset f^{-1}\!\left(\bigcup_{U\in\mathcal{U}} U\right)
+= \bigcup_{U\in\mathcal{U}} f^{-1}(U),
+\]
+从而
+\[
+K \subset \bigcup_{U\in\mathcal{U}} \bigl(f^{-1}(U)\cap K\bigr).
+\]
+也就是说，族
+\[
+\mathcal{V} := \{\,f^{-1}(U)\cap K : U\in\mathcal{U}\,\}
+\]
+是 $K$ 的一个开覆盖。
+
+由于 $K$ 是紧子空间，$\mathcal{V}$ 存在有限子覆盖，即存在有限个
+$U_1,\dots,U_n\in\mathcal{U}$，使得
+\[
+K \subset \bigcup_{j=1}^{n} \bigl(f^{-1}(U_j)\cap K\bigr).
+\]
+于是对 $f(K)$ 有
+\[
+f(K)
+\subset f\!\left(\bigcup_{j=1}^{n} (f^{-1}(U_j)\cap K)\right)
+\subset \bigcup_{j=1}^{n} U_j.
+\]
+
+因此，从原来的开覆盖 $\mathcal{U}$ 中选出的有限子族
+$\{U_1,\dots,U_n\}$ 就覆盖了 $f(K)$。由此可见，
+$f(K)$ 的任一开覆盖都有有限子覆盖，即 $f(K)$ 是 $Y$ 中的紧子空间。
+
+证毕。
+\end{solution}
+\begin{dxtips}
+    所以这题就是要对每一个不属于K的x都找到一个开集，然后这个开集找寻方式就是，K中的点都和x不像交所以每一个点都能找到一个和对应包含x的开集Ui的开集Vi，Ui和Vi不相交，Vi这就组成了集合族，然后从这些开集族中找到有限个子覆盖，为的是开集的有限交还是开集。然后选取同样下标的Ui做交集就还是开集而且包含x了
+\end{dxtips}
+\begin{homework}[3]
+证明：$T_2$ 空间中的紧集是闭集。
+\end{homework}
+\begin{solution}
+设 $X$ 为 $T_2$ 空间，$K\subset X$ 为紧集。要证 $K$ 在 $X$ 中为闭集，只需证明 $X\setminus K$ 为开集。
+
+\begin{itemize}
+  \item[(1)] 取任意一点 $x\in X\setminus K$。对每个 $y\in K$，由于 $X$ 是 $T_2$ 空间，
+  存在开集 $U_y,V_y\subset X$，使得
+  \[
+  x\in U_y,\quad y\in V_y,\quad U_y\cap V_y=\varnothing.
+  \]
+  于是 $\{V_y:y\in K\}$ 是 $K$ 的一个开覆盖。
+
+  \item[(2)] 因为 $K$ 是紧集，所以从开覆盖 $\{V_y:y\in K\}$ 中可取有限子覆盖：
+  存在 $y_1,\dots,y_n\in K$，使得
+  \[
+  K\subset \bigcup_{i=1}^n V_{y_i}.
+  \]
+  令
+  \[
+  U=\bigcap_{i=1}^n U_{y_i}.
+  \]
+  每个 $U_{y_i}$ 是开集，故 $U$ 也是开集，且 $x\in U$（因为 $x\in U_{y_i}$ 对所有 $i$ 都成立）。
+
+  再注意到对每个 $i$，有 $U_{y_i}\cap V_{y_i}=\varnothing$，故
+  \[
+  U\cap V_{y_i}\subset U_{y_i}\cap V_{y_i}=\varnothing,\quad i=1,\dots,n.
+  \]
+  从而
+  \[
+  U\cap K
+  \subset U\cap \bigcup_{i=1}^n V_{y_i}
+  = \bigcup_{i=1}^n (U\cap V_{y_i})
+  = \varnothing,
+  \]
+  即 $U\cap K=\varnothing$。
+
+  \item[(3)] 我们对任意 $x\in X\setminus K$ 构造出了一个开集 $U$，使得
+  \[
+  x\in U\subset X\setminus K.
+  \]
+  因此 $X\setminus K$ 对每个点都是开邻域，故 $X\setminus K$ 是开集，从而 $K$ 是闭集。
+\end{itemize}
+
+综上，$T_2$ 空间中的紧集是闭集。
+\end{solution}
+\begin{dxtips}
+    拓扑空间公理之一表明：
+
+\[
+\text{任意个开集的并仍为开集。}
+\]
+
+更具体地，设 $(X,\mathcal{T})$ 为拓扑空间，若 $\{G_\alpha\}_{\alpha\in I}\subset\mathcal{T}$，
+即对每个 $\alpha\in I$，$G_\alpha$ 都是开集，则有
+\[
+\bigcup_{\alpha\in I} G_\alpha \in \mathcal{T},
+\]
+其中指标集 $I$ 可以是有限的、可数的，甚至是不可数的。
+\end{dxtips}
+\begin{homework}[6]
+证明：$T_2$ 空间的子空间是 $T_2$ 空间。
+\end{homework}
+\begin{solution}
+设 $(X,\mathcal{T})$ 是 $T_2$ 空间，$Y\subset X$，在 $Y$ 上赋予由 $X$ 诱导的子空间拓扑
+\[
+\mathcal{T}_Y=\{U\cap Y:U\in\mathcal{T}\}.
+\]
+要证明：$(Y,\mathcal{T}_Y)$ 也是 $T_2$ 空间。
+
+取任意两个不同的点 $y_1,y_2\in Y$，因为 $Y\subset X$，它们也是 $X$ 中的两个不同点。
+由于 $X$ 是 $T_2$ 空间，存在开集 $U_1,U_2\in\mathcal{T}$，使得
+\[
+y_1\in U_1,\quad y_2\in U_2,\quad U_1\cap U_2=\varnothing.
+\]
+
+在子空间 $Y$ 中，$U_1\cap Y$ 与 $U_2\cap Y$ 都是开集（按子空间拓扑的定义），并且
+\[
+y_1\in U_1\cap Y,\quad y_2\in U_2\cap Y,
+\]
+且
+\[
+(U_1\cap Y)\cap(U_2\cap Y)
+= (U_1\cap U_2)\cap Y
+= \varnothing.
+\]
+
+这说明：对任意 $y_1\ne y_2\in Y$，都能在 $Y$ 中找到不相交开集分别包含它们，因此 $Y$ 是 $T_2$ 空间。
+
+证毕。
+\end{solution}
+\begin{homework}[7]
+证明：$\mathbb{R}^2$ 是 $T_2$ 空间。
+\end{homework}
+\begin{solution}
+在 $\mathbb{R}^2$ 上取通常的欧氏度量
+\[
+d\bigl((x_1,y_1),(x_2,y_2)\bigr)
+=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2},
+\]
+并令拓扑由此度量诱导。要证 $\mathbb{R}^2$ 是 $T_2$ 空间，只需说明：
+
+\[
+\forall\,P,Q\in\mathbb{R}^2,\ P\neq Q,\ \exists\ \text{不相交开集 }U,V
+\text{ 使 }P\in U,\ Q\in V.
+\]
+
+设
+\[
+P=(x_1,y_1),\quad Q=(x_2,y_2),\quad P\neq Q.
+\]
+则
+\[
+d(P,Q)=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}>0.
+\]
+令
+\[
+r=\frac{1}{2}d(P,Q)>0.
+\]
+考虑以度量球定义的开集
+\[
+U=B(P,r)=\{Z\in\mathbb{R}^2: d(Z,P)<r\},
+\]
+\[
+V=B(Q,r)=\{Z\in\mathbb{R}^2: d(Z,Q)<r\}.
+\]
+显然 $U,V$ 都是 $\mathbb{R}^2$ 中的开集，且 $P\in U,\ Q\in V$。
+
+若存在 $Z\in U\cap V$，则
+\[
+d(P,Q)\le d(P,Z)+d(Z,Q)<r+r=d(P,Q),
+\]
+矛盾。因此 $U\cap V=\varnothing$。
+
+于是对任意不同点 $P,Q\in\mathbb{R}^2$，都能找到不相交开集 $U,V$ 分别包含它们，
+故 $\mathbb{R}^2$ 是 $T_2$ 空间。
+\end{solution}
+\begin{homework}[5.3]
+证明：离散空间 $X$ 是紧空间当且仅当 $X$ 是有限集。
+\end{homework}
+\begin{solution}
+\textbf{必要性：}设 $X$ 是离散空间。对任意 $x\in X$，单点集 $\{x\}$ 是 $X$ 中的开集，
+则族
+\[
+\{\{x\}:x\in X\}
+\]
+是 $X$ 的一个开覆盖。由于 $X$ 是紧空间，所以存在 $n\in\mathbb{N}$ 及
+$x_i\in X,\ 1\le i\le n$，使得
+\[
+X=\bigcup_{i=1}^n\{x_i\}=\{x_i:1\le i\le n\},
+\]
+故 $X$ 是有限集。
+\begin{dxtips}
+   因为是紧的所以 这里就是列出的一个有限子覆盖，可以选特殊的。
+\end{dxtips}
+\textbf{充分性：}设 $X$ 是有限集，记
+\[
+X=\{x_i:1\le i\le n\}.
+\]
+对 $X$ 的任一开覆盖 $\mathcal{U}$，有
+\[
+X=\bigcup_{U\in\mathcal{U}}U.
+\]
+对任意的 $1\le i\le n$，存在开集 $U_i\in\mathcal{U}$ 使得 $x_i\in U_i$，于是
+\[
+X=\bigcup_{i=1}^n U_i.
+\]
+而
+\[
+\{U_i:1\le i\le n\}\subset\mathcal{U},\qquad
+\bigl|\{U_i:1\le i\le n\}\bigr|<\infty,
+\]
+故 $X$ 有有限子覆盖，因而 $X$ 是紧空间。
+
+综上，离散空间 $X$ 是紧空间当且仅当 $X$ 是有限集。
+\end{solution}
+\begin{example}[离散空间中的开覆盖示例]
+设 $X$ 为离散空间（即 $X$ 的所有子集都是开集）。
+
+\begin{itemize}
+  \item[(1)] 有限情形：$X=\{1,2,3\}$。
+
+  \begin{itemize}
+    \item 单点开覆盖：
+    \[
+      \mathcal U_1=\bigl\{\{1\},\{2\},\{3\}\bigr\},\qquad
+      \{1\}\cup\{2\}\cup\{3\}=X.
+    \]
+
+    \item 只用一个开集的开覆盖：
+    \[
+      \mathcal U_2=\{X\}=\bigl\{\{1,2,3\}\bigr\},\qquad
+      \bigcup_{U\in\mathcal U_2}U=X.
+    \]
+
+    \item 既不是单点也不等于 $X$ 的开覆盖：
+    \[
+      \mathcal U_3=\bigl\{\{1,2\},\{2,3\}\bigr\},\qquad
+      \{1,2\}\cup\{2,3\}=\{1,2,3\}=X.
+    \]
+  \end{itemize}
+
+  \item[(2)] 无限情形：$X=\mathbb{N}$。
+
+  \begin{itemize}
+    \item 单点开覆盖：
+    \[
+      \mathcal U_4=\bigl\{\{n\}:n\in\mathbb N\bigr\},\qquad
+      \bigcup_{n\in\mathbb N}\{n\}=\mathbb N.
+    \]
+
+    \item “偶数 + 奇数”的开覆盖：
+    \[
+      \mathcal U_5=\{2\mathbb N,\;2\mathbb N+1\},\qquad
+      2\mathbb N\cup(2\mathbb N+1)=\mathbb N.
+    \]
+
+    \item 一大块加很多单点的开覆盖：
+    \[
+      \mathcal U_6=\bigl\{\{0,1,2\},\{3\},\{4\},\{5\},\dots\bigr\},\qquad
+      \{0,1,2\}\cup\bigcup_{n\ge3}\{n\}=\mathbb N.
+    \]
+  \end{itemize}
+\end{itemize}
+
+这些例子说明：在离散空间中，不仅“所有单点集”的族是开覆盖，许多由不同子集组成的族，只要其并等于 $X$，就是开覆盖。
+\end{example}
+\begin{dxtips}[保证他有有限就行没说不能重复不能相交啊。]
+    令 $X=\{1,2,3\}$，取一个开覆盖
+\[
+\mathcal U=\bigl\{\{1,2\},\{3\}\bigr\}.
+\]
+
+按上面步骤：
+\begin{itemize}
+  \item 列出点：$x_1=1,\ x_2=2,\ x_3=3$；
+  \item 对 $x_1=1$：它在 $\{1,2\}$ 里，所以选 $U_1=\{1,2\}$；
+  \item 对 $x_2=2$：它也在 $\{1,2\}$ 里，可以选 $U_2=\{1,2\}$；
+  \item 对 $x_3=3$：它在 $\{3\}$ 里，选 $U_3=\{3\}$。
+\end{itemize}
+
+于是我们得到的那组集合是
+\[
+\{U_1,U_2,U_3\}
+=\bigl\{\{1,2\},\{1,2\},\{3\}\bigr\},
+\]
+去掉重复，就等于原来的
+\[
+\bigl\{\{1,2\},\{3\}\bigr\}
+=\mathcal U.
+\]
+\end{dxtips}
+\section{十三周作业}
+定理5.10
+\begin{homework}[5.5]
+设 $f$ 是紧空间 $X$ 上的实值连续映射，且对任意 $x\in X$ 都有 $f(x)>0$。证明存在 $\varepsilon>0$，使得对任意 $x\in X$ 都有 $f(x)>\varepsilon$。
+\end{homework}
+\begin{dxtips}
+    看见比所有都大就想极值
+\end{dxtips}
+\begin{solution}
+由于 $X$ 是紧空间，$f:X\to\mathbb{R}$ 是连续映射，故 $f$ 在 $X$ 上能取得它的最小值。设
+\[
+m=\min_{x\in X} f(x).
+\]
+题设给出对任意 $x\in X$ 都有 $f(x)>0$，因此最小值 $m$ 也是正的，即 $m>0$。
+
+取 $\varepsilon=m$，则对任意 $x\in X$ 都有
+\[
+f(x)\ge m=\varepsilon>0.
+\]
+这就证明了存在 $\varepsilon>0$ 使得对任意 $x\in X$ 都有 $f(x)>\varepsilon$。
+\end{solution}
+\begin{homework}
+[10] $f:X\to Y$ 是连续的满映射，若 $X$ 是紧空间，$Y$ 是 $T_2$ 空间，证明 $f$ 是闭映射。
+\end{homework}
+\begin{solution}
+设 $C\subseteq X$ 是闭集。由于 $X$ 是紧空间，而闭集 $C$ 作为紧空间的闭子集仍然是紧的，因此 $C$ 是紧集。
+
+映射 $f:X\to Y$ 是连续映射，而连续映射将紧集的像映为紧集，所以 $f(C)$ 是 $Y$ 中的紧集。
+
+又由于 $Y$ 是 $T_2$ 空间（即 Hausdorff 空间），在 $T_2$ 空间中一切紧集都是闭集，因此 $f(C)$ 为 $Y$ 的闭集。
+
+综上，对任意闭集 $C\subseteq X$，$f(C)$ 在 $Y$ 中都是闭的。因此 $f$ 是闭映射。
+\end{solution}
+\begin{homework}
+[11]$R$ 是实数直线，拓扑是通常拓扑，下列集合 $A$ 是否是紧集？
+
+\begin{enumerate}
+  \item $A=[1,2]$：紧。
+  \item $A=[1,2]\cup\{3\}$：紧。
+  \item $A=\mathbb{Q}$：非紧。
+  \item $A=[3,4)$：非紧。
+  \item $A=\mathbb{R}\setminus\{1/n:n\in\mathbb{N}\}$：非紧。
+  \item $A=\mathbb{Z}$：非紧。
+  \item $A=[1,3)\cup(2,4]$：非紧。
+  \item $A=\{1/n:n\in\mathbb{N}\}$：非紧。
+  \item $A=\{1/n:n\in\mathbb{N}\}\cup\{0\}$：紧。
+  \item $A=\{6-1/n:n\in\mathbb{N}\}\cup\{4\}$：非紧。
+  \item $A=\{6-1/n:n\in\mathbb{N}\}\cup\{6\}$：紧。
+  \item $A=\{\pi,\pi+1\}$：紧。
+\end{enumerate}
+\end{homework}
+\begin{homework}[4]
+证明：集合 $A$ 是 $\mathbb{R}$ 中的紧集当且仅当 $A$ 是 $\mathbb{R}$ 中的有界闭集。
+\end{homework}
+\begin{solution}
+\begin{itemize}
+  \item \textbf{充分性：}若 $A$ 是 $\mathbb{R}$ 中的紧集。  
+  由结论 5.5（即在 $X=\mathbb{R}$ 取通常拓扑时，若 $A\subset\mathbb{R}$ 是紧集，则 $A$ 是有界集）知，存在 $a\in\mathbb{R}$ 且 $a>0$，使得
+  \[
+    A\subset[-a,a].
+  \]
+  因此 $A$ 是 $\mathbb{R}$ 中的有界集。
+
+  对任意 $x\notin A$ 及任意 $y\in A$，有 $x\neq y$，令
+  \[
+    U_y=\left(y-\frac{|x-y|}{2},\,y+\frac{|x-y|}{2}\right),
+  \]
+  则 $y\in U_y$，于是
+  \[
+    A\subset\bigcup\{U_y:\,y\in A\}.
+  \]
+  由 $A$ 的紧性，存在有限集 $A_1\subset A$，使得
+  \[
+    A\subset\bigcup\{U_y:\,y\in A_1\}.
+  \]
+  于是令
+  \begin{dxtips}
+      一方面为的是用有限交性质另一个方面 1/2 2属于A，1属于Ux那他的半径就不能是1了得交一下变成1/2
+  \end{dxtips}
+  \[
+    U_x=\bigcap\left\{\left(x-\frac{|x-y|}{2},\,x+\frac{|x-y|}{2}\right):\,y\in A_1\right\},
+  \]
+  则 $x\in U_x$，且 $U_x\cap A=\varnothing$，并且 $U_x$ 是 $\mathbb{R}$ 中的开集。  
+  这样得到 $A$ 在 $\mathbb{R}$ 中是闭集。综上，$A$ 是 $\mathbb{R}$ 中的有界闭集。
+
+  \item \textbf{必要性：}若 $A$ 是 $\mathbb{R}$ 中的有界闭集。  
+  由有界性，存在 $a\in\mathbb{R}$ 且 $a>0$，使得
+  \[
+    A\subset[-a,a].
+  \]
+  闭区间 $[-a,a]$ 在 $\mathbb{R}$ 中是紧集，而 $A$ 是 $[-a,a]$ 的闭子集。由定理 5.4（即若 $X$ 是紧空间，则 $X$ 的每个闭子空间也是紧空间）可知，$A$ 也是紧集。
+\end{itemize}
+\end{solution}
+\begin{definition}
+设 $O\subset\mathbb{R}$。若对每个 $x\in O$，都存在开集 $U$，使得
+\[
+x\in U\subset O,
+\]
+则称 $O$ 为开集。
+\end{definition}
+
+若对每个 $x\in\mathbb{R}\setminus A$，都存在开集 $U_x$，使得
+\[
+x\in U_x\subset\mathbb{R}\setminus A,
+\]
+则 $\mathbb{R}\setminus A$ 是开集。
+\begin{dxtips}
+    
+
+\begin{itemize}
+  \item 开集：
+  \begin{itemize}
+    \item 任意并（不要求有限）：仍然是开集；
+    \item 有限交：仍然是开集；
+    \item 一般的（可数或任意）交：不一定是开集。
+  \end{itemize}
+
+  \item 闭集：
+  \begin{itemize}
+    \item 任意交：仍然是闭集；
+    \item 有限并：仍然是闭集；
+    \item 一般的并：不一定是闭集。
+  \end{itemize}
+\end{itemize}
+\end{dxtips}
+\begin{homework}[12]
+设 $\mathbb{R}$ 为实数直线，拓扑为通常拓扑，$A\subset \mathbb{R}^2$。判断下列各集合 $A$ 是否为紧集：
+
+\begin{enumerate}
+  \item $A=(1,2)\times(3,4)$；
+  \item $A=[1,2]\times\{3\}$；
+  \item $A=\mathbb{Q}\times\mathbb{Q}$，其中 $\mathbb{Q}$ 为有理数集；
+  \item $A=\{(x,y):x^{2}+y^{2}\le 4\}$；
+  \item $A=\{(x,y):x+y=4\}$；
+  \item $A=[1,2]\times[3,4]$；
+  \item $A=\{(x,y):2\le x^{2}+y^{2}\le 4\}$。
+\end{enumerate}
+\end{homework}
+\begin{solution}
+由 Heine--Borel 定理，$\mathbb{R}^2$ 中的集合紧当且仅当它是闭且有界的。
+\begin{enumerate}
+  \item $(1,2)\times(3,4)$ 有界但不是闭集，故不是紧集。
+  \item $[1,2]\times\{3\}$ 闭且有界，故是紧集。
+  \item $\mathbb{Q}\times\mathbb{Q}$ 不有界，故不是紧集。
+  \item $\{(x,y):x^{2}+y^{2}\le 4\}$ 为闭圆盘，闭且有界，故是紧集。
+  \item $\{(x,y):x+y=4\}$ 为一条直线，不有界，故不是紧集。
+  \item $[1,2]\times[3,4]$ 闭且有界，故是紧集。
+  \item $\{(x,y):2\le x^{2}+y^{2}\le 4\}$ 为闭环带，闭且有界，故是紧集。
+\end{enumerate}
+\end{solution}
+\section{十四周作业}
+\begin{homework}[13]
+设
+\[
+X=\left\{\frac{1}{n}:n\in\mathbb{N}\right\}\cup I,
+\]
+其中 $I$ 为无理数集，$\mathbb{N}$ 为正整数集。
+
+对任意 $n\in\mathbb{N}$，规定
+\[
+\mathcal{B}\!\left(\tfrac{1}{n}\right)=\bigl\{\{\tfrac{1}{n}\}\bigr\}
+\]
+为 $\tfrac{1}{n}$ 在 $X$ 中的开邻域基；
+
+对任意 $x\in I$，规定
+\[
+\mathcal{B}(x)
+=
+\bigl\{\{\tfrac{1}{n}:n\ge m\}\cup\{x\}:m\in\mathbb{N}\bigr\}
+\]
+为 $x$ 在 $X$ 中的开邻域基。
+
+证明下列结论：
+\begin{enumerate}
+  \item $X$ 不是紧空间；
+  \item $X$ 是第一可数空间；
+  \item $X$ 不是第二可数空间；
+  \item $X$ 是可分空间；
+  \item $X$ 不是 $T_2$ 空间。
+\end{enumerate}
+\end{homework}
+\begin{solution}
+我们分别证明题中五个结论。
+
+\begin{enumerate}
+\item \textbf{$X$ 不是紧空间}
+\begin{dxtips}
+    紧空间开覆盖都得找到可数子覆盖
+\end{dxtips}
+对每个 $n\in\mathbb{N}$，集合 $\{\tfrac{1}{n}\}$ 是开集，
+因此族
+\[
+\mathcal{U}
+=
+\bigl\{\{\tfrac{1}{n}\}:n\in\mathbb{N}\bigr\}
+\cup
+\bigl\{\,\{\tfrac{1}{n}:n\ge m\}\cup\{x\}:x\in I,\ m\in\mathbb{N}\bigr\}
+\]
+构成 $X$ 的一个开覆盖。
+
+任取有限子覆盖，只能覆盖有限多个 $\tfrac{1}{n}$，
+因此不能覆盖所有 $\tfrac{1}{n}$，
+从而 $\mathcal{U}$ 不存在有限子覆盖。
+
+故 $X$ 不是紧空间。
+
+\item \textbf{$X$ 是第一可数空间}
+\begin{dxtips}
+    第一可数空间，每一个点都得有可数领域基。开领域基题目就是这么规定的。
+\end{dxtips}
+对任意 $n\in\mathbb{N}$，
+\[
+\mathcal{B}\!\left(\tfrac{1}{n}\right)=\bigl\{\{\tfrac{1}{n}\}\bigr\}
+\]
+是单点集，显然为可数邻域基。
+
+对任意 $x\in I$，
+\[
+\mathcal{B}(x)
+=
+\bigl\{\{\tfrac{1}{n}:n\ge m\}\cup\{x\}:m\in\mathbb{N}\bigr\}
+\]
+由 $\mathbb{N}$ 索引，是可数集。
+
+因此 $X$ 中每一点都有可数邻域基，$X$ 是第一可数空间。
+
+\item \textbf{$X$ 不是第二可数空间}
+\begin{dxtips}
+  如果 $X$ 存在一个可数开邻域基 $\mathcal B$，
+那么 $\mathcal B$ 的组成必然包含每一个 $x$ 的开邻域，
+\textcolor{red}{（这里的“开邻域”指的是包含 $x$ 的基元素）}，
+于是 $x$ 的开邻域与无理数集 $I$ 可以构成一个单射。
+
+这说明所有 $x$ 的开邻域是无数个，
+而且由于题设中 $x$ 的任一开邻域只包含 $x$ 一个无理数点，
+因此不存在一个开邻域同时覆盖两个或多个无理数点的情况。
+
+于是，有多少个无理数点，
+就至少需要多少个不同的开邻域
+\textcolor{red}{（即对应的基元素彼此不同）}，
+从而 $\mathcal B$ 不可能是有限个
+\textcolor{red}{，事实上也不可能是可数个}。
+
+因此，$X$ 不是第二可数空间。 
+\end{dxtips}
+反证。设 $X$ 存在一个可数开基 $\mathcal{B}$。
+
+对任意 $x\in I$，集合
+\[
+U_x:=\{x\}\cup\Bigl\{\frac1n:n\ge 1\Bigr\}
+\]
+是含 $x$ 的开集（因为它就是 $x$ 的一个基本开邻域）。
+由 $\mathcal{B}$ 为开基，存在 $B_x\in\mathcal{B}$ 使得
+\[
+x\in B_x\subset U_x.
+\]
+
+若 $x\neq y$ 且 $x,y\in I$，则 $y\notin U_x$（因为 $U_x$ 中除 $x$ 外只包含形如 $1/n$ 的点，
+而 $y$ 是无理数）。于是 $y\notin B_x$。
+但 $y\in B_y$，从而
+\[
+B_x\neq B_y.
+\]
+因此映射 $x\mapsto B_x$ 是从不可数集 $I$ 到 $\mathcal{B}$ 的单射，
+故 $\mathcal{B}$ 必为不可数，这与 $\mathcal{B}$ 可数矛盾。
+
+因此 $X$ 不是第二可数空间。
+\item \textbf{$X$ 是可分空间}
+
+集合
+\[
+D=\left\{\tfrac{1}{n}:n\in\mathbb{N}\right\}
+\]
+是可数的。
+
+对任意 $x\in I$，其任一邻域
+\[
+\{\tfrac{1}{n}:n\ge m\}\cup\{x\}
+\]
+都包含某些 $\tfrac{1}{n}$，
+故 $x$ 属于 $D$ 的闭包。
+\begin{dxtips}
+    定义他的邻域的时候带上小尾巴就是为了这里，就是未来x的在D的闭包里面
+\end{dxtips}
+因此 $\overline{D}=X$，
+说明 $D$ 在 $X$ 中稠密，
+从而 $X$ 是可分空间。
+
+\item \textbf{$X$ 不是 $T_2$（Hausdorff）空间}
+
+取 $x\in I$ 与 $\tfrac{1}{n}\in X$。
+任意包含 $x$ 的开集都包含无穷多个 $\tfrac{1}{k}$，
+因此不可能找到不交的开集
+分别包含 $x$ 与 $\tfrac{1}{n}$。
+
+故 $x$ 与 $\tfrac{1}{n}$ 不能被不交开集分离，
+$X$ 不是 $T_2$ 空间。
+\end{enumerate}
+\end{solution}
+\begin{homework}[14]
+如果 $X$ 是紧的连通空间且 $f:X\to\mathbb{R}$ 连续，证明 $f$ 在 $X$ 上可取得最大、最小值，并且可以取得最大最小值之间的任意一值。
+\end{homework}
+\begin{solution}
+由于 $X$ 紧且 $f$ 连续，$f(X)\subset\mathbb R$ 为紧集，故存在
+\[
+m=\min_{x\in X}f(x),\qquad M=\max_{x\in X}f(x),
+\]
+即 $f$ 在 $X$ 上取到最小值与最大值。
+
+又因 $X$ 连通且 $f$ 连续，故像集 $f(X)$ 连通；而 $\mathbb R$ 中连通集必为区间，
+因此 $f(X)$ 是一个区间，且包含端点 $m,M$，从而
+\[
+[m,M]\subset f(X).
+\]
+于是对任意 $y\in[m,M]$，存在 $x\in X$ 使得 $f(x)=y$，即 $f$ 可取得最大最小值之间的任意值。
+\end{solution}
+\begin{dxtips}
+    \begin{itemize}
+  \item \textbf{连续像保持紧性：}
+  若 $X$ 紧且 $f$ 连续，则 $f(X)\subset\mathbb R$ 为紧集。
+
+  \item \textbf{极值定理（Weierstrass 定理）：}
+  在 $\mathbb R$ 中紧集必有最大最小元；等价地，连续函数在紧集上取到最大最小值。
+  因此存在
+  \[
+  m=\min_{x\in X} f(x),\qquad M=\max_{x\in X} f(x).
+  \]
+
+  \item \textbf{连续像保持连通性：}
+  若 $X$ 连通且 $f$ 连续，则 $f(X)$ 连通。
+
+  \item \textbf{$\mathbb R$ 中连通集的刻画：连通 $\Longleftrightarrow$ 区间：}
+  $\mathbb R$ 的连通子集必为区间，因此 $f(X)$ 是一个区间；
+  又因为 $m,M\in f(X)$，区间必包含两端点之间的全部点，从而
+  \[
+  [m,M]\subset f(X).
+  \]
+\end{itemize}
+\end{dxtips}
+\begin{homework}[8]
+证明每个度量空间是 \(T_{2}\) 空间。
+\end{homework}
+\begin{dxtips}
+    T2空间要证明。也就是：任意两个不同点都能用两个互不相交的开邻域分开。
+\end{dxtips}
+\begin{solution}
+设 $(X,d)$ 为度量空间，取任意两点 $x\neq y$。令
+\[
+r=\frac{d(x,y)}{2}>0.
+\]
+取开球
+\[
+U=B(x,r)=\{z\in X:\ d(z,x)<r\},\qquad V=B(y,r)=\{z\in X:\ d(z,y)<r\}.
+\]
+显然 $x\in U,\ y\in V$，且 $U,V$ 都是开集。
+
+下面证 $U\cap V=\varnothing$。若不然，存在 $z\in U\cap V$，则
+\[
+d(x,y)\le d(x,z)+d(z,y)<r+r=d(x,y),
+\]
+矛盾。故 $U\cap V=\varnothing$。
+
+因此任意 $x\neq y$ 都能找到互不相交的开邻域，$(X,d)$ 为 Hausdorff 空间，即 $T_2$ 空间。
+\end{solution}
+\begin{homework}[9]
+证明 \((a,b)\) 与 \((c,d)\) 同胚。
+\end{homework}
+\begin{solution}
+设 $a<b,\ c<d$。定义映射 $f:(a,b)\to(c,d)$ 为
+\[
+f(x)=c+\frac{d-c}{\,b-a\,}(x-a).
+\]
+则 $f$ 为严格单调递增的线性函数，且
+\[
+\lim_{x\to a^+} f(x)=c,\qquad \lim_{x\to b^-} f(x)=d,
+\]
+从而 $f((a,b))=(c,d)$，即 $f$ 为双射。
+
+$f$ 线性故连续。其逆映射 $f^{-1}:(c,d)\to(a,b)$ 为
+\[
+f^{-1}(y)=a+\frac{b-a}{\,d-c\,}(y-c),
+\]
+同样线性连续。
+
+因此 $f$ 是同胚，故 $(a,b)$ 与 $(c,d)$ 同胚。
+\end{solution}
+\begin{dxtips}
+    证明同胚就得确定同胚映射
+  
+\end{dxtips}
+  \begin{definition}
+设 $f:X\to Y$ 为映射。
+若 $f$ 为双射，且 $f$ 连续并且其逆映射
+\[
+f^{-1}:Y\to X
+\]
+也连续，则称 $f$ 为\emph{同胚映射}（homeomorphism），
+并称拓扑空间 $X$ 与 $Y$ \emph{同胚}。
+\end{definition}

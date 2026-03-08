@@ -1,0 +1,73 @@
+\chapter{第六章分离性}
+\section{T1,T2,T0正则空间}
+T1空间不一定是T2空间
+\begin{theorem}[定理 6.2]
+设 $X$ 为拓扑空间，则 $X$ 是 $T_1$ 空间当且仅当对任意 $x\in X$，单点集 $\{x\}$ 是 $X$ 中的闭集。
+\end{theorem}
+\begin{example}
+设
+\[
+X=\{a,b,c\},\qquad 
+\mathcal T=\{X,\varnothing,\{a\},\{b\},\{a,b\}\}.
+\]
+对于 $X$ 中的两点 $b$ 与 $c$，每个含 $c$ 的开集都含有 $a$ 与 $b$，
+因此 $X$ 不是 $T_1$ 空间。
+但对于点 $a$ 与 $b$，分别存在开集 $\{a\}$ 与 $\{b\}$，
+使得 $c\notin\{a\}$ 且 $c\notin\{b\}$。
+\end{example}
+\begin{definition}[定义 6.4]
+设 $X$ 为拓扑空间。若对 $X$ 中任意两个不同的点 $x,y$，
+存在开集 $U_x$ 使得
+\[
+x\in U_x\subset X\setminus\{y\},
+\]
+或者存在开集 $U_y$ 使得
+\[
+y\in U_y\subset X\setminus\{x\},
+\]
+则称 $X$ 为 $T_0$ 空间。
+\end{definition}
+
+\begin{remark}
+例 6.3 中的空间是 $T_0$ 空间，但不是 $T_1$ 空间。
+\end{remark}
+\begin{theorem}[都是T某空间的直积也是T某空间]
+若对每个 $\alpha\in\Lambda$，空间 $X_\alpha$ 都是 $T_i$ 空间，
+其中 $i\in\{0,1,2\}$，则其直积空间
+\[
+\prod_{\alpha\in\Lambda} X_\alpha
+\]
+也是 $T_i$ 空间，$i\in\{0,1,2\}$。
+\end{theorem}
+\begin{definition}[T1空间+只要x不属于闭集就能找到包含x的开集和包含F的开集不相交]
+设 $X$ 为拓扑空间。若 $X$ 是 $T_1$ 空间，且对 $X$ 中任一闭集 $F$
+及任意点 $x\notin F$，都存在 $X$ 中的开集 $U_x$ 与 $U_F$，使得
+\[
+x\in U_x,\qquad F\subset U_F,\qquad U_x\cap U_F=\varnothing,
+\]
+则称 $X$ 为\emph{正则空间}。
+\end{definition}
+
+\begin{theorem}[正则空间都是T2空间]
+每个正则空间都是 $T_2$ 空间。
+\end{theorem}
+
+\begin{proof}
+若 $X$ 是正则空间，则 $X$ 是 $T_1$ 空间。
+对 $X$ 中任意两个不同的点 $x,y$，有 $x\notin\{y\}$ 且 $\{y\}$ 为闭集。
+由正则性，存在 $X$ 中的开集 $U_x$ 与 $U_y$，使得
+\[
+x\in U_x,\qquad \{y\}\subset U_y,\qquad U_x\cap U_y=\varnothing.
+\]
+因此 $x\in U_x,\ y\in U_y$ 且 $U_x\cap U_y=\varnothing$，从而 $X$ 是 $T_2$ 空间。
+\end{proof}
+
+\begin{theorem}[T1空间+包含x的开集都能找到他的开子集包含x，开子集的闭包也在他里面
+]
+设 $X$ 为 $T_1$ 拓扑空间，则 $X$ 是正则空间当且仅当
+对任意 $x\in X$ 及包含 $x$ 的任一开集 $U$，
+都存在开集 $V_x$，使得
+\[
+x\in V_x\subset \overline{V_x}\subset U.
+\]
+\end{theorem}

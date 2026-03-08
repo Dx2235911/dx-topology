@@ -1,0 +1,971 @@
+\chapter{期末笔记}
+\section{1.1}
+\begin{definition}[单射/满射/双射]
+设 $f:A\to B$ 为映射。
+
+\begin{itemize}
+  \item \textbf{单射 (injective, one-to-one)：}
+  \[
+  \forall a_1\neq a_2,\quad f(a_1)\neq f(a_2).
+  \]
+  \textbf{等价地：}
+  \[
+  \forall a_1,a_2\in A,\quad f(a_1)=f(a_2)\Rightarrow a_1=a_2.
+  \]
+  \textcolor{red}{定义域里不一样的元素，必须映射到值域里不一样的元素。}
+  映射本身就要求定义域里面每一个元素都有值域里唯一一个元素和他对应。
+  \item \textbf{满射 (surjective, onto)：}
+  \[
+  f(A)=B.
+  \]
+  \textbf{等价地：} 存在右逆 $h:B\to A$，使得
+  \[
+  f\circ h=\mathrm{id}_B.
+  \]
+  \textcolor{red}{值域里的每一个元素，至少要被定义域里的某个元素映射到（值域不留空，可不必单射）。}
+
+  \item \textbf{双射 (bijective)：} 既单又满。 \textbf{等价地：} 存在双边逆
+  \[
+  f^{-1}:B\to A.
+  \]
+\end{itemize}
+\end{definition}
+\begin{theorem}
+对任意序数 $\alpha$，都有
+\[
+\alpha+1=\alpha\cup\{\alpha\}.
+\]
+\end{theorem}
+
+\begin{remark}
+在 von Neumann 序数构造中，每个序数都被定义为所有比它小的序数所成的集合，
+即
+\[
+\alpha=\{\beta:\beta<\alpha\}.
+\]
+因此在 $\alpha$ 的“后面”再接一个新元素时，自然得到其后继序数
+\(
+\alpha\cup\{\alpha\}
+\)，这也正是序数加法中“$+1$”的含义。
+\end{remark}
+
+\begin{definition}
+记
+\[
+\omega=\{0,1,2,\dots\}
+\]
+为自然数集合 $\mathbb N$ 的序数，称为\textbf{第一个无限序数}
+（the first infinite ordinal）。
+\end{definition}
+
+0是自然数
+要证明等势就构造双射。
+构造完双射需要证明，通过单调性和满
+。可数包含有限，所以可数集的子集都是可数集。
+
+\begin{note}
+\begin{itemize}
+  \item 集合 $X$ 的势 $|X|$ 可以理解为：\textbf{不考虑最外面的大括号，只数集合中包含的元素个数}。
+  最外层的大括号仅表示“这是一个集合”，本身不参与计数。
+  
+  \item 空集可以写成
+  \[
+  \varnothing=\{\},
+  \]
+  因此
+  \[
+  |\varnothing|=|\{\}|=0.
+  \]
+
+  \item 若集合 $X$ 有有限个元素，且 $|X|=n$，则其幂集 $P(X)$ 的势为
+  \[
+  |P(X)|=2^{\,|X|}=2^{\,n}.
+  \]
+  也就是说，一个集合的幂集的势，等于 $2$ 的“它本来的势”次方。
+\end{itemize}
+\end{note}
+
+\item[(7)]
+\[
+X=\prod_{i\in\mathbb N} X_i,\qquad 
+X_i=\{0,1\}\ (i\le 10),\qquad X_i=\{1\}\ (i\ge 11).
+\]
+由于只有前 $10$ 个坐标可以自由取值，其余坐标均被固定为 $1$，
+因此集合 $X$ 中的每个元素完全由
+\[
+(x_1,x_2,\dots,x_{10})\in\{0,1\}^{10}
+\]
+唯一确定。
+
+故
+\[
+|X|=2^{10},
+\]
+从而 $X$ 为\textbf{可数且有限集}。
+
+这里是强制乘上无穷个。不是可选乘5个还是十个
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{proof}
+记 $A=(0,1)$，$B=(0,1)\cap I$。显然 $B\subset A$，故 $|B|\le |A|$。
+
+设
+\[
+Q=A\cap\mathbb Q,\qquad I_A=A\cap I,
+\]
+并将 $B$ 分解为
+\[
+B_1=(0,\tfrac12)\cap I,\qquad B_2=(\tfrac12,1)\cap I,
+\]
+则 $B=B_1\cup B_2$ 且 $B_1\cap B_2=\varnothing$。
+
+由于 $Q$ 可数而 $B_2$ 不可数，可取单射
+\[
+g:Q\to B_2.
+\]
+另一方面，定义
+\[
+h:I_A\to B_1,\qquad h(x)=\frac{x}{2},
+\]
+则 $h$ 为单射。
+
+定义映射 $f:A\to B$：
+\[
+f(x)=
+\begin{cases}
+g(x), & x\in Q,\\[4pt]
+h(x), & x\in I_A.
+\end{cases}
+\]
+由于 $Q\cap I_A=\varnothing$ 且 $g(Q)\subset B_2,\ h(I_A)\subset B_1$，
+故 $f$ 为单射，从而 $|A|\le |B|$。
+
+综上 $|B|\le |A|$ 且 $|A|\le |B|$，由 Cantor--Schr\"oder--Bernstein 定理得
+\[
+|(0,1)|=|(0,1)\cap I|.
+\]
+\end{proof}
+\chapter{第二章}
+\begin{definition}[拓扑空间中的开集]
+设 $(X,\mathcal{T})$ 是一个拓扑空间，其中 $\mathcal{T}$ 是 $X$ 上的拓扑。
+定义 $\mathcal{T}$ 中的每一个元素 $U$ 为 $X$ 的一个开集。
+
+由拓扑的公理可知，$X$ 中的所有开集具有以下运算性质：
+\begin{itemize}
+  \item 有限交性质：有限个开集的交仍然是开集；
+  \item 任意并性质：任意多个开集的并仍然是开集。
+\end{itemize}
+\end{definition}
+\begin{itemize}
+  \item[(1)] 按定义直接判：看它是否属于拓扑 $\mathcal T$。
+
+  若题目中已明确给出拓扑
+  \[
+  \mathcal T=\{\varnothing,X,\dots\},
+  \]
+  则对任意 $U\subset X$：
+  \begin{itemize}
+    \item 若 $U\in\mathcal T$，则 $U$ 是开集；
+    \item 若 $U\notin\mathcal T$，则 $U$ 不是开集。
+  \end{itemize}
+
+  \item[(2)] 把“开”的判据换成对应版本：
+  \begin{itemize}
+    \item 给定拓扑 $\mathcal T$：直接检查 $U$ 是否属于 $\mathcal T$；
+    \item 给定基 $\mathcal B$：对任意 $x\in U$，存在 $B\in\mathcal B$ 使
+    \[
+    x\in B\subset U;
+    \]
+    \item 给定度量 $d$：对任意 $x\in U$，存在 $\varepsilon>0$ 使
+    \[
+    B(x,\varepsilon)\subset U;
+    \]
+    \item 给定子基 $\mathcal S$：$U$ 可表示为
+    \[
+    U=\bigcup_{\lambda}\bigcap_{k=1}^n S_{\lambda k},
+    \qquad S_{\lambda k}\in\mathcal S.
+    \]
+  \end{itemize}
+\end{itemize}
+\begin{example}[他的补集也不是闭集]
+    在 $\mathbb R$ 的通常拓扑中，设
+\[
+A=\mathbb R\setminus\left\{\frac1n:n\in\mathbb N\right\}.
+\]
+则 $A$ 不是开集。
+
+事实上，$0\in A$，但对任意 $\varepsilon>0$，由于 $\frac{1}{n}\to 0$，
+总存在 $n\in\mathbb N$ 使得 $\frac{1}{n}<\varepsilon$，从而
+\[
+\frac{1}{n}\in(-\varepsilon,\varepsilon).
+\]
+因此
+\[
+(-\varepsilon,\varepsilon)\nsubseteq A,
+\]
+即不存在包含 $0$ 的开区间完全落在 $A$ 中。由开集定义可知，
+$A$ 在 $\mathbb R$ 的通常拓扑下不是开集。
+\end{example}
+\begin{example}[x∈A这种写法很妙]
+    \begin{proof}
+$(\Rightarrow)$ 若 $X$ 为离散空间，则 $X$ 的任意子集都是开集，
+特别地，每个单点集 $\{x\}$ 都是开集。
+
+$(\Leftarrow)$ 反之，若对每个 $x\in X$，单点集 $\{x\}$ 都是开集，
+则任意 $A\subset X$ 可写成
+\[
+A=\bigcup_{x\in A}\{x\},
+\]
+而开集的任意并仍是开集，故 $A$ 也是开集。
+因此 $X$ 的任意子集皆开，从而 $X$ 为离散空间。
+\end{proof}
+\end{example}
+\subsection{第二可数专题}
+\begin{proposition}[基的等价表述]
+设 $(X,\mathcal T)$ 为拓扑空间，$\mathcal B\subset \mathcal T$。
+则下列两种表述等价（并且任一成立时 $\mathcal B$ 是 $(X,\mathcal T)$ 的一个基）：
+
+\begin{enumerate}[(A)]
+  \item 覆盖与交细化：
+  \begin{enumerate}[(1)]
+    \item $X=\displaystyle\bigcup_{B\in\mathcal B}B$；
+    \item 若 $B_1,B_2\in\mathcal B$ 且 $x\in B_1\cap B_2$，
+    则存在 $B_3\in\mathcal B$ 使
+    \[
+    x\in B_3\subset B_1\cap B_2.
+    \]
+  \end{enumerate}
+
+  \item 点态邻域判据：
+  \begin{enumerate}[(1)]
+    \item $X=\displaystyle\bigcup_{B\in\mathcal B}B$；
+    \item 对任意开集 $U\in\mathcal T$ 与任意 $x\in U$，
+    存在 $B\in\mathcal B$ 使
+    \[
+    x\in B\subset U.
+    \]
+  \end{enumerate}
+\end{enumerate}
+\end{proposition}
+\begin{dxtips}
+我们一般取可数基
+\[
+\mathcal B_q=\Bigl\{\bigl(q-\tfrac1n,\ q+\tfrac1n\bigr)\Bigr\},
+\]
+因为它和 $(q,n)$ 能构建双射，而 $(q,n)$ 又是 $\mathbb Q\times\mathbb N$ 的笛卡尔积，
+所以保证了可数。
+
+选 $q$ 当中心是因为有理数有稠密性，开集里面和它相交都不为空，
+方便在任意 $x$、任意 $\varepsilon$ 下的开集 $(x-\varepsilon,\ x+\varepsilon)$
+相交不为空，然后让 $\tfrac1n<\varepsilon$ 即可。
+\end{dxtips}
+\subsection{林德洛夫专题}
+要找可数子覆盖，先可以找一个无限的覆盖。由于林德洛夫要求任意开覆盖都得有可数子覆盖，那开覆盖就可以往了取保证里面是开集能覆盖整个空间就行了
+\begin{dxtips}
+    我是先随便取x的一个开覆盖和可数子覆盖，然后Y随便取一个开覆盖，然后通过这个开覆盖和可数子覆盖做交保证了可数型的同时保证了可数子集族能覆盖。
+\end{dxtips}
+\subsection{第一可数空间}
+每一个x都得找到一个可数领域基，一般就取
+\begin{definition}[点 $x$ 的邻域基]
+设 $(X,\mathcal T)$ 为拓扑空间，$x\in X$，$\mathcal N_x$ 为 $X$ 的若干子集族。
+称 $\mathcal N_x$ 为点 $x$ 的邻域基，若满足：
+
+\begin{enumerate}
+  \item 对任意 $N\in\mathcal N_x$，有 $x\in N$，且存在 $U\in\mathcal T$ 使
+  \[
+  x\in U\subset N.
+  \]
+  （若进一步要求每个 $N\in\mathcal N_x$ 本身是开集，则称 $\mathcal N_x$
+  为点 $x$ 的\emph{开邻域基}。）
+
+  \item 对任意 $x$ 的邻域 $V$，存在 $N\in\mathcal N_x$ 使
+  \[
+  x\in N\subset V.
+  \]
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+在 $\mathbb{R}$ 的通常拓扑下，对任意 $x\in\mathbb{R}$，
+\[
+\mathcal N_x=\left\{\left(x-\tfrac1n,\ x+\tfrac1n\right):\, n\in\mathbb{N}\right\}
+\]
+是 $x$ 的一个可数开邻域基。
+\end{example}
+一般的套路就是先弄一个可数的集族然后再证明是邻域基
+\begin{example}
+\[
+\mathcal B_p:=\left\{\,B(p,1/n):=\{\,q\in\mathbb R^2:\ d(p,q)<1/n\,\}\ \bigm|\ n\in\mathbb N\,\right\}.
+\]
+显然 $\mathcal B_p$ 是可数的。下证它是 $p$ 的邻域基。
+\end{example}
+\subsection{可分空间专题}
+可分就要找到可数稠密子集
+设 $(X,\mathcal T)$ 为拓扑空间，$D\subset X$。下列条件等价（任选其一即可用来证明 $D$ 在 $X$ 中稠密）：
+
+\begin{enumerate}
+  \item \textbf{闭包刻画：}
+  \[
+  \overline D = X.
+  \]
+
+  \item \textbf{开集交非空：}
+  \[
+  \forall\, U\in\mathcal T,\ U\neq\varnothing \ \Longrightarrow\ U\cap D\neq\varnothing.
+  \]
+
+  \item \textbf{点态邻域刻画：}
+  \[
+  \forall\, x\in X,\ \forall\text{邻域 }U\ni x,\quad U\cap D\neq\varnothing.
+  \]
+
+  \item \textbf{补集内点为空：}
+  \[
+  (X\setminus D)^\circ=\varnothing.
+  \]
+  
+\end{enumerate}
+\begin{dxtips}
+    证明稠密子集的时候要用到U*V但是不是所有开集就是开矩形所以先取一个开集然后再从里面找开矩形就可以了
+\end{dxtips}
+\section{空间与子空间的要求}
+\begin{note}
+下面整理若干拓扑空间中常见的“性质/类型”及其要求（默认 $X$ 为拓扑空间，$\tau$ 为其拓扑）。
+\begin{itemize}
+  \item \textbf{离散空间 (discrete)}：$\tau=\mathcal P(X)$，即 $X$ 的任意子集都是开集。
+  
+  \item \textbf{平凡/不可分拓扑空间 (indiscrete)}：$\tau=\{\varnothing,X\}$。
+
+  \item \textbf{$T_0$ 空间}：任意 $x\neq y$，存在开集 $U$ 使得恰有一个点属于 $U$（能用开集区分但不要求对称）。
+
+  \item \textbf{$T_1$ 空间}：任意 $x\neq y$，存在开集 $U\ni x$ 且 $y\notin U$（等价地：所有单点集 $\{x\}$ 都是闭集）。
+
+  \item \textbf{豪斯多夫空间 $T_2$ (Hausdorff)}：任意 $x\neq y$，存在互不相交开集 $U\ni x,\ V\ni y$。
+
+ 
+  \item \textbf{第一可数空间 (first countable)}：对每个 $x\in X$，存在可数的邻域基 $\{U_n\}_{n\in\mathbb N}$，使得任意邻域 $U\ni x$ 都包含某个 $U_n$（即 $\exists n,\ U_n\subset U$）。
+
+  \item \textbf{第二可数空间 (second countable)}：存在可数基 $\mathcal B=\{B_n\}_{n\in\mathbb N}$，
+  使得任意开集都可写成 $\mathcal B$ 中元素的并（等价地：对任意 $x\in U$（$U$ 开），存在 $B\in\mathcal B$ 使 $x\in B\subset U$）。
+
+  \item \textbf{可分空间 (separable)}：存在可数稠密子集 $D\subset X$，即 $\overline{D}=X$
+  （等价地：每个非空开集都与 $D$ 相交）。
+
+  \item \textbf{林德洛夫空间 (Lindel\"of)}：任意开覆盖都有可数子覆盖；
+  即若 $\{U_\alpha\}_{\alpha\in A}$ 为开覆盖（$X=\bigcup_{\alpha\in A}U_\alpha$），则存在可数指标集 $A_0\subset A$ 使
+  \[
+  X=\bigcup_{\alpha\in A_0}U_\alpha.
+  \]
+
+  \item \textbf{紧空间 (compact)}：任意开覆盖都有有限子覆盖；
+  即若 $X=\bigcup_{\alpha\in A}U_\alpha$（$U_\alpha$ 开），则存在有限子集 $A_0\subset A$ 使
+  \[
+  X=\bigcup_{\alpha\in A_0}U_\alpha.
+  \]
+
+ 
+  \item \textbf{连通 (connected)}：不存在非空不交开集 $U,V$ 使 $X=U\cup V$
+  （等价地：$X$ 的唯一既开又闭集合是 $\varnothing$ 与 $X$）。
+
+  \item \textbf{路径连通 (path-connected)}：任意 $x,y\in X$，存在连续映射 $\gamma:[0,1]\to X$ 使 $\gamma(0)=x,\ \gamma(1)=y$。
+\end{itemize}
+\end{note}
+\section{闭包导集}
+\begin{note}
+    闭包就是要加入极限点，导集就是要加入极限点点同时去掉孤立的点。内点集就是所有内点点集合，内点必须有一个包含他的开集不会是整个集合的子集。二维的时候一条直线的话开球总能包含到直线外的点也就是不属于集合的点。
+\end{note}
+\chapter{第三章}
+\section{连续映射}
+\begin{definition}[连续映射]
+设 $X$ 与 $Y$ 是拓扑空间，$f:X\to Y$ 是一个映射。
+若对 $Y$ 中包含点 $y=f(x)$ 的任意开集 $U$，
+都存在 $X$ 中的开集 $V_x$，使得
+\[
+x\in V_x,\qquad f(V_x)\subset U,
+\]
+则称映射 $f$ 在点 $x$ 处连续。
+如果 $f$ 在空间 $X$ 的每一点都连续，
+则称 $f$ 是连续映射。
+\end{definition}
+
+\begin{dxtips}
+像集里面的点 $y$ 点开集 $U$，
+都有原像集 $X$ 中的的集合（范围）保证，
+只要 $x$ 属于这个集合，
+映射过去都在 $U$ 的范围内。
+像集里开集的原像集也是开集。
+\end{dxtips}
+\begin{dxtips}
+    连续映射的要点就是证明映射过去的y属于的开集，逆映射都是开集对吧
+\end{dxtips}
+\begin{itemize}
+  \item \textbf{第一可数}：对每个点 $x\in X$，存在一个可数的邻域基 $\mathcal N_x$。  
+  （是“每个点各自有一套可数基”，点与点之间可以不一样。）
+
+  \item \textbf{第二可数}：存在一套全空间统一的可数拓扑基 $\mathcal B$，
+  使得任意开集都能写成 $\mathcal B$ 的并。  
+  （是“整个空间共用一套可数基”。）
+\end{itemize}
+\begin{dxtips}[子空间重要步骤]
+    $f(X)$ 中的开集 $V$ 必可写成
+\[
+V = U \cap f(X),
+\]
+其中 $U$ 是 $Y$ 中的开集，
+所以
+\[
+f^{-1}(V) = f^{-1}(U)
+\]
+是 $X$ 中的开集。
+\end{dxtips}
+\section{闭映射}
+\begin{theorem}[定理 3.2（连续映射和集运算的性质）]
+设 $X$ 与 $Y$ 都是拓扑空间，$f:X\to Y$ 是映射，则下列条件等价：
+\begin{enumerate}
+  \item $f$ 是连续映射；
+  \item 对任意 $A\subset X$，有
+  \[
+  f(\overline A)\subset \overline{f(A)};
+  \]
+  \item 对任意 $B\subset Y$，有
+  \[
+  f^{-1}(B)\subset f^{-1}(\overline B);
+  \]
+  \item 对任意 $B\subset Y$，有
+  \[
+  f^{-1}(B^\circ)\subset \bigl(f^{-1}(B)\bigr)^\circ.
+  \]
+\end{enumerate}
+
+\end{theorem}
+\begin{dxtips}
+要证明 $1\Rightarrow 2$，也就是说证明 $f(\overline A)\subset \overline{f(A)}$，也就是说 $f(\overline A)$ 中的元素都在 $\overline{f(A)}$ 里面。
+
+任取 $y\in f(\overline A)$，要证明 $y\in\overline{f(A)}$。根据闭包的定义，只要证明 $y$ 的任意开集都与 $f(A)$ 相交即可。
+
+也就是说，对任意开集 $V\subset Y$，只要满足 $y\in V$，就有 $V\cap ，f(A)\neq\varnothing$。 
+先从$f(\overline A)$中取任意一个元素y，然后找到y的原像集x，含y的开集Uy，这个是关键就是要证明Uy和$\overline{f(A)}$有交集，先用连续找到包含x的开集Vx映射到Uy子集上f（Vx），因为x是A的闭包上的点，所以Vx和A的交集不空这里就引入了A，把Vx和A的交集挑出一个x1，f（X1）就映射到了f（Vx）和f（A）的交集上就是f（A）的闭包内，把f（vx）写回Uy就可以了。
+\end{dxtips}
+\section{同胚映射}
+\begin{proof}
+定义映射
+\[
+f:\mathbb{R}\to\left(-\frac{\pi}{2},\,\frac{\pi}{2}\right),\qquad
+f(x)=\arctan x.
+\]
+
+由于 $\arctan x$ 在 $\mathbb{R}$ 上严格单调递增，且
+\[
+\lim_{x\to-\infty}\arctan x=-\frac{\pi}{2},\qquad
+\lim_{x\to+\infty}\arctan x=\frac{\pi}{2},
+\]
+因此 $f$ 是从 $\mathbb{R}$ 到 $\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$ 的双射。
+
+又由于 $\arctan x$ 在 $\mathbb{R}$ 上连续，其逆映射为
+\[
+f^{-1}(y)=\tan y,\qquad y\in\left(-\frac{\pi}{2},\,\frac{\pi}{2}\right),
+\]
+而 $\tan y$ 在该区间上亦连续。
+
+因此 $f$ 是同胚映射，从而
+\[
+\mathbb{R}\ \text{与}\ \left(-\frac{\pi}{2},\,\frac{\pi}{2}\right)\ \text{同胚}.
+\]
+\end{proof}
+\begin{dxtips}
+    同胚需要同胚映射检查事项有端点能不能去到，是不是严格单调递增，逆映射是不是也是连续的。
+\end{dxtips}
+\begin{dxtips}
+构造一个严格单调、连续、双射且逆连续的函数。
+
+为什么单调很重要？因为严格单调的连续函数不会“折返”，
+不会把不同的点映射到奇怪的位置。
+此外，在实直线上，严格单调连续函数还能保证其逆映射也是连续的，
+这是一个非常强的性质。
+\end{dxtips}
+\section{空间与映射}
+\begin{theorem}[连续映射，X到R，X紧子集上有映射极值的原像]
+如果 $f:X\to \mathbb{R}$ 是连续映射，且 $A\subset X$ 是 $X$ 中的紧集，则 $f$ 在 $A$ 上可取得最大（小）值。
+\end{theorem}
+\begin{proof}
+因为 $A$ 是 $X$ 中的紧集，而 $f:X\to\mathbb{R}$ 是连续映射，则 $f|_{A}:A\to\mathbb{R}$ 
+也是连续映射。
+
+由连续函数在紧空间上取得最大值和最小值的基本定理可知，存在点
+\[
+x_{\max},\,x_{\min}\in A,
+\]
+使得
+\[
+f(x_{\max})=\max_{x\in A} f(x),\qquad 
+f(x_{\min})=\min_{x\in A} f(x).
+\]
+
+因此，$f$ 在紧集 $A$ 上能够取得其最大值和最小值。
+\end{proof}
+\chapter{第四章联通空间}
+\begin{dxtip}
+    就是父空间的开集与子空间相交一定是开集，但是子空间中的开集不一定是父空间中的开集？这里的原因就是子空间自己本身可能就是闭集对不对。所以得拉上子空间做交，而子空间往往和C一交完了还是C他在交的时候不起作用，起作用的是另一部分也就是从X中拿的开集G
+\end{dxtip}
+\begin{note}
+当你要使用“闭包的判别定理”时，所使用的集合必须是\emph{母空间中的开集}，
+而不能仅仅是子空间中的开集。
+
+不妨设 $y\in U$（否则交换 $U,V$）。由于 $U$ 在子空间 $D$ 中开，
+根据子空间拓扑的定义，存在 $X$ 中的开集 $G$ 使得
+\[
+U = D \cap G.
+\]
+
+因为 $y\in U$，所以 $y\in G$。又由于 $y\in \overline{C}$，
+由闭包的判别定理可知
+\[
+G\cap C \neq \varnothing.
+\]
+于是
+\[
+U\cap C = (D\cap G)\cap C = G\cap C \neq \varnothing.
+\]
+\end{note}
+\begin{example}[子空间开集在母空间中不一定开，以及“交出来”的母空间开集]
+令母空间为 $(\mathbb{R},\mathcal{T}_{\mathrm{std}})$（通常拓扑），取子空间
+\[
+D=[0,1]\subset \mathbb{R},
+\]
+并赋予相对拓扑（子空间拓扑）$\mathcal{T}_D=\{U\cap D:U\in\mathcal{T}_{\mathrm{std}}\}$。
+
+取集合
+\[
+U=[0,\tfrac12)\subset D.
+\]
+则 $U$ 在子空间 $D$ 中是开集：因为取母空间中的开集 $G=(-1,\tfrac12)$，有
+\[
+U=D\cap G=[0,1]\cap(-1,\tfrac12)=[0,\tfrac12).
+\]
+
+但 $U$ 在母空间 $\mathbb{R}$ 中不是开集：例如 $0\in U$，而任何包含 $0$ 的开区间
+$( -\varepsilon,\varepsilon)$ 都包含负数点，从而不可能被包含在 $U=[0,\tfrac12)$ 中。
+
+因此，这个例子说明了：
+子空间中的开集不一定是母空间中的开集，但它总能写成“母空间开集与子空间的交”。
+\end{example}
+\subsection{直线联通}
+\begin{theorem}[实数直线上的连通集刻画]
+在 $\mathbb{R}$ 的通常拓扑下，子集 $A\subset\mathbb{R}$ 连通当且仅当 $A$ 是区间（interval），
+即满足如下“介于性”条件：
+\[
+\forall\,x,y\in A,\ x<y,\ \forall\,z\in\mathbb{R},\ (x<z<y \Rightarrow z\in A).
+\]
+等价地，$\mathbb{R}$ 中的连通子集恰好是下列类型之一：
+\[
+\varnothing,\ \{a\},\ (a,b),\ [a,b],\ (a,b],\ [a,b),\ (a,+\infty),\ [a,+\infty),\ (-\infty,b),\ (-\infty,b],\ \mathbb{R},
+\]
+其中 $a<b$（或允许 $a=-\infty$、$b=+\infty$ 的无界情形）。
+\end{theorem}
+\subsection{同胚与连通}
+\begin{definition}[同胚]
+已知 $f:X\to Y$ 是一一映射。若 $f$ 是连续映射，且映射
+$f^{-1}:Y\to X$ 也是连续映射，其中 $f^{-1}(f(x))=x,\ x\in X$，
+则称 $f$ 为\textbf{同胚映射}，称 $X$ 与 $Y$ \textbf{同胚}。
+\end{definition}
+\begin{dxtips}
+    同胚需要双射的同时双连续也就是来去都连续，单调就是保证双射的。检查端点是保证满
+\end{dxtips}
+\begin{itemize}
+  \item \textbf{连通性在同胚下保持（同胚不变性）}  
+
+  若 $h:X\to Y$ 是同胚，则
+  \[
+  X \text{ 连通 } \Longleftrightarrow Y \text{ 连通 }.
+  \]
+  更具体地说：若 $A\subset X$ 连通，则 $h(A)\subset Y$ 也连通；反过来由 $h^{-1}$ 同样成立。
+
+  \item \textbf{去掉对应点后的限制映射仍是同胚}  
+
+  若 $h:X\to Y$ 是同胚，取 $x_0\in X$，令 $y_0=h(x_0)$，则其限制映射
+  \[
+  h\big|_{X\setminus\{x_0\}}:X\setminus\{x_0\}\longrightarrow Y\setminus\{y_0\}
+  \]
+  仍是一个同胚映射。
+\end{itemize}
+\section{T1,T0,T2}
+\subsection{T2空间}
+两个不同的点都能用两个不相交的开集完全分开也就是x不等于y，存在x属于U，y属于V，U，V都是开集而且他们相交是空集
+\chapter{5}
+\section{紧空间}
+\begin{itemize}
+  \item \textbf{紧空间（compact）}\\
+  \textbf{定义：}对任意开覆盖 $\mathcal U$ 覆盖 $X$，都存在有限子族 $\mathcal U_0\subset \mathcal U$ 仍覆盖 $X$。
+
+  \item \textbf{Lindel\"of 空间}\\
+  \textbf{定义：}对任意开覆盖 $\mathcal U$ 覆盖 $X$，都存在可数子族 $\mathcal U_0\subset \mathcal U$ 仍覆盖 $X$。
+
+  \item \textbf{区别（最核心一句）}\\
+  紧空间要求\textbf{有限}子覆盖；Lindel\"of 空间只要求\textbf{可数}子覆盖，因此 $\text{compact}\Rightarrow \text{Lindel\"of}$。
+\end{itemize}
+拿眼睛看一样就知道能被有限个开集覆盖啊。
+\[
+12.\quad A=\{\pi,\ \pi+1\}:\ \text{紧}.
+\]
+\chapter{6所有要背结论}
+\begin{dxtips}
+    加入满映射就是为了把Y变成像集
+\end{dxtips}
+\section{3}
+\begin{theorem}[定理 3.1（连续性的等价刻画）]
+设 $X,Y$ 为拓扑空间，$f:X\to Y$ 为映射。下列条件等价：
+\begin{enumerate}
+  \item $f$ 是连续映射（即在 $X$ 的每一点都连续）；
+  \item 对 $Y$ 的任一开集 $V$，其原像 $f^{-1}(V)$ 是 $X$ 的开集；
+  \item 存在 $Y$ 的一族子基 $\varphi$，对任意 $B\in\varphi$，$f^{-1}(B)$ 是 $X$ 的开集；
+  \item 存在 $Y$ 的一族基 $\mathcal{B}$，对任意 $B\in\mathcal{B}$，$f^{-1}(B)$ 是 $X$ 的开集；
+  \item 对 $Y$ 的任一闭集 $F$，其原像 $f^{-1}(F)$ 是 $X$ 的闭集。
+\end{enumerate}
+\end{theorem}
+\begin{dxtips}
+    只要元素属于A的闭包比如x，包含x的开集总是和A相交，所以总有包含f（x）和f（A），A的补集映射过去总在f（A)的补集里面
+    第二个前面再加一个f。反正连续实在证明不了了就用就行了然后那简单验证一下
+    
+\end{dxtips}
+\begin{theorem}[定理 3.2（连续映射补集逆的性质）]
+设 $X$ 与 $Y$ 都是拓扑空间，$f:X\to Y$ 是映射。
+则下列条件等价：
+\begin{enumerate}
+  \item $f$ 是连续映射；
+  \item 对任意 $A\subset X$，有
+  \[
+  f(\overline{A})\subset \overline{f(A)}；
+  \]
+  \item 对任意 $B\subset Y$，有
+  \[
+  \overline{f^{-1}(B)}\subset f^{-1}(\overline{B})；
+  \]
+  \item 对任意 $B\subset Y$，有
+  \[
+  f^{-1}(B^\circ)\subset (f^{-1}(B))^\circ。
+  \]
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[定理 3.8]
+若 $f:X\to Y$ 是连续的满映射，且 $X$ 是可分空间，
+则 $Y$ 也是可分空间。
+\end{theorem}
+
+\begin{theorem}[定理 3.9]
+若 $f:X\to Y$ 是连续的满映射，且 $X$ 是 Lindel\"of 空间，
+则 $Y$ 也是 Lindel\"of 空间。
+\end{theorem}
+
+\begin{theorem}[定理 3.10（序列在定义域中收敛，其像序列也在值域中收敛到对应的像点）]
+若 $f:X\to Y$ 连续，且 $\{x_n\}_{n\in\mathbb{N}}$ 是 $X$ 中收敛到点 $x$ 的序列，
+则 $\{f(x_n)\}_{n\in\mathbb{N}}$ 收敛到点 $f(x)$。
+\end{theorem}
+
+\begin{definition}[定义 3.3（开（闭）映射——限制的是原像到像）]
+设 $X$ 与 $Y$ 都是拓扑空间，$f:X\to Y$ 是一个映射。
+若对 $X$ 中的任意开（闭）集 $A$，
+都有 $f(A)$ 是 $Y$ 中的开（闭）集，
+则称 $f$ 是开（闭）映射。
+\end{definition}
+
+\begin{theorem}[定理 3.12（开映射的等价刻画）]
+设 $f:X\to Y$ 为一映射，则下述条件等价：
+\begin{enumerate}
+  \item 对 $X$ 中的任意开集 $V$，$f(V)$ 是 $Y$ 中的开集（即 $f$ 为开映射）；
+  \item 对任意 $A\subset X$，有
+  \[
+  f(A^\circ)\subset (f(A))^\circ；
+  \]
+  \item 对任意 $B\subset Y$，有
+  \[
+  f^{-1}(\overline{B})\subset \overline{f^{-1}(B)}。
+  \]
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[定理 3.13（基中子集映射到 $Y$ 仍是开集）]
+设 $X$ 是拓扑空间，$\mathcal{B}$ 是 $X$ 的一个基。
+映射 $f:X\to Y$ 是开映射当且仅当
+对任意 $B\in\mathcal{B}$，$f(B)$ 是 $Y$ 中的开集。
+\end{theorem}
+
+\begin{theorem}[定理 3.14]
+设 $X$ 是拓扑空间，对任意 $x\in X$，$\mathcal{B}(x)$ 是点 $x$ 的开邻域基。
+映射 $f:X\to Y$ 是开映射当且仅当
+对任意 $x\in X$ 及任意 $B\in\mathcal{B}(x)$，
+$f(B)$ 是 $Y$ 中的开集。
+\end{theorem}
+
+\begin{theorem}[定理 3.15（满 + 开 + 连续保持可数性）]
+若 $f:X\to Y$ 是满的开连续映射，
+且 $X$ 是第一可数空间（或第二可数空间），
+则 $Y$ 也是第一可数空间（或第二可数空间）。
+\end{theorem}
+
+\begin{theorem}[定理 3.16（满映射 + 局部条件 $\Leftrightarrow$ 闭映射）]
+设 $f:X\to Y$ 是满映射。
+$f$ 是闭映射当且仅当对任意 $y\in Y$，
+以及 $X$ 中任一包含 $f^{-1}(y)$ 的开集 $U$，
+存在 $Y$ 中含点 $y$ 的开集 $V_y$，
+使得
+\[
+f^{-1}(y)\subset f^{-1}(V_y)\subset U。
+\]
+\end{theorem}
+\section{4}
+\begin{theorem}[定理 4.2（若一族连通集有非空公共交，则其并集必连通）]
+如果对每一 $\alpha\in\Lambda$，$P_\alpha$ 是 $X$ 的连通集，且
+\[
+\bigcap_{\alpha\in\Lambda} P_\alpha \neq \varnothing,
+\]
+则
+\[
+\bigcup_{\alpha\in\Lambda} P_\alpha
+\]
+是 $X$ 中的连通集。
+\end{theorem}
+
+\begin{theorem}[定理 4.3（所有与某个公共连通集相交的一族连通集的并仍然是连通的）]
+设 $\{P_\alpha:\alpha\in\Lambda\}$ 是 $X$ 中非空连通集构成的集族，且 $0\in\Lambda$。
+若对每个 $\alpha\in\Lambda$，都有
+\[
+P_\alpha\cap P_0\neq\varnothing,
+\]
+则
+\[
+\bigcup_{\alpha\in\Lambda} P_\alpha
+\]
+是 $X$ 中的连通集。
+\end{theorem}
+
+\begin{theorem}[定理 4.4（连通集和它的闭包之间的集合都是连通的）]
+设 $A\subset X$，若 $A$ 是连通集，且
+\[
+A\subset B\subset \overline{A},
+\]
+则 $B$ 也是连通集。
+\end{theorem}
+\begin{dxtips}
+ 这个就是那个习题   
+\end{dxtips}
+
+\begin{theorem}[定理 4.5（连通空间 + 连续映射 $=$ 连通）]
+连通空间的连续映射像是连通空间。
+\end{theorem}
+
+\begin{proposition}[命题 4.1（通常拓扑的结论）]
+在实数直线 $\mathbb{R}$ 上取通常拓扑，则有以下结论成立：
+\begin{enumerate}
+  \item $\mathbb{R}$ 是连通空间；
+  \item $\mathbb{R}$ 上的任一开区间 $(a,b)$ 是连通集；
+  \item 若 $a,b\in\mathbb{R}$ 且 $a<b$，则区间
+  \[
+  [a,b],\ (a,b),\ [a,b),\ (a,b]
+  \]
+  均为连通集；
+  \item 若 $a\in\mathbb{R}$，则区间
+  \[
+  (-\infty,a),\ (a,+\infty)
+  \]
+  都是连通集；
+  \item 若 $a\in\mathbb{R}$，则区间
+  \[
+  (-\infty,a],\ [a,+\infty)
+  \]
+  都是连通集。
+\end{enumerate}
+\end{proposition}
+
+\begin{theorem}[定理 4.6（实数直线上连通集）]
+在实数直线 $\mathbb{R}$ 上取通常拓扑，若 $A\subset\mathbb{R}$，
+则 $A$ 是 $\mathbb{R}$ 上的连通集当且仅当 $A$ 是单点集或者 $A$ 是区间。
+\end{theorem}
+\begin{dxtips}
+    连通+连续映射像就是连通的，而在R上连通的只有单点或者区间
+\end{dxtips}
+\begin{theorem}[定理 4.8（介值定理：连通 + 连续映射，用于确保介值点存在）]
+设 $X$ 是连通空间，$f:X\to\mathbb{R}$ 是连续映射。
+若 $a,b\in f(X)$ 且 $a<b$，
+则对任意 $c\in(a,b)$，都存在 $x\in X$ 使得
+\[
+f(x)=c.
+\]
+\end{theorem}
+
+\begin{lemma}[引理 4.2（一串首尾相接、两两相邻有交的连通集的有限并仍然是连通集）]
+设 $X$ 是拓扑空间，$n\in\mathbb{N}$，
+$A_i$ 是 $X$ 中的连通集 $(i\le n)$。
+若
+\[
+A_i\cap A_{i+1}\neq\varnothing,\qquad i+1\le n,
+\]
+则
+\[
+\bigcup_{i=1}^n A_i
+\]
+是连通集。
+\end{lemma}
+
+\begin{theorem}[定理 4.9（道路连通 $\Rightarrow$ 连通）]
+如果空间 $X$ 是道路连通空间，则 $X$ 是连通空间。
+\end{theorem}
+
+\begin{theorem}[定理 4.10（达成连续满映射，像集也是道路连通空间）]
+如果空间 $X$ 是道路连通空间，且
+$f:X\to Y$ 是连续的满映射，
+则 $Y$ 也是道路连通空间。
+\end{theorem}
+\section{5}
+\begin{theorem}[定理 5.2（紧 + 连续映射，像集也是紧的）]
+若 $X$ 是紧拓扑空间，$f:X\to Y$ 是连续映射，则 $f(X)$ 是 $Y$ 的紧子集。
+\end{theorem}
+
+\begin{theorem}[定理 5.3（紧空间判定：闭集族有限交非空）]
+设 $X$ 是拓扑空间，则 $X$ 为紧空间的充要条件是：
+对 $X$ 中每个具有有限交性质的闭集族 $\mathcal{F}$，都有
+\[
+\bigcap \mathcal{F}\neq\varnothing.
+\]
+\end{theorem}
+
+\begin{theorem}[定理 5.4（闭子空间继承紧）]
+若 $X$ 是紧空间，则 $X$ 的每个闭子空间也是紧空间。
+\end{theorem}
+
+\begin{theorem}[定理 5.5（$\mathbb{R}$ 中紧 $=$ 有界闭集）]
+设 $X=\mathbb{R}$，在 $X$ 上取通常拓扑，$A\subset X$。
+则 $A$ 是紧集的充要条件是：$A$ 是 $\mathbb{R}$ 中的有界闭集。
+\end{theorem}
+
+\begin{theorem}[定理 5.6（紧的空间乘积也是紧空间）]
+若 $X$ 与 $Y$ 都是紧空间，则积空间 $X\times Y$ 也是紧空间。
+\end{theorem}
+
+\begin{corollary}[推论 5.1（在通常拓扑下，欧氏空间 $\mathbb{R}^n$ 里的有界闭盒子 $[-a,a]^n$ 总是紧集）]
+对任意 $n\in\mathbb{N}$ 及 $a\in\mathbb{R}$ 且 $a>0$，集合
+\[
+[-a,a]^n\subset \mathbb{R}^n
+\]
+是 $\mathbb{R}^n$ 中的紧集。
+\end{corollary}
+
+\begin{theorem}[定理 5.7（$T_2$ 空间紧集必是闭集）]
+如果 $X$ 是 $T_2$ 拓扑空间，$A\subset X$ 是 $X$ 中的紧集，则 $A$ 是 $X$ 中的闭集。
+\end{theorem}
+
+\begin{theorem}[定理 5.8（$\mathbb{R}^n$ 中紧和有界闭等价）]
+设 $A\subset \mathbb{R}^n$，则 $A$ 为紧集的充要条件是：$A$ 是 $\mathbb{R}^n$ 中的有界闭集。
+\end{theorem}
+
+\begin{theorem}[定理 5.9（紧到 $T_2$ + 连续映射 $=$ 像闭）]
+如果 $X$ 是紧空间，$f:X\to Y$ 是连续映射，$Y$ 是 $T_2$ 空间，
+则 $f(X)$ 是 $Y$ 中的闭集。
+\end{theorem}
+\begin{dxtips}
+   因为紧+连续映射到的像是紧的，R中紧的都是闭区间。所有闭区间有最大值最小值和连通那个介值还不一样。他在R中都是闭区间连通中要求是区间就行 
+\end{dxtips}
+\begin{dxtips}
+    完备就是连续+满也就是把之前连续像的定理都继承了
+\end{dxtips}
+\begin{dxtips}
+    这个就是连续映射+紧像也是紧的，R上紧的都是有界闭集
+\end{dxtips}
+\begin{theorem}[定理 5.10（连续映射：$X$ 到 $\mathbb{R}$，$X$ 紧子集上有映射极值的原像）]
+如果 $f:X\to\mathbb{R}$ 是连续映射，且 $A\subset X$ 是 $X$ 中的紧集，
+则 $f$ 在 $A$ 上可取得最大（小）值。
+\end{theorem}
+\begin{dxtips}
+  与紧集的连续映射像都是紧的对应。  
+\end{dxtips}
+    
+
+\begin{definition}[定义 5.2（完备映射 $=$ 连续闭满 + 像中所有点的原像集都是紧的）]
+设 $f:X\to Y$ 是连续的闭满映射。
+若对任意 $y\in Y$，$f^{-1}(y)$ 是 $X$ 中的紧子集，则称 $f$ 是完备映射。
+\end{definition}
+
+\begin{theorem}[定理 5.12（完备映射：像是紧的原像才是紧的）]
+若 $f:X\to Y$ 是完备映射，则 $X$ 是紧空间当且仅当 $Y$ 是紧空间。
+\end{theorem}
+\begin{dxtips}
+ 这个也就是林德洛夫的连续像是林德洛夫空间   
+\end{dxtips}
+
+\begin{theorem}[定理 5.13（完备映射保持 Lindel\"of 空间）]
+若 $f:X\to Y$ 是完备映射，则 $X$ 是 Lindel\"of 空间当且仅当 $Y$ 是 Lindel\"of 空间。
+\end{theorem}
+
+\begin{theorem}[定理 5.14（拓扑：紧映射到自己是完备的）]
+若 $X$ 是拓扑空间，$Y$ 是紧空间，则投影映射
+\[
+P_X:X\times Y\to X
+\]
+是完备映射。
+\end{theorem}
+
+\begin{corollary}[推论 5.2（Lindel\"of $\times$ 紧 $=$ Lindel\"of）]
+若 $X$ 是 Lindel\"of 空间，$Y$ 是紧空间，则 $X\times Y$ 是 Lindel\"of 空间。
+\end{corollary}
+
+\begin{theorem}[定理 5.15（完备保持第二可数）]
+若 $f:X\to Y$ 是完备映射，$X$ 是第二可数空间，则 $Y$ 也是第二可数空间。
+\end{theorem}
+\section{6}
+\begin{theorem}[定理 6.2]
+$X$ 是 $T_1$ 拓扑空间，当且仅当对任意 $x\in X$，单点集 $\{x\}$ 是 $X$ 中的闭集。
+\end{theorem}
+
+\begin{definition}[定义 6.4 ($T_0$ 空间)]
+设 $X$ 是拓扑空间。若对 $X$ 中任意两个不同点 $x,y$，存在开集 $U_x$，
+使得
+\[
+x\in U_x\subset X\setminus\{y\},
+\]
+或者存在开集 $U_y$，使得
+\[
+y\in U_y\subset X\setminus\{x\},
+\]
+则称 $X$ 为 $T_0$ 空间。
+\end{definition}
+
+\begin{definition}[定义 6.6（正则空间）]
+对于拓扑空间 $X$，若 $X$ 是 $T_1$ 空间，且对于 $X$ 中的任一闭集 $F$
+及任意点 $x\notin F$，都存在 $X$ 中的开集 $U_x$ 与 $U_F$，
+使得
+\[
+x\in U_x,\quad F\subset U_F,\quad U_x\cap U_F=\varnothing,
+\]
+则称 $X$ 为正则空间。
+\end{definition}
+
+\begin{theorem}[定理 6.7]
+每个正则空间都是 $T_2$ 空间。
+\end{theorem}
+
+\begin{theorem}[定理 6.8]
+设 $X$ 是 $T_1$ 拓扑空间。则 $X$ 是正则空间当且仅当
+对任意 $x\in X$ 及任意包含 $x$ 的开集 $U$，
+都存在开集 $V_x$，使得
+\[
+x\in V_x\subset \overline{V_x}\subset U.
+\]
+\end{theorem}
